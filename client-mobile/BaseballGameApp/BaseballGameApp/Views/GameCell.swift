@@ -11,7 +11,7 @@ import UIKit
 class GameCell: UICollectionViewCell {
     
     static let identifier = "GameCell"
-    static let height: CGFloat = 112.0
+    static let heightRatio: CGFloat = 0.32
     
     private let containerView = UIView()
     

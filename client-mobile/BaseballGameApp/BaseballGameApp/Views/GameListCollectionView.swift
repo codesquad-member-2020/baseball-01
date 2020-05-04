@@ -55,6 +55,6 @@ extension GameListCollectionView: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: collectionView.frame.width, height: GameCell.height)
+        return .init(width: collectionView.frame.width, height: collectionView.frame.width * GameCell.heightRatio)
     }
 }
