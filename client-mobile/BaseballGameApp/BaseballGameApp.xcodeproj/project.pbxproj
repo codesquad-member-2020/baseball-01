@@ -14,6 +14,7 @@
 		38959B8C2460058300C7AD4D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38959B8B2460058300C7AD4D /* Assets.xcassets */; };
 		38959B8F2460058300C7AD4D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38959B8D2460058300C7AD4D /* LaunchScreen.storyboard */; };
 		38959B982460138000C7AD4D /* AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B972460138000C7AD4D /* AutoLayout.swift */; };
+		38959B9B246030CE00C7AD4D /* PlainLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B9A246030CE00C7AD4D /* PlainLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		38959B8E2460058300C7AD4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38959B902460058300C7AD4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38959B972460138000C7AD4D /* AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayout.swift; sourceTree = "<group>"; };
+		38959B9A246030CE00C7AD4D /* PlainLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 		38959B812460058100C7AD4D /* BaseballGameApp */ = {
 			isa = PBXGroup;
 			children = (
+				38959B992460306100C7AD4D /* Views */,
 				38959B962460136E00C7AD4D /* Extensions */,
 				38959B822460058100C7AD4D /* AppDelegate.swift */,
 				38959B842460058100C7AD4D /* SceneDelegate.swift */,
@@ -76,6 +79,14 @@
 				38959B972460138000C7AD4D /* AutoLayout.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		38959B992460306100C7AD4D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				38959B9A246030CE00C7AD4D /* PlainLabel.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,6 +164,7 @@
 				38959B832460058100C7AD4D /* AppDelegate.swift in Sources */,
 				38959B982460138000C7AD4D /* AutoLayout.swift in Sources */,
 				38959B852460058100C7AD4D /* SceneDelegate.swift in Sources */,
+				38959B9B246030CE00C7AD4D /* PlainLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
