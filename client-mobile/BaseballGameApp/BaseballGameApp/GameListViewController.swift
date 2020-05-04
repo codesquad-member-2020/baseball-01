@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  GameListViewController.swift
 //  BaseballGameApp
 //
 //  Created by Cory Kim on 2020/05/04.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class GameListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
