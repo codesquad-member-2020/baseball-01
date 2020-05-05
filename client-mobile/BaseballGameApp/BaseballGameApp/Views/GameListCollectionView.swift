@@ -57,4 +57,12 @@ extension GameListCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return .init(width: collectionView.frame.width, height: collectionView.frame.width * GameCell.heightRatio)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        NotificationCenter.default.post(name: .didSelectMatch, object: nil, userInfo: ["index": indexPath.item])
+    }
+}
+
+extension Notification.Name {
+    static let didSelectMatch = Notification.Name(rawValue: "didSelectMatch")
 }

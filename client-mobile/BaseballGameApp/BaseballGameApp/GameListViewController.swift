@@ -18,6 +18,19 @@ class GameListViewController: UIViewController {
         super.viewDidLoad()
         
         configureUI()
+        configureNotification()
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .didSelectMatch, object: nil)
+    }
+    
+    private func configureNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(showPopupView), name: .didSelectMatch, object: nil)
+    }
+    
+    @objc func showPopupView(notification: Notification) {
+        guard let index = notification.userInfo?["index"] as? Int else { return }
     }
 
     private func configureUI() {
