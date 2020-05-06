@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameListCollectionView: UICollectionView {
+class MatchListCollectionView: UICollectionView {
 
     init() {
         super.init(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -28,7 +28,7 @@ class GameListCollectionView: UICollectionView {
     private func configureCollectionView() {
         delegate = self
         dataSource = self
-        self.register(GameCell.self, forCellWithReuseIdentifier: GameCell.identifier)
+        self.register(MatchCell.self, forCellWithReuseIdentifier: MatchCell.identifier)
     }
     
     private func configureUI() {
@@ -36,26 +36,26 @@ class GameListCollectionView: UICollectionView {
     }
 }
 
-extension GameListCollectionView: UICollectionViewDataSource {
+extension MatchListCollectionView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 8
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: GameCell.identifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MatchCell.identifier, for: indexPath)
         return cell
     }
 }
 
-extension GameListCollectionView: UICollectionViewDelegateFlowLayout {
+extension MatchListCollectionView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 16
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return .init(width: collectionView.frame.width, height: collectionView.frame.width * GameCell.heightRatio)
+        return .init(width: collectionView.frame.width, height: collectionView.frame.width * MatchCell.heightRatio)
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

@@ -1,5 +1,5 @@
 //
-//  GameCell.swift
+//  MatchCell.swift
 //  BaseballGameApp
 //
 //  Created by Cory Kim on 2020/05/04.
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class GameCell: UICollectionViewCell {
+class MatchCell: UICollectionViewCell {
     
-    static let identifier = "GameCell"
+    static let identifier = "MatchCell"
     static let heightRatio: CGFloat = 0.32
     
     private let containerView = UIView()

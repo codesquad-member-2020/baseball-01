@@ -1,5 +1,5 @@
 //
-//  GamePopupView.swift
+//  MatchPopupView.swift
 //  BaseballGameApp
 //
 //  Created by Cory Kim on 2020/05/04.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GamePopupView: UIView {
+class MatchPopupView: UIView {
     
     private let cornerRadius: CGFloat = 8.0
 

@@ -1,5 +1,5 @@
 //
-//  GameListViewController.swift
+//  MatchListViewController.swift
 //  BaseballGameApp
 //
 //  Created by Cory Kim on 2020/05/04.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class GameListViewController: UIViewController {
+class MatchListViewController: UIViewController {
     
-    private let titleLabel = PlainLabel(text: "Game List", color: .white, fontSize: 32, weight: .semibold, alignment: .center)
-    private let descriptionLabel = PlainLabel(text: "플레이할 게임을 선택하세요", color: .white, fontSize: 16, weight: .medium, alignment: .center)
-    private let collectionView = GameListCollectionView()
+    private let titleLabel = PlainLabel(text: "Match List", color: .white, fontSize: 32, weight: .semibold, alignment: .center)
+    private let descriptionLabel = PlainLabel(text: "플레이할 매치를 선택하세요", color: .white, fontSize: 16, weight: .medium, alignment: .center)
+    private let collectionView = MatchListCollectionView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,7 @@ class GameListViewController: UIViewController {
 }
 
 // MARK:- Notification
-extension GameListViewController {
+extension MatchListViewController {
     
     private func configureNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(didTapMatchCell), name: .didSelectMatch, object: nil)
