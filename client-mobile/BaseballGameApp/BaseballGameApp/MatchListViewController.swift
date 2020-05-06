@@ -65,7 +65,8 @@ extension MatchListViewController {
         self.popupView = MatchPopupView()
         self.popupBackgroundView = UIView()
         view.addSubview(popupBackgroundView)
-        popupBackgroundView.backgroundColor = .clear
+        popupBackgroundView.backgroundColor = .black
+        popupBackgroundView.alpha = 0
         popupBackgroundView.fillSuperView()
         view.addSubview(popupView)
         popupView.translatesAutoresizingMaskIntoConstraints = false
@@ -74,13 +75,14 @@ extension MatchListViewController {
         popupViewCenterYAnchor = popupView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 800)
         popupViewCenterYAnchor?.isActive = true
         popupView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7).isActive = true
-        popupView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.2).isActive = true
+        popupView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.22).isActive = true
         popupView.alpha = 0
         view.layoutIfNeeded()
         
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.popupViewCenterYAnchor?.constant = -20
             self.popupView.alpha = 1
+            self.popupBackgroundView.alpha = 0.4
             self.view.layoutIfNeeded()
         }, completion: { _ in
             self.popupBackgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.didTapPopupBackgroundView)))
@@ -91,6 +93,7 @@ extension MatchListViewController {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.popupViewCenterYAnchor?.constant = 800
             self.popupView.alpha = 0
+            self.popupBackgroundView.alpha = 0
             self.view.layoutIfNeeded()
         }, completion: { _ in
             self.popupView.removeFromSuperview()
