@@ -14,6 +14,9 @@ class MatchListViewController: UIViewController {
     private let descriptionLabel = PlainLabel(text: "플레이할 매치를 선택하세요", color: .white, fontSize: 16, weight: .medium, alignment: .center)
     private let collectionView = MatchListCollectionView()
     
+    private var popupView: MatchPopupView!
+    private var popupBackgroundView: UIView!
+    
     // AutoLayout properties for animation
     private var popupViewCenterYAnchor: NSLayoutConstraint?
 
@@ -40,9 +43,6 @@ class MatchListViewController: UIViewController {
         descriptionLabel.constraints(topAnchor: titleLabel.bottomAnchor, leadingAnchor: view.leadingAnchor, bottomAnchor: nil, trailingAnchor: view.trailingAnchor, padding: .init(top: 8, left: 0, bottom: 0, right: 0))
         collectionView.constraints(topAnchor: descriptionLabel.bottomAnchor, leadingAnchor: view.leadingAnchor, bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, trailingAnchor: view.trailingAnchor, padding: .init(top: 28, left: 32, bottom: -16, right: -32))
     }
-    
-    private var popupView: MatchPopupView!
-    private var popupBackgroundView: UIView!
     
     private func showPopupView() {
         self.popupView = MatchPopupView()
