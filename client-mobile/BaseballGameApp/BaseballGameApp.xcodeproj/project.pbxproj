@@ -17,6 +17,7 @@
 		38959B9B246030CE00C7AD4D /* PlainLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B9A246030CE00C7AD4D /* PlainLabel.swift */; };
 		38959B9D246038C800C7AD4D /* GameListCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B9C246038C800C7AD4D /* GameListCollectionView.swift */; };
 		38959B9F24603A9800C7AD4D /* GameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B9E24603A9800C7AD4D /* GameCell.swift */; };
+		38959BA12460580B00C7AD4D /* GamePopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959BA02460580B00C7AD4D /* GamePopupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		38959B9A246030CE00C7AD4D /* PlainLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlainLabel.swift; sourceTree = "<group>"; };
 		38959B9C246038C800C7AD4D /* GameListCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameListCollectionView.swift; sourceTree = "<group>"; };
 		38959B9E24603A9800C7AD4D /* GameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCell.swift; sourceTree = "<group>"; };
+		38959BA02460580B00C7AD4D /* GamePopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePopupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				38959B9A246030CE00C7AD4D /* PlainLabel.swift */,
 				38959B9C246038C800C7AD4D /* GameListCollectionView.swift */,
 				38959B9E24603A9800C7AD4D /* GameCell.swift */,
+				38959BA02460580B00C7AD4D /* GamePopupView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 				38959B852460058100C7AD4D /* SceneDelegate.swift in Sources */,
 				38959B9B246030CE00C7AD4D /* PlainLabel.swift in Sources */,
 				38959B9F24603A9800C7AD4D /* GameCell.swift in Sources */,
+				38959BA12460580B00C7AD4D /* GamePopupView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
