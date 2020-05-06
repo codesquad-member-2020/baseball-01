@@ -18,6 +18,7 @@
 		38959B9D246038C800C7AD4D /* MatchListCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B9C246038C800C7AD4D /* MatchListCollectionView.swift */; };
 		38959B9F24603A9800C7AD4D /* MatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B9E24603A9800C7AD4D /* MatchCell.swift */; };
 		38959BA12460580B00C7AD4D /* MatchPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959BA02460580B00C7AD4D /* MatchPopupView.swift */; };
+		38EA5AC42462E6BC00055D6B /* LogoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA5AC32462E6BC00055D6B /* LogoImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		38959B9C246038C800C7AD4D /* MatchListCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListCollectionView.swift; sourceTree = "<group>"; };
 		38959B9E24603A9800C7AD4D /* MatchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCell.swift; sourceTree = "<group>"; };
 		38959BA02460580B00C7AD4D /* MatchPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchPopupView.swift; sourceTree = "<group>"; };
+		38EA5AC32462E6BC00055D6B /* LogoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				38959B9C246038C800C7AD4D /* MatchListCollectionView.swift */,
 				38959B9E24603A9800C7AD4D /* MatchCell.swift */,
 				38959BA02460580B00C7AD4D /* MatchPopupView.swift */,
+				38EA5AC32462E6BC00055D6B /* LogoImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -175,6 +178,7 @@
 				38959B982460138000C7AD4D /* AutoLayout.swift in Sources */,
 				38959B852460058100C7AD4D /* SceneDelegate.swift in Sources */,
 				38959B9B246030CE00C7AD4D /* PlainLabel.swift in Sources */,
+				38EA5AC42462E6BC00055D6B /* LogoImageView.swift in Sources */,
 				38959B9F24603A9800C7AD4D /* MatchCell.swift in Sources */,
 				38959BA12460580B00C7AD4D /* MatchPopupView.swift in Sources */,
 			);
