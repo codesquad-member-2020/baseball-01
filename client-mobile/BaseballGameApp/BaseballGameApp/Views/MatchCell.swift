@@ -15,12 +15,12 @@ class MatchCell: UICollectionViewCell {
     
     private let awayLogoImageView = LogoImageView()
     private let homeLogoImageView = LogoImageView()
-    private let awayLabel = PlainLabel(text: "AWAY", color: .red, fontSize: 13, weight: .medium, alignment: .center)
-    private let homeLabel = PlainLabel(text: "HOME", color: .red, fontSize: 13, weight: .medium, alignment: .center)
+    private let awayLabel = PlainLabel(text: "AWAY", color: .red, fontSize: 13, weight: .light, alignment: .center)
+    private let homeLabel = PlainLabel(text: "HOME", color: .red, fontSize: 13, weight: .light, alignment: .center)
     private let versusLabel = PlainLabel(text: "VS", color: .black, fontSize: 23, weight: .heavy, alignment: .center)
     
-    private let awayNameLabel = PlainLabel(text: "AWAY", color: .black, fontSize: 17, weight: .bold, alignment: .center)
-    private let homeNameLabel = PlainLabel(text: "HOME", color: .black, fontSize: 17, weight: .bold, alignment: .center)
+    private let awayNameLabel = PlainLabel(text: "AWAY", color: .black, fontSize: 15, weight: .bold, alignment: .center)
+    private let homeNameLabel = PlainLabel(text: "HOME", color: .black, fontSize: 15, weight: .bold, alignment: .center)
     
     private let containerView = UIView()
     private let cornerRadius: CGFloat = 24
