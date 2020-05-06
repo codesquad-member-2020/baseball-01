@@ -43,6 +43,23 @@ class MatchListViewController: UIViewController {
         descriptionLabel.constraints(topAnchor: titleLabel.bottomAnchor, leadingAnchor: view.leadingAnchor, bottomAnchor: nil, trailingAnchor: view.trailingAnchor, padding: .init(top: 8, left: 0, bottom: 0, right: 0))
         collectionView.constraints(topAnchor: descriptionLabel.bottomAnchor, leadingAnchor: view.leadingAnchor, bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, trailingAnchor: view.trailingAnchor, padding: .init(top: 28, left: 32, bottom: -16, right: -32))
     }
+}
+
+// MARK:- Notification
+extension MatchListViewController {
+    
+    private func configureNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(didTapMatchCell), name: .didSelectMatch, object: nil)
+    }
+    
+    @objc func didTapMatchCell(notification: Notification) {
+        guard let index = notification.userInfo?["index"] as? Int else { return }
+        showPopupView()
+    }
+}
+
+// MARK:- Pop up View
+extension MatchListViewController {
     
     private func showPopupView() {
         self.popupView = MatchPopupView()
@@ -79,18 +96,5 @@ class MatchListViewController: UIViewController {
             self.popupView.removeFromSuperview()
             self.popupBackgroundView.removeFromSuperview()
         })
-    }
-}
-
-// MARK:- Notification
-extension MatchListViewController {
-    
-    private func configureNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(didTapMatchCell), name: .didSelectMatch, object: nil)
-    }
-    
-    @objc func didTapMatchCell(notification: Notification) {
-        guard let index = notification.userInfo?["index"] as? Int else { return }
-        showPopupView()
     }
 }
