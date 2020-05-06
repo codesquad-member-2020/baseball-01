@@ -81,5 +81,9 @@ class MatchCell: UICollectionViewCell {
         containerView.addSubview(homeNameLabel)
         homeNameLabel.constraints(topAnchor: homeLogoImageView.bottomAnchor, leadingAnchor: containerView.centerXAnchor, bottomAnchor: containerView.bottomAnchor, trailingAnchor: containerView.trailingAnchor, padding: .init(top: verticalSpacingFromNameLabelToLogoImage, left: 0, bottom: -verticalSpacingFromContainerToNameLabel, right: 0))
         homeNameLabel.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 900), for: .vertical)
+        
+        layoutIfNeeded()
+        awayLogoImageView.layer.cornerRadius = awayLogoImageView.frame.height / 2
+        homeLogoImageView.layer.cornerRadius = homeLogoImageView.frame.height / 2
     }
 }

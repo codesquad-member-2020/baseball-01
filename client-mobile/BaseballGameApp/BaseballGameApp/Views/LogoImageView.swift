@@ -20,9 +20,15 @@ class LogoImageView: UIImageView {
         configureUI()
     }
     
+    override var image: UIImage? {
+        didSet {
+            backgroundColor = .clear
+            layer.cornerRadius = 0
+        }
+    }
+    
     private func configureUI() {
         self.backgroundColor = .lightGray
-        self.layer.cornerRadius = 4
         self.contentMode = .scaleAspectFit
         self.translatesAutoresizingMaskIntoConstraints = false
         self.widthAnchor.constraint(equalTo: self.heightAnchor, multiplier: 1).isActive = true
