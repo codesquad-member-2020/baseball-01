@@ -10,7 +10,7 @@ import UIKit
 
 class MatchPopupView: UIView {
     
-    private let cornerRadius: CGFloat = 8.0
+    private let cornerRadius: CGFloat = 16.0
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,5 +25,9 @@ class MatchPopupView: UIView {
     private func configureUI() {
         backgroundColor = .red
         layer.cornerRadius = cornerRadius
+        layer.shadowColor = UIColor.darkGray.cgColor
+        layer.shadowOffset = .init(width: 0, height: 1.4)
+        layer.shadowRadius = 2.0
+        layer.shadowOpacity = 0.6
     }
 }
