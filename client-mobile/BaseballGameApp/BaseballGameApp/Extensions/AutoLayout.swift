@@ -37,4 +37,13 @@ extension UIView {
             self.heightAnchor.constraint(equalToConstant: size.height).isActive = true
         }
     }
+    
+    func fillSuperView() {
+        guard let superView = self.superview else { return }
+        self.translatesAutoresizingMaskIntoConstraints = false
+        self.topAnchor.constraint(equalTo: superView.topAnchor).isActive = true
+        self.leadingAnchor.constraint(equalTo: superView.leadingAnchor).isActive = true
+        self.bottomAnchor.constraint(equalTo: superView.bottomAnchor).isActive = true
+        self.trailingAnchor.constraint(equalTo: superView.trailingAnchor).isActive = true
+    }
 }
