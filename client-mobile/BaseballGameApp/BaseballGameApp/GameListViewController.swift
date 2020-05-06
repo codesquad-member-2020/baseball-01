@@ -43,10 +43,10 @@ class GameListViewController: UIViewController {
 extension GameListViewController {
     
     private func configureNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(showPopupView), name: .didSelectMatch, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didTapMatchCell), name: .didSelectMatch, object: nil)
     }
     
-    @objc func showPopupView(notification: Notification) {
+    @objc func didTapMatchCell(notification: Notification) {
         guard let index = notification.userInfo?["index"] as? Int else { return }
     }
 }
