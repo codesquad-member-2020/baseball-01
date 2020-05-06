@@ -66,11 +66,11 @@ class MatchListViewController: UIViewController {
             self.popupView.alpha = 1
             self.view.layoutIfNeeded()
         }, completion: { _ in
-            self.popupBackgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.didTapBackView)))
+            self.popupBackgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.didTapPopupBackgroundView)))
         })
     }
     
-    @objc private func didTapBackView() {
+    @objc private func didTapPopupBackgroundView() {
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.popupViewCenterYAnchor?.constant = 800
             self.popupView.alpha = 0
