@@ -1,0 +1,94 @@
+{
+  "homeTeam": {
+    "teamName": "팀이름A",
+    "player": {
+      "hitter": [
+        {
+          "name": "홍길동1",
+          "battingAverage": 0.345
+        },
+        {
+          "name": "홍길동2",
+          "battingAverage": 0.345
+        },
+        {
+          "name": "홍길동3",
+          "battingAverage": 0.345
+        },
+        {
+          "name": "홍길동4",
+          "battingAverage": 0.345
+        },
+        {
+          "name": "홍길동5",
+          "battingAverage": 0.345
+        },
+        {
+          "name": "홍길동6",
+          "battingAverage": 0.345
+        },
+        {
+          "name": "홍길동7",
+          "battingAverage": 0.345
+        },
+        {
+          "name": "홍길동8",
+          "battingAverage": 0.345
+        },
+        {
+          "name": "홍길동9",
+          "battingAverage": 0.345
+        }
+      ],
+      "pitcher": {
+        "name": "투수 이름"
+      }
+    }
+  },
+  "awayTeam": {
+    "teamName": "팀이름A",
+    "player": {
+      "hitter": [
+        {
+          "name": "홍길동1",
+          "battingAverage": 0.345
+        },
+        {
+          "name": "홍길동2",
+          "battingAverage": 0.345
+        },
+        {
+          "name": "홍길동3",
+          "battingAverage": 0.345
+        },
+        {
+          "name": "홍길동4",
+          "battingAverage": 0.345
+        },
+        {
+          "name": "홍길동5",
+          "battingAverage": 0.345
+        },
+        {
+          "name": "홍길동6",
+          "battingAverage": 0.345
+        },
+        {
+          "name": "홍길동7",
+          "battingAverage": 0.345
+        },
+        {
+          "name": "홍길동8",
+          "battingAverage": 0.345
+        },
+        {
+          "name": "홍길동9",
+          "battingAverage": 0.345
+        }
+      ],
+      "pitcher": {
+        "name": "투수 이름"
+      }
+    }
+  }
+}
