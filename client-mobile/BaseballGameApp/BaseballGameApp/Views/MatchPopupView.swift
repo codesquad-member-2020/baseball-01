@@ -14,15 +14,15 @@ class MatchPopupView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configure()
+        configureUI()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        configure()
+        configureUI()
     }
     
-    private func configure() {
+    private func configureUI() {
         backgroundColor = .red
         layer.cornerRadius = cornerRadius
     }
