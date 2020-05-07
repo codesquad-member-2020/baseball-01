@@ -16,10 +16,7 @@ class SignInViewController: UIViewController {
     private let subtitleLabel = PlainLabel(text: "O n l i n e   B a s e b a l l   G a m e", color: .white, fontSize: 14, weight: .light, alignment: .center)
     private let startLabel = PlainLabel(text: "T A P   T O   S T A R T", color: .white, fontSize: 16, weight: .medium, alignment: .center)
     private let startTapView = UIView()
-    
     private let startButton = UIButton(type: .custom)
-    private var buttonTapAnchor: NSLayoutConstraint?
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -80,10 +77,9 @@ class SignInViewController: UIViewController {
     }
     
     private func showButtons() {
-        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.buttonTapAnchor?.constant = 64
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.startButton.alpha = 1
-            self.view.layoutIfNeeded()
+            self.startButton.transform = .identity
         })
     }
     
@@ -133,6 +129,7 @@ class SignInViewController: UIViewController {
         startButton.translatesAutoresizingMaskIntoConstraints = false
         startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         startButton.widthAnchor.constraint(equalToConstant: 108).isActive = true
+        startButton.topAnchor.constraint(equalTo: subtitleLabel.bottomAnchor, constant: 64).isActive = true
         startButton.heightAnchor.constraint(equalTo: startButton.widthAnchor, multiplier: 1).isActive = true
         
         // startButton Image
@@ -140,6 +137,7 @@ class SignInViewController: UIViewController {
         startButton.layoutIfNeeded()
         startButton.subviews.first?.contentMode = .scaleAspectFit
         startButton.subviews.first?.alpha = 0.75
+        
         // startButton Shadow
         startButton.titleLabel?.font = .systemFont(ofSize: 20, weight: .heavy)
         startButton.titleLabel?.layer.shadowOffset = .init(width: 1, height: 1.5)
@@ -148,8 +146,9 @@ class SignInViewController: UIViewController {
         startButton.titleLabel?.layer.shadowRadius = 1.0
         startButton.titleLabel?.layer.shadowColor = UIColor.darkGray.cgColor
         
-        buttonTapAnchor = NSLayoutConstraint(item: startButton, attribute: .top, relatedBy: .equal, toItem: subtitleLabel, attribute: .bottom, multiplier: 1, constant: view.frame.height * 0.3)
-        buttonTapAnchor?.isActive = true
+        let scale = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        let rotate = CGAffineTransform(rotationAngle: 180 * .pi / 180)
+        startButton.transform = scale.concatenating(rotate)
         
         view.layoutIfNeeded()
     }
