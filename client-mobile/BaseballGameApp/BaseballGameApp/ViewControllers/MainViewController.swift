@@ -1,5 +1,5 @@
 //
-//  SignInViewController.swift
+//  MainViewController.swift
 //  BaseballGameApp
 //
 //  Created by Cory Kim on 2020/05/07.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SignInViewController: UIViewController {
+class MainViewController: UIViewController {
 
     private let backgroundImageView = UIImageView(image: UIImage(named: "signin.main"))
     private let alphaView = UIView()

@@ -30,9 +30,9 @@ class MatchListViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        let signInViewController = SignInViewController()
-        signInViewController.modalPresentationStyle = .fullScreen
-        self.present(signInViewController, animated: true, completion: nil)
+        let mainViewController = MainViewController()
+        mainViewController.modalPresentationStyle = .fullScreen
+        self.present(mainViewController, animated: false, completion: nil)
     }
     
     deinit {
