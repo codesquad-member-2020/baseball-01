@@ -61,6 +61,32 @@ class SignInViewController: UIViewController {
         })
     }
     
+    @objc private func didTapGameStart() {
+           self.dismiss(animated: true, completion: nil)
+       }
+    
+    private func configureTapGestureRecognizer() {
+        startTapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapStart)))
+    }
+    
+    @objc private func didTapStart() {
+        startTapView.removeFromSuperview()
+        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.startLabel.alpha = 0
+        }, completion: { _ in
+            self.startLabel.removeFromSuperview()
+            self.showButtons()
+        })
+    }
+    
+    private func showButtons() {
+        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.buttonTapAnchor?.constant = 64
+            self.startButton.alpha = 1
+            self.view.layoutIfNeeded()
+        })
+    }
+    
     private func configureUI() {
         view.backgroundColor = .black
         
@@ -126,31 +152,5 @@ class SignInViewController: UIViewController {
         buttonTapAnchor?.isActive = true
         
         view.layoutIfNeeded()
-    }
-    
-    @objc private func didTapGameStart() {
-           self.dismiss(animated: true, completion: nil)
-       }
-    
-    private func configureTapGestureRecognizer() {
-        startTapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapStart)))
-    }
-    
-    @objc private func didTapStart() {
-        startTapView.removeFromSuperview()
-        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.startLabel.alpha = 0
-        }, completion: { _ in
-            self.startLabel.removeFromSuperview()
-            self.showButtons()
-        })
-    }
-    
-    private func showButtons() {
-        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
-            self.buttonTapAnchor?.constant = 64
-            self.startButton.alpha = 1
-            self.view.layoutIfNeeded()
-        })
     }
 }
