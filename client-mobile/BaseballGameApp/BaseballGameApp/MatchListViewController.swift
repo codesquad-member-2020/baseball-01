@@ -79,6 +79,9 @@ extension MatchListViewController {
         popupView.alpha = 0
         view.layoutIfNeeded()
         
+        // Configure Pop-up View
+        popupView.configureMatchPopupView(awayName: "두산 베어스", awayLogoImage: UIImage(named: "logo.doosan"), homeName: "두산 베어스", homeLogoImage: UIImage(named: "logo.doosan"))
+        
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.popupViewCenterYAnchor?.constant = -20
             self.popupView.alpha = 1
