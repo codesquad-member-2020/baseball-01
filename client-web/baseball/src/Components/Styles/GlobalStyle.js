@@ -10,6 +10,9 @@ const GlobalStyled = createGlobalStyle`
     font-family: 'Noto Sans KR', 'Montserrat', sans-serif;
     height: 100vh;
   }
+  a {
+    text-decoration: none;
+  }
   #wrap {
     height: 100vh;
   }
