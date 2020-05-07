@@ -72,7 +72,14 @@ class MainViewController: UIViewController {
             self.startLabel.alpha = 1
         }, completion: { _ in
             self.configureTapGestureRecognizer()
+            self.repeatAnimateTapToStart()
         })
+    }
+    
+    private func repeatAnimateTapToStart() {
+        UIView.animate(withDuration: 1.5, delay: 0, options: [.repeat, .autoreverse], animations: {
+            self.startLabel.alpha = 0
+        }, completion: nil)
     }
     
     @objc private func didTapGameStart() {
