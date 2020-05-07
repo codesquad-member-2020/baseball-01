@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
     private let startLabel = PlainLabel(text: "T A P   T O   S T A R T", color: .white, fontSize: 16, weight: .medium, alignment: .center)
     private let startTapView = UIView()
     private let startButton = UIButton(type: .custom)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
