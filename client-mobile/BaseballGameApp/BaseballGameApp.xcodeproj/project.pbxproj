@@ -18,6 +18,7 @@
 		38959B9D246038C800C7AD4D /* MatchListCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B9C246038C800C7AD4D /* MatchListCollectionView.swift */; };
 		38959B9F24603A9800C7AD4D /* MatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B9E24603A9800C7AD4D /* MatchCell.swift */; };
 		38959BA12460580B00C7AD4D /* MatchPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959BA02460580B00C7AD4D /* MatchPopupView.swift */; };
+		38AB806D2463B67800A75572 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AB806C2463B67800A75572 /* SignInViewController.swift */; };
 		38EA5AC42462E6BC00055D6B /* LogoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA5AC32462E6BC00055D6B /* LogoImageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		38959B9C246038C800C7AD4D /* MatchListCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListCollectionView.swift; sourceTree = "<group>"; };
 		38959B9E24603A9800C7AD4D /* MatchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCell.swift; sourceTree = "<group>"; };
 		38959BA02460580B00C7AD4D /* MatchPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchPopupView.swift; sourceTree = "<group>"; };
+		38AB806C2463B67800A75572 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		38EA5AC32462E6BC00055D6B /* LogoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -68,11 +70,11 @@
 		38959B812460058100C7AD4D /* BaseballGameApp */ = {
 			isa = PBXGroup;
 			children = (
+				38AB806B2463B65200A75572 /* ViewControllers */,
 				38959B992460306100C7AD4D /* Views */,
 				38959B962460136E00C7AD4D /* Extensions */,
 				38959B822460058100C7AD4D /* AppDelegate.swift */,
 				38959B842460058100C7AD4D /* SceneDelegate.swift */,
-				38959B862460058100C7AD4D /* MatchListViewController.swift */,
 				38959B882460058100C7AD4D /* Main.storyboard */,
 				38959B8B2460058300C7AD4D /* Assets.xcassets */,
 				38959B8D2460058300C7AD4D /* LaunchScreen.storyboard */,
@@ -99,6 +101,15 @@
 				38EA5AC32462E6BC00055D6B /* LogoImageView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		38AB806B2463B65200A75572 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				38959B862460058100C7AD4D /* MatchListViewController.swift */,
+				38AB806C2463B67800A75572 /* SignInViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,6 +191,7 @@
 				38959B9B246030CE00C7AD4D /* PlainLabel.swift in Sources */,
 				38EA5AC42462E6BC00055D6B /* LogoImageView.swift in Sources */,
 				38959B9F24603A9800C7AD4D /* MatchCell.swift in Sources */,
+				38AB806D2463B67800A75572 /* SignInViewController.swift in Sources */,
 				38959BA12460580B00C7AD4D /* MatchPopupView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

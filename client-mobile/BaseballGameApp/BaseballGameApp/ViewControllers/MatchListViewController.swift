@@ -27,6 +27,14 @@ class MatchListViewController: UIViewController {
         configureNotification()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let signInViewController = SignInViewController()
+        signInViewController.modalPresentationStyle = .fullScreen
+        self.present(signInViewController, animated: true, completion: nil)
+    }
+    
     deinit {
         NotificationCenter.default.removeObserver(self, name: .didSelectMatch, object: nil)
     }
