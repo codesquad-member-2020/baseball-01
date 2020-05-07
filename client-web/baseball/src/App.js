@@ -5,7 +5,7 @@ import GlobalStyled from './Components/Styles/GlobalStyle';
 function App() {
   return (
     <>
-      <GlobalStyled width={'1000px'}/>
+      <GlobalStyled width={'1000px'} />
       <Routes />
     </>
   );
