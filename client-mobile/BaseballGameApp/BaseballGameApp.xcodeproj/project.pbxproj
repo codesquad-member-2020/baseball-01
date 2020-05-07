@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		38743A282463F282007B0E51 /* BungeeOutline-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38743A272463F282007B0E51 /* BungeeOutline-Regular.ttf */; };
 		38959B832460058100C7AD4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B822460058100C7AD4D /* AppDelegate.swift */; };
 		38959B852460058100C7AD4D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B842460058100C7AD4D /* SceneDelegate.swift */; };
 		38959B872460058100C7AD4D /* MatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B862460058100C7AD4D /* MatchListViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		38743A272463F282007B0E51 /* BungeeOutline-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BungeeOutline-Regular.ttf"; path = "../../../../../../../../../../Downloads/Fonts/Bungee_Outline/BungeeOutline-Regular.ttf"; sourceTree = "<group>"; };
 		38959B7F2460058100C7AD4D /* BaseballGameApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseballGameApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38959B822460058100C7AD4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38959B842460058100C7AD4D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38743A262463F251007B0E51 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				38743A272463F282007B0E51 /* BungeeOutline-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		38959B762460058100C7AD4D = {
 			isa = PBXGroup;
 			children = (
@@ -73,6 +83,7 @@
 				38AB806B2463B65200A75572 /* ViewControllers */,
 				38959B992460306100C7AD4D /* Views */,
 				38959B962460136E00C7AD4D /* Extensions */,
+				38743A262463F251007B0E51 /* Fonts */,
 				38959B822460058100C7AD4D /* AppDelegate.swift */,
 				38959B842460058100C7AD4D /* SceneDelegate.swift */,
 				38959B882460058100C7AD4D /* Main.storyboard */,
@@ -172,6 +183,7 @@
 			files = (
 				38959B8F2460058300C7AD4D /* LaunchScreen.storyboard in Resources */,
 				38959B8C2460058300C7AD4D /* Assets.xcassets in Resources */,
+				38743A282463F282007B0E51 /* BungeeOutline-Regular.ttf in Resources */,
 				38959B8A2460058100C7AD4D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
