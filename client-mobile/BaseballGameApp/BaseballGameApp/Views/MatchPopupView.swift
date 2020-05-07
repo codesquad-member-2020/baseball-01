@@ -21,6 +21,9 @@ class MatchPopupView: UIView {
     
     private let awayNameLabel = PlainLabel(text: "AWAY", color: .black, fontSize: 13, weight: .bold, alignment: .center)
     private let homeNameLabel = PlainLabel(text: "HOME", color: .black, fontSize: 13, weight: .bold, alignment: .center)
+    
+    private let awayTapView = UIView()
+    private let homeTapView = UIView()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,6 +40,22 @@ class MatchPopupView: UIView {
         self.awayLogoImageView.image = awayLogoImage
         self.homeNameLabel.text = homeName
         self.homeLogoImageView.image = homeLogoImage
+    }
+    
+    private func configureTapGestures() {
+        awayTapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapTeam)))
+        homeTapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapTeam)))
+    }
+    
+    @objc private func didTapTeam(recognizer: UIGestureRecognizer) {
+        switch recognizer.view {
+        case awayTapView:
+            break
+        case homeTapView:
+            break
+        default:
+            break
+        }
     }
     
     private func configureUI() {
@@ -87,5 +106,12 @@ class MatchPopupView: UIView {
         addSubview(homeLogoImageView)
         homeLogoImageView.centerXAnchor.constraint(equalTo: homeLabel.centerXAnchor).isActive = true
         homeLogoImageView.constraints(topAnchor: titleLabel.bottomAnchor, leadingAnchor: nil, bottomAnchor: homeNameLabel.topAnchor, trailingAnchor: nil, padding: .init(top: verticalSpacingFromLogoImageToTitleLabel, left: 0, bottom: verticalSpacingFromNameLabelToLogoImage, right: 0))
+        
+        // Tap Gestures
+        addSubview(awayTapView)
+        awayTapView.constraints(topAnchor: titleLabel.bottomAnchor, leadingAnchor: self.leadingAnchor, bottomAnchor: self.bottomAnchor, trailingAnchor: self.centerXAnchor, padding: .init(top: 16, left: 16, bottom: -8, right: -16))
+        addSubview(homeTapView)
+        homeTapView.constraints(topAnchor: titleLabel.bottomAnchor, leadingAnchor: self.centerXAnchor, bottomAnchor: self.bottomAnchor, trailingAnchor: self.trailingAnchor, padding: .init(top: 16, left: 16, bottom: -8, right: -16))
+        configureTapGestures()
     }
 }
