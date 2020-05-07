@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MainViewControllerDelegate {
+    func didTapGameStart()
+}
+
 class MainViewController: UIViewController {
 
     private let backgroundImageView = UIImageView(image: UIImage(named: "signin.main"))
@@ -17,6 +21,8 @@ class MainViewController: UIViewController {
     private let startLabel = PlainLabel(text: "T A P   T O   S T A R T", color: .white, fontSize: 16, weight: .medium, alignment: .center)
     private let startTapView = UIView()
     private let startButton = UIButton(type: .custom)
+    
+    var delegate: MainViewControllerDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,8 +66,9 @@ class MainViewController: UIViewController {
     }
     
     @objc private func didTapGameStart() {
-           self.dismiss(animated: true, completion: nil)
-       }
+        self.delegate?.didTapGameStart()
+        self.dismiss(animated: true)
+    }
     
     private func configureTapGestureRecognizer() {
         startTapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapStart)))
