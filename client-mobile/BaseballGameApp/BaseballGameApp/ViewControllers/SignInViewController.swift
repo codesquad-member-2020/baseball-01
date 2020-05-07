@@ -24,12 +24,17 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
 
         configureUI()
+        configureButton()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         showTitleLabel()
+    }
+    
+    private func configureButton() {
+        startButton.addTarget(self, action: #selector(didTapGameStart), for: .touchUpInside)
     }
     
     private func showTitleLabel() {
@@ -122,6 +127,10 @@ class SignInViewController: UIViewController {
         
         view.layoutIfNeeded()
     }
+    
+    @objc private func didTapGameStart() {
+           self.dismiss(animated: true, completion: nil)
+       }
     
     private func configureTapGestureRecognizer() {
         startTapView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapStart)))
