@@ -17,6 +17,9 @@ class MatchListViewController: UIViewController {
     private var popupView: MatchPopupView!
     private var popupBackgroundView: UIView!
     
+    private var hasEnteredFromMain = false
+    private let enterTransitionView = UIView()
+    
     // AutoLayout properties for animation
     private var popupViewCenterYAnchor: NSLayoutConstraint?
 
@@ -25,6 +28,17 @@ class MatchListViewController: UIViewController {
         
         configureUI()
         configureNotification()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        guard !hasEnteredFromMain else { return }
+        let mainViewController = MainViewController()
+        mainViewController.modalPresentationStyle = .fullScreen
+        self.present(mainViewController, animated: false, completion: {
+            mainViewController.delegate = self
+        })
     }
     
     deinit {
@@ -37,11 +51,25 @@ class MatchListViewController: UIViewController {
         view.addSubview(titleLabel)
         view.addSubview(descriptionLabel)
         view.addSubview(collectionView)
+        view.addSubview(enterTransitionView)
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         NSLayoutConstraint(item: titleLabel, attribute: .top, relatedBy: .equal, toItem: self.view.safeAreaLayoutGuide, attribute: .top, multiplier: 2.8, constant: 0).isActive = true
         descriptionLabel.constraints(topAnchor: titleLabel.bottomAnchor, leadingAnchor: view.leadingAnchor, bottomAnchor: nil, trailingAnchor: view.trailingAnchor, padding: .init(top: 8, left: 0, bottom: 0, right: 0))
         collectionView.constraints(topAnchor: descriptionLabel.bottomAnchor, leadingAnchor: view.leadingAnchor, bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, trailingAnchor: view.trailingAnchor, padding: .init(top: 28, left: 32, bottom: -16, right: -32))
+        enterTransitionView.backgroundColor = .black
+        enterTransitionView.fillSuperView()
+    }
+}
+
+extension MatchListViewController: MainViewControllerDelegate {
+    func didTapGameStart() {
+        self.hasEnteredFromMain = true
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.enterTransitionView.alpha = 0
+        }, completion: { _ in
+            self.enterTransitionView.removeFromSuperview()
+        })
     }
 }
 
