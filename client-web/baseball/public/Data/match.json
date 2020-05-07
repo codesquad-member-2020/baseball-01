@@ -1,0 +1,62 @@
+[
+  {
+    "matchId": 1,
+    "home": {
+      "name": "롯데 자이언츠",
+      "logoImg": "https://sports-phinf.pstatic.net/team/kbo/default/LT.png"
+    },
+    "away": {
+      "name": "키움 히어로즈",
+      "logoImg": "https://sports-phinf.pstatic.net/team/kbo/default/WO.png"
+    },
+    "isAvailable": true
+  },
+  {
+    "matchId": 2,
+    "home": {
+      "name": "두산 베어스",
+      "logoImg": "https://sports-phinf.pstatic.net/team/kbo/default/OB.png"
+    },
+    "away": {
+      "name": "LG 트윈스",
+      "logoImg": "https://sports-phinf.pstatic.net/team/kbo/default/LG.png"
+    },
+    "isAvailable": true
+  },
+  {
+    "matchId": 3,
+    "home": {
+      "name": "기아 타이거즈",
+      "logoImg": "https://sports-phinf.pstatic.net/team/kbo/default/HT.png"
+    },
+    "away": {
+      "name": "한화 이글스",
+      "logoImg": "https://sports-phinf.pstatic.net/team/kbo/default/HH.png"
+    },
+    "isAvailable": false
+  },
+  {
+    "matchId": 4,
+    "home": {
+      "name": "KT 위즈",
+      "logoImg": "https://sports-phinf.pstatic.net/team/kbo/default/KT.png"
+    },
+    "away": {
+      "name": "삼성 라이온즈",
+      "logoImg": "https://sports-phinf.pstatic.net/team/kbo/default/SS.png"
+    },
+    "isAvailable": true
+  },
+  {
+    "matchId": 5,
+    "home": {
+      "name": "SK 와이번스",
+      "logoImg": "https://sports-phinf.pstatic.net/team/kbo/default/SK.png"
+    },
+    "away": {
+      "name": "NC 다이노스",
+      "logoImg": "https://sports-phinf.pstatic.net/team/kbo/default/NC.png"
+    },
+    "isAvailable": true
+  }
+]
