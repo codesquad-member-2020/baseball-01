@@ -26,6 +26,36 @@ class SignInViewController: UIViewController {
         configureUI()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        showTitleLabel()
+    }
+    
+    private func showTitleLabel() {
+        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.titleLabel.alpha = 1
+        }, completion: { _ in
+            self.showSubtitleLabel()
+        })
+    }
+    
+    private func showSubtitleLabel() {
+        UIView.animate(withDuration: 0.4, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 0.3, options: .curveEaseOut, animations: {
+            self.subtitleLabel.alpha = 1
+        }, completion: { _ in
+            self.showTapToStart()
+        })
+    }
+    
+    private func showTapToStart() {
+        UIView.animate(withDuration: 0.6, delay: 0.2, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.startLabel.alpha = 1
+        }, completion: { _ in
+            self.configureTapGestureRecognizer()
+        })
+    }
+    
     private func configureUI() {
         view.backgroundColor = .black
         
@@ -46,17 +76,19 @@ class SignInViewController: UIViewController {
         titleLabel.numberOfLines = 2
         titleLabel.font = UIFont(name: "BungeeOutline-Regular", size: 72)
         titleLabel.constraints(topAnchor: view.topAnchor, leadingAnchor: view.leadingAnchor, bottomAnchor: nil, trailingAnchor: view.trailingAnchor, padding: .init(top: view.frame.height * 0.3, left: titleImageSidePadding, bottom: 0, right: -titleImageSidePadding))
+        titleLabel.alpha = 0
         
         view.addSubview(subtitleLabel)
+        subtitleLabel.alpha = 0
         subtitleLabel.constraints(topAnchor: titleLabel.bottomAnchor, leadingAnchor: view.leadingAnchor, bottomAnchor: nil, trailingAnchor: view.trailingAnchor, padding: .init(top: 16, left: titleImageSidePadding, bottom: 0, right: -titleImageSidePadding))
         
         view.addSubview(startLabel)
+        startLabel.alpha = 0
         startLabel.constraints(topAnchor: subtitleLabel.bottomAnchor, leadingAnchor: view.leadingAnchor, bottomAnchor: nil, trailingAnchor: view.trailingAnchor, padding: .init(top: 140, left: 48, bottom: 0, right: -48))
         
         view.addSubview(startTapView)
         startTapView.backgroundColor = .clear
         startTapView.fillSuperView()
-        configureTapGestureRecognizer()
         
         view.addSubview(startButton)
         // startButton Title
