@@ -43,7 +43,7 @@ class MainViewController: UIViewController {
     }
     
     private func beginTransition() {
-        UIView.animate(withDuration: 1.2, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseIn, animations: {
             self.transitionView.alpha = 0
         }, completion: { _ in
             self.transitionView.removeFromSuperview()
