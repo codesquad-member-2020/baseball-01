@@ -21,6 +21,7 @@ class MainViewController: UIViewController {
     private let startLabel = PlainLabel(text: "T A P   T O   S T A R T", color: .white, fontSize: 16, weight: .medium, alignment: .center)
     private let startTapView = UIView()
     private let startButton = UIButton(type: .custom)
+    private let transitionView = UIView()
     
     var delegate: MainViewControllerDelegate?
     
@@ -34,11 +35,20 @@ class MainViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        showTitleLabel()
+        beginTransition()
     }
     
     private func configureButton() {
         startButton.addTarget(self, action: #selector(didTapGameStart), for: .touchUpInside)
+    }
+    
+    private func beginTransition() {
+        UIView.animate(withDuration: 1.2, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.transitionView.alpha = 0
+        }, completion: { _ in
+            self.transitionView.removeFromSuperview()
+            self.showTitleLabel()
+        })
     }
     
     private func showTitleLabel() {
@@ -157,6 +167,10 @@ class MainViewController: UIViewController {
         let scale = CGAffineTransform(scaleX: 0.1, y: 0.1)
         let rotate = CGAffineTransform(rotationAngle: 180 * .pi / 180)
         startButton.transform = scale.concatenating(rotate)
+        
+        view.addSubview(transitionView)
+        transitionView.backgroundColor = .black
+        transitionView.fillSuperView()
         
         view.layoutIfNeeded()
     }
