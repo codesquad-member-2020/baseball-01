@@ -32,6 +32,13 @@ class MatchPopupView: UIView {
         configureUI()
     }
     
+    func configureMatchPopupView(awayName: String, awayLogoImage: UIImage?, homeName: String, homeLogoImage: UIImage?) {
+        self.awayNameLabel.text = awayName
+        self.awayLogoImageView.image = awayLogoImage
+        self.homeNameLabel.text = homeName
+        self.homeLogoImageView.image = homeLogoImage
+    }
+    
     private func configureUI() {
         backgroundColor = .init(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
         layer.cornerRadius = cornerRadius
