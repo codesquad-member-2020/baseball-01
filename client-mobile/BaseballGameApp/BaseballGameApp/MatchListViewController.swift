@@ -82,7 +82,7 @@ extension MatchListViewController {
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.popupViewCenterYAnchor?.constant = -20
             self.popupView.alpha = 1
-            self.popupBackgroundView.alpha = 0.4
+            self.popupBackgroundView.alpha = 0.6
             self.view.layoutIfNeeded()
         }, completion: { _ in
             self.popupBackgroundView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.didTapPopupBackgroundView)))
