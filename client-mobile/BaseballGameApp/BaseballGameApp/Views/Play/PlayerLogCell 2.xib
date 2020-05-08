@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PlayerLogCell" rowHeight="69" id="KGk-i7-Jjw" customClass="PlayerLogCell" customModule="BaseballGameApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="스트라이크!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rU-ZW-dJm">
+                        <rect key="frame" x="24" y="16" width="70" height="37"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0B - 1S" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pAm-kD-xPT">
+                        <rect key="frame" x="246" y="16" width="50" height="37"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" name="count.board.inner.bg"/>
+                <constraints>
+                    <constraint firstItem="6rU-ZW-dJm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="5NZ-vV-oMt"/>
+                    <constraint firstItem="pAm-kD-xPT" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="AJR-u5-qnP"/>
+                    <constraint firstAttribute="bottom" secondItem="pAm-kD-xPT" secondAttribute="bottom" constant="16" id="IqP-DW-8kU"/>
+                    <constraint firstItem="6rU-ZW-dJm" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Jlb-sC-o77"/>
+                    <constraint firstItem="pAm-kD-xPT" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="KbP-Rj-VvR"/>
+                    <constraint firstAttribute="trailing" secondItem="pAm-kD-xPT" secondAttribute="trailing" constant="24" id="KhL-da-zIH"/>
+                    <constraint firstAttribute="bottom" secondItem="6rU-ZW-dJm" secondAttribute="bottom" constant="16" id="Upu-CE-Cht"/>
+                    <constraint firstItem="6rU-ZW-dJm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="nD0-i2-WO6"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="countLabel" destination="pAm-kD-xPT" id="eIB-Y9-AWF"/>
+                <outlet property="logMessageLabel" destination="6rU-ZW-dJm" id="tIg-do-Eyx"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="154.35267857142856"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="count.board.inner.bg">
+            <color red="0.10502295476050826" green="0.1581746062016075" blue="0.23602078045685282" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>
