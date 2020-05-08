@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { introBallMove } from '../Styles/Keyframes';
-import { BaseballBg } from '../Styles/Backgorund';
+import { BallBg } from '../Styles/Backgorund';
 
 const StartWrap = styled.div`
   position: absolute;
@@ -34,7 +34,7 @@ const StartWrap = styled.div`
     position: absolute;
     width: 100%;
     height: 100%;
-    ${BaseballBg}
+    ${BallBg}
     box-shadow: 0 2px 5px rgba(27, 31, 35, 0.1);
     z-index: -1;
   }
