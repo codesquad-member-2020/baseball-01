@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import { IntroBg } from '../Styles/Backgorund';
-import { StartLink } from './StartLink';
 import { introTitleMove } from '../Styles/Keyframes';
+import { StartLink } from './StartLink';
+import { Loader } from '../Utils/Loader';
 import Title from './Title';
-import { Loader } from './Loader';
 
 const IntroDiv = styled.div`
   ${IntroBg}
