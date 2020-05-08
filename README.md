@@ -1,4 +1,6 @@
-# 온라인 야구게임 '와구와구'
+# CODE STRIKE
+
+온라인 야구게임
 
 ### Team
 
@@ -9,7 +11,7 @@
 <br>
 
 ### 요구사항 기술서
-* [링크](https://docs.google.com/spreadsheets/d/1t6E5V8IaA6m6mFa6TI3uipSsSI1vPN7dt2KSVK7WUpc/edit?usp=sharing)
+* [구글 스프레드 시트](https://docs.google.com/spreadsheets/d/1t6E5V8IaA6m6mFa6TI3uipSsSI1vPN7dt2KSVK7WUpc/edit?usp=sharing)
 <br>
 
 ### Scrum
