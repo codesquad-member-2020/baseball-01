@@ -23,7 +23,7 @@ public class TeamDto {
 
     public static class Builder {
 
-        private String teamName;
+        private final String teamName;
         private String logoImage;
         private String player;
 
@@ -31,7 +31,7 @@ public class TeamDto {
             this.teamName = teamName;
         }
 
-        public Builder logoIamge(String logoImage) {
+        public Builder logoImage(String logoImage) {
             this.logoImage = logoImage;
             return this;
         }
