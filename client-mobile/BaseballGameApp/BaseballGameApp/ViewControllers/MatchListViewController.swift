@@ -43,6 +43,7 @@ class MatchListViewController: UIViewController {
     
     deinit {
         NotificationCenter.default.removeObserver(self, name: .didSelectMatch, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .didSelectTeam, object: nil)
     }
 
     private func configureUI() {
@@ -78,11 +79,29 @@ extension MatchListViewController {
     
     private func configureNotification() {
         NotificationCenter.default.addObserver(self, selector: #selector(didTapMatchCell), name: .didSelectMatch, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didSelectTeam), name: .didSelectTeam, object: nil)
     }
     
     @objc func didTapMatchCell(notification: Notification) {
         guard let index = notification.userInfo?["index"] as? Int else { return }
         showPopupView()
+    }
+    
+    @objc private func didSelectTeam(notification: Notification) {
+        guard let isAway = notification.userInfo?["isAway"] as? Bool else { return }
+        presentMatch()
+    }
+}
+
+extension MatchListViewController {
+    
+    private func presentMatch() {
+        let matchViewController = UITabBarController()
+        let playViewController = PlayViewController()
+        let scoreViewController = UIViewController()
+        matchViewController.viewControllers = [playViewController, scoreViewController]
+        matchViewController.modalPresentationStyle = .fullScreen
+        self.present(matchViewController, animated: true, completion: nil)
     }
 }
 

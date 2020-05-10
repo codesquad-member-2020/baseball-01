@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		38743A282463F282007B0E51 /* BungeeOutline-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38743A272463F282007B0E51 /* BungeeOutline-Regular.ttf */; };
+		38743A382467FCE3007B0E51 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38743A372467FCE3007B0E51 /* PlayViewController.swift */; };
 		38959B832460058100C7AD4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B822460058100C7AD4D /* AppDelegate.swift */; };
 		38959B852460058100C7AD4D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B842460058100C7AD4D /* SceneDelegate.swift */; };
 		38959B872460058100C7AD4D /* MatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B862460058100C7AD4D /* MatchListViewController.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		38743A272463F282007B0E51 /* BungeeOutline-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BungeeOutline-Regular.ttf"; path = "../../../../../../../../../../Downloads/Fonts/Bungee_Outline/BungeeOutline-Regular.ttf"; sourceTree = "<group>"; };
+		38743A372467FCE3007B0E51 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		38959B7F2460058100C7AD4D /* BaseballGameApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseballGameApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38959B822460058100C7AD4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38959B842460058100C7AD4D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,14 @@
 				38743A272463F282007B0E51 /* BungeeOutline-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		38743A342467FB2B007B0E51 /* PlayTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				38743A372467FCE3007B0E51 /* PlayViewController.swift */,
+			);
+			path = PlayTabBar;
 			sourceTree = "<group>";
 		};
 		38959B762460058100C7AD4D = {
@@ -117,6 +127,7 @@
 		38AB806B2463B65200A75572 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				38743A342467FB2B007B0E51 /* PlayTabBar */,
 				38959B862460058100C7AD4D /* MatchListViewController.swift */,
 				38AB806C2463B67800A75572 /* MainViewController.swift */,
 			);
@@ -198,6 +209,7 @@
 				38959B872460058100C7AD4D /* MatchListViewController.swift in Sources */,
 				38959B832460058100C7AD4D /* AppDelegate.swift in Sources */,
 				38959B9D246038C800C7AD4D /* MatchListCollectionView.swift in Sources */,
+				38743A382467FCE3007B0E51 /* PlayViewController.swift in Sources */,
 				38959B982460138000C7AD4D /* AutoLayout.swift in Sources */,
 				38959B852460058100C7AD4D /* SceneDelegate.swift in Sources */,
 				38959B9B246030CE00C7AD4D /* PlainLabel.swift in Sources */,
