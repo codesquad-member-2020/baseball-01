@@ -1,11 +1,12 @@
 import axios from 'axios';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { MOCK_URL } from '../../constant/url';
 import useAsync from '../Utils/useAsync';
 import { Loader } from '../Utils/Loader';
 import { BaseballBg } from '../Styles/Backgorund';
+import TitleMessage from './TitleMessage';
+import TeamList from './TeamList';
 
 const MatchWrapDiv = styled.div`
   display: flex;
@@ -17,20 +18,9 @@ const MatchWrapDiv = styled.div`
 `;
 const MatchBoxDiv = styled.div`
   height: 80vh;
+  color: #fff;
 `;
-const MatchMessageDiv = styled.div`
-  text-align: center;
-  h1 {
-    margin-bottom: 10px;
-    font-family: 'Montserrat';
-    font-size: 40px;
-    letter-spacing: 2px;
-  }
-  p {
-    font-size: 18px;
-    letter-spacing: 2px;
-  }
-`;
+
 
 const MatchListDiv = styled.div`
   overflow-y: auto;
@@ -38,7 +28,6 @@ const MatchListDiv = styled.div`
   margin: 15px 0;
 `;
 
-const MatchListItemDiv = styled.div``;
 
 const Match = () => {
   const getMatch = async () => {
@@ -56,19 +45,12 @@ const Match = () => {
   return (
     <MatchWrapDiv>
       <MatchBoxDiv>
-        <MatchMessageDiv>
-          <h1>Match List</h1>
-          <p>플레이할 매치를 선택하세요.</p>
-        </MatchMessageDiv>
+        <TitleMessage />
         <MatchListDiv>
           {matchList.map((match, index) => (
-            <MatchListItemDiv key={index}>
-              {match.home.name} <img src={match.home.logoImg} alt={match.home.name} />
-              vs {match.away.name} <img src={match.away.logoImg} alt={match.away.name} />
-            </MatchListItemDiv>
+            <TeamList link={`/play/${match.matchId}`} home={match.home} away={match.away} key={index}/>
           ))}
         </MatchListDiv>
-        <Link to='/play'>플레이</Link>
       </MatchBoxDiv>
     </MatchWrapDiv>
   );
