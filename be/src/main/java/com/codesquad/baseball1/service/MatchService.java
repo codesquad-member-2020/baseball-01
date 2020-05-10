@@ -12,7 +12,7 @@ public class MatchService {
     private MatchDao matchDao;
 
     public ResponseDto getMatchList() {
-        Object matchDto = matchDao.findTeam();
+        Object matchDto = matchDao.findMatches();
         return new ResponseDto(200, matchDto);
     }
 }
