@@ -32,4 +32,48 @@ const introTitleMove = keyframes`
   }
 `;
 
-export { introBallMove, introTitleMove, grow };
+const beforeBorders = keyframes`
+  from {
+    width:0;
+    height:100%;
+  }
+  to {
+    width:100%;
+    height:100%;
+  }
+`;
+const afterBorders = keyframes`
+  0% {
+    top: calc(var(--border-width) * -1);
+    left: auto;
+    bottom: auto;
+    right: 50%;
+    width: 0;
+    height: var(--border-width);
+  }
+  33% {    
+    top: calc(var(--border-width) * -1);
+    left: auto;
+    bottom: auto;
+    right: calc(var(--border-width) * -1);
+    width: calc(var(--border-width) + 50%);
+    height: var(--border-width);
+  }
+  66% {
+    top: calc(var(--border-width) * -1);
+    left: auto;
+    bottom: auto;
+    right: calc(var(--border-width) * -1);
+    width: var(--border-width);
+    height: calc((var(--border-width) * 2) + 100%);
+  }
+  100% {
+    top: auto;
+    left: auto;
+    bottom: calc(var(--border-width) * -1);
+    right: calc(var(--border-width) * -1);
+    width: calc(var(--border-width) + 50%);
+    height: calc((var(--border-width) * 2) + 100%);
+  }
+`;
+export { introBallMove, introTitleMove, grow, beforeBorders, afterBorders };

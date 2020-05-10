@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import baseballBg from '../Styles/baseball.png';
+import ballBg from '../Styles/ball_bg.png';
 import { grow } from '../Styles/Keyframes';
 
 const LoaderWrap = styled.div`
@@ -12,7 +12,7 @@ const LoaderWrap = styled.div`
     height: 20px;
     margin: 0 5px;
     opacity: 0.7;
-    background: url(${baseballBg}) no-repeat;
+    background: url(${ballBg}) no-repeat;
     background-size: cover;
     animation: 1.2s ${grow} ease-in-out infinite;
   }
@@ -22,7 +22,7 @@ const LoaderWrap = styled.div`
     height: 20px;
     margin: 0 5px;
     opacity: 0.7;
-    background: url(${baseballBg}) no-repeat;
+    background: url(${ballBg}) no-repeat;
     background-size: cover;
     animation: 1.2s ${grow} ease-in-out infinite 0.3s;
   }
@@ -33,7 +33,7 @@ const LoaderDiv = styled.div`
   height: 20px;
   margin: 0 5px;
   opacity: 0.7;
-  background: url(${baseballBg}) no-repeat;
+  background: url(${ballBg}) no-repeat;
   background-size: cover;
   animation: 1.2s ${grow} ease-in-out infinite 0.15555s;
 `;

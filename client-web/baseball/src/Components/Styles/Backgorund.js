@@ -1,6 +1,7 @@
 import { css } from 'styled-components';
 import introBg from './intro_bg.png';
-import baseballBg from './baseball.png';
+import baseballBg from './baseball_bg.jpg';
+import ballBg from './ball_bg.png';
 const IntroBg = css`
   display: flex;
   justify-content: center;
@@ -11,12 +12,18 @@ const IntroBg = css`
   background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(${introBg}) no-repeat;
   background-size: cover;
 `;
+
 const BaseballBg = css`
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(${baseballBg}) no-repeat;
+  background-size: cover;
+`
+
+const BallBg = css`
   width: 100%;
   height: 100%;
-  background: url(${baseballBg}) no-repeat;
+  background: url(${ballBg}) no-repeat;
   background-size: cover;
   opacity: 0.7;
   transition: all 3s;
 `;
-export { IntroBg, BaseballBg };
+export { IntroBg, BaseballBg, BallBg };
