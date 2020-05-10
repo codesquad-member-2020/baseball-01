@@ -96,11 +96,7 @@ extension MatchListViewController {
 extension MatchListViewController {
     
     private func presentMatch() {
-        let matchViewController = UITabBarController()
-        let playViewController = PlayViewController()
-        let scoreViewController = UIViewController()
-        matchViewController.viewControllers = [playViewController, scoreViewController]
-        matchViewController.modalPresentationStyle = .fullScreen
+        let matchViewController = MatchViewController()
         self.present(matchViewController, animated: true, completion: nil)
     }
 }
