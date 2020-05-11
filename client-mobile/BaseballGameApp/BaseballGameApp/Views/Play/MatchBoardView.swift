@@ -19,7 +19,7 @@ class MatchBoardView: UIView {
     private let homeNameLabel = PlainLabel(text: "HOME", color: .black, fontSize: 18, weight: .medium, alignment: .right)
     private let homeScoreLabel = PlainLabel(text: "0", color: .red, fontSize: 32, weight: .bold, alignment: .left)
     private var homeTeamInfoStackView: UIStackView!
-    private let inningView = UIView()
+    private let inningLabel = PlainLabel(text: "1회 초", color: .yellow, fontSize: 13, weight: .medium, alignment: .center)
     
     private let currentPlayerView = UIView()
     private var currentPlayerViewAwayLeading: NSLayoutConstraint?
@@ -70,7 +70,7 @@ extension MatchBoardView {
         addSubview(homeTeamInfoStackView)
         addSubview(homeScoreLabel)
         addSubview(currentPlayerView)
-        addSubview(inningView)
+        addSubview(inningLabel)
         
         versusLabel.centerInSuperView()
         versusLabel.setContentHuggingPriority(.required, for: .horizontal)
@@ -93,11 +93,12 @@ extension MatchBoardView {
     }
     
     private func configureInningViewLayout() {
-        inningView.backgroundColor = .black
-        inningView.alpha = 0.8
-        inningView.layer.cornerRadius = 8
-        inningView.constraints(topAnchor: versusLabel.bottomAnchor, leadingAnchor: nil, bottomAnchor: nil, trailingAnchor: nil, padding: .init(top: 8, left: 0, bottom: 0, right: 0), size: .init(width: 72, height: 20))
-        inningView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        inningLabel.backgroundColor = .black
+        inningLabel.alpha = 0.8
+        inningLabel.layer.cornerRadius = 8
+        inningLabel.clipsToBounds = true
+        inningLabel.constraints(topAnchor: versusLabel.bottomAnchor, leadingAnchor: nil, bottomAnchor: nil, trailingAnchor: nil, padding: .init(top: 8, left: 0, bottom: 0, right: 0), size: .init(width: 72, height: 20))
+        inningLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
     
     private func configureCurrentPlayerViewLayout() {
@@ -107,8 +108,8 @@ extension MatchBoardView {
         
         currentPlayerView.constraints(topAnchor: awayTeamInfoStackView.bottomAnchor, leadingAnchor: nil, bottomAnchor: nil, trailingAnchor: nil, size: .init(width: 0, height: 8))
         currentPlayerViewAwayLeading = currentPlayerView.leadingAnchor.constraint(equalTo: awayTeamInfoStackView.leadingAnchor)
-        currentPlayerViewAwayTrailing = currentPlayerView.trailingAnchor.constraint(equalTo: inningView.leadingAnchor, constant: -16)
-        currentPlayerViewHomeLeading = currentPlayerView.leadingAnchor.constraint(equalTo: inningView.trailingAnchor, constant: 16)
+        currentPlayerViewAwayTrailing = currentPlayerView.trailingAnchor.constraint(equalTo: inningLabel.leadingAnchor, constant: -16)
+        currentPlayerViewHomeLeading = currentPlayerView.leadingAnchor.constraint(equalTo: inningLabel.trailingAnchor, constant: 16)
         currentPlayerViewHomeTrailing = currentPlayerView.trailingAnchor.constraint(equalTo: homeTeamInfoStackView.trailingAnchor)
         currentPlayerViewAwayLeading?.isActive = true
         currentPlayerViewAwayTrailing?.isActive = true
