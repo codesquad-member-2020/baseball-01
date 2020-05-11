@@ -41,6 +41,17 @@ class MatchBoardView: UIView {
         configureUI()
     }
     
+    func configureMatchBoardView(awayImage: UIImage?, awayName: String, awayScore: Int, homeImage: UIImage?, homeName: String, homeScore: Int, isAway: Bool, inning: String) {
+        self.awayLogoImageView.image = awayImage
+        self.awayNameLabel.text = ""
+        self.awayScoreLabel.text = String(homeScore)
+        self.homeLogoImageView.image = homeImage
+        self.homeNameLabel.text = ""
+        self.homeScoreLabel.text = String(homeScore)
+        self.changeCurrentPlayerView(isAway: isAway)
+        self.inningLabel.text = inning
+    }
+    
     func changeCurrentPlayerView(isAway: Bool = true) {
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             if isAway {
