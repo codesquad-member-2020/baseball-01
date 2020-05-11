@@ -74,7 +74,7 @@ const DetailBtn = styled.button`
 
 const Score = () => {
   return (
-    <ScoreWrapDiv className='inner'>
+    <ScoreWrapDiv>
       <InningDiv>1회 초</InningDiv>
       <MatchDiv>
         <TeamDiv>
