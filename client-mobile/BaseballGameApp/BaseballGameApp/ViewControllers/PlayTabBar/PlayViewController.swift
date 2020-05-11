@@ -10,7 +10,7 @@ import UIKit
 
 class PlayViewController: UIViewController {
     
-    let matchBoardView = UIView()
+    let matchBoardView = MatchBoardView()
     let gameFieldView = UIView()
     let SBOCountBoardView = UIView()
     let playerView = UIView()
