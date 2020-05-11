@@ -8,10 +8,18 @@ public class ResponseDto {
 
     private int statusCode;
 
+    private String message;
+
     @JsonInclude(JsonInclude.Include.NON_EMPTY)
     private Object data;
 
     public ResponseDto() {
+    }
+
+    public ResponseDto(int statusCode, String message, Object data) {
+        this.statusCode = statusCode;
+        this.message = message;
+        this.data = data;
     }
 
     public ResponseDto(int statusCode, Object data) {
