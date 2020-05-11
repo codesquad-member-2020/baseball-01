@@ -36,8 +36,7 @@ class PlayViewController: UIViewController {
         view.backgroundColor = .white
         
         view.addSubview(matchBoardView)
-        matchBoardView.backgroundColor = .green
-        matchBoardView.constraints(topAnchor: view.safeAreaLayoutGuide.topAnchor, leadingAnchor: view.leadingAnchor, bottomAnchor: nil, trailingAnchor: view.trailingAnchor, size: .init(width: 0, height: view.frame.height * 0.12))
+        matchBoardView.constraints(topAnchor: view.safeAreaLayoutGuide.topAnchor, leadingAnchor: view.leadingAnchor, bottomAnchor: nil, trailingAnchor: view.trailingAnchor, size: .init(width: 0, height: view.frame.height * 0.1))
         
         view.addSubview(gameFieldView)
         gameFieldView.backgroundColor = #colorLiteral(red: 0.5058823824, green: 0.3372549117, blue: 0.06666667014, alpha: 1)
