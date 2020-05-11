@@ -14,14 +14,11 @@ class MatchBoardView: UIView {
     private let awayNameLabel = PlainLabel(text: "AWAY", color: .black, fontSize: 18, weight: .medium, alignment: .left)
     private let awayScoreLabel = PlainLabel(text: "0", color: .red, fontSize: 32, weight: .bold, alignment: .right)
     private var awayTeamInfoStackView: UIStackView!
-    
     private let versusLabel = PlainLabel(text: "VS", color: .black, fontSize: 16, weight: .medium, alignment: .center)
-    
     private let homeLogoImageView = LogoImageView()
     private let homeNameLabel = PlainLabel(text: "HOME", color: .black, fontSize: 18, weight: .medium, alignment: .right)
     private let homeScoreLabel = PlainLabel(text: "0", color: .red, fontSize: 32, weight: .bold, alignment: .left)
     private var homeTeamInfoStackView: UIStackView!
-    
     private let inningView = UIView()
     
     private let currentPlayerView = UIView()
@@ -44,45 +41,6 @@ class MatchBoardView: UIView {
         configureUI()
     }
     
-    private func configureUI() {
-        configureStackViews()
-        
-        addSubview(versusLabel)
-        addSubview(awayTeamInfoStackView)
-        addSubview(awayScoreLabel)
-        addSubview(homeTeamInfoStackView)
-        addSubview(homeScoreLabel)
-        addSubview(currentPlayerView)
-        addSubview(inningView)
-        
-        versusLabel.centerInSuperView()
-        versusLabel.setContentHuggingPriority(.required, for: .horizontal)
-        
-        configureAwayTeamInfoLayout()
-        configureHomeTeamInfoLayout()
-        configureInningView()
-        configureCurrentPlayerView()
-    }
-    
-    private func configureStackViews() {
-        awayTeamInfoStackView = UIStackView(arrangedSubviews: [
-            awayLogoImageView,
-            awayNameLabel
-        ])
-        homeTeamInfoStackView = UIStackView(arrangedSubviews: [
-            homeNameLabel,
-            homeLogoImageView
-        ])
-    }
-    
-    private func configureInningView() {
-        inningView.backgroundColor = .black
-        inningView.alpha = 0.8
-        inningView.layer.cornerRadius = 8
-        inningView.constraints(topAnchor: versusLabel.bottomAnchor, leadingAnchor: nil, bottomAnchor: nil, trailingAnchor: nil, padding: .init(top: 8, left: 0, bottom: 0, right: 0), size: .init(width: 72, height: 20))
-        inningView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-    }
-    
     func changeCurrentPlayerView(isAway: Bool = true) {
         UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             if isAway {
@@ -99,8 +57,50 @@ class MatchBoardView: UIView {
             self.layoutIfNeeded()
         })
     }
+}
+
+// MARK:- Layout
+extension MatchBoardView {
+    private func configureUI() {
+        configureStackViews()
+        
+        addSubview(versusLabel)
+        addSubview(awayTeamInfoStackView)
+        addSubview(awayScoreLabel)
+        addSubview(homeTeamInfoStackView)
+        addSubview(homeScoreLabel)
+        addSubview(currentPlayerView)
+        addSubview(inningView)
+        
+        versusLabel.centerInSuperView()
+        versusLabel.setContentHuggingPriority(.required, for: .horizontal)
+        
+        configureAwayTeamInfoLayout()
+        configureHomeTeamInfoLayout()
+        configureInningViewLayout()
+        configureCurrentPlayerViewLayout()
+    }
     
-    private func configureCurrentPlayerView() {
+    private func configureStackViews() {
+        awayTeamInfoStackView = UIStackView(arrangedSubviews: [
+            awayLogoImageView,
+            awayNameLabel
+        ])
+        homeTeamInfoStackView = UIStackView(arrangedSubviews: [
+            homeNameLabel,
+            homeLogoImageView
+        ])
+    }
+    
+    private func configureInningViewLayout() {
+        inningView.backgroundColor = .black
+        inningView.alpha = 0.8
+        inningView.layer.cornerRadius = 8
+        inningView.constraints(topAnchor: versusLabel.bottomAnchor, leadingAnchor: nil, bottomAnchor: nil, trailingAnchor: nil, padding: .init(top: 8, left: 0, bottom: 0, right: 0), size: .init(width: 72, height: 20))
+        inningView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+    }
+    
+    private func configureCurrentPlayerViewLayout() {
         currentPlayerView.backgroundColor = #colorLiteral(red: 0.9529411793, green: 0.6862745285, blue: 0.1333333403, alpha: 1)
         currentPlayerView.alpha = 0.7
         currentPlayerView.layer.cornerRadius = 4
