@@ -43,10 +43,10 @@ class MatchBoardView: UIView {
     
     func configureMatchBoardView(awayImage: UIImage?, awayName: String, awayScore: Int, homeImage: UIImage?, homeName: String, homeScore: Int, isAway: Bool, inning: String) {
         self.awayLogoImageView.image = awayImage
-        self.awayNameLabel.text = ""
+        self.awayNameLabel.text = awayName
         self.awayScoreLabel.text = String(homeScore)
         self.homeLogoImageView.image = homeImage
-        self.homeNameLabel.text = ""
+        self.homeNameLabel.text = homeName
         self.homeScoreLabel.text = String(homeScore)
         self.changeCurrentPlayerView(isAway: isAway)
         self.inningLabel.text = inning
