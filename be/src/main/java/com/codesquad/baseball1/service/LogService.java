@@ -1,12 +1,15 @@
 package com.codesquad.baseball1.service;
 
+import com.codesquad.baseball1.dao.InningDao;
 import com.codesquad.baseball1.dao.LogDao;
+import com.codesquad.baseball1.dao.RecordDao;
+import com.codesquad.baseball1.domain.Record;
+import com.codesquad.baseball1.dto.ResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class LogService {
@@ -15,6 +18,10 @@ public class LogService {
     private JdbcTemplate jdbcTemplate;
     @Autowired
     private LogDao logDao;
+    @Autowired
+    private RecordDao recordDao;
+    @Autowired
+    private InningDao inningDao;
 
 
     public void updateDbBasedOnActionType(String actionType, int logId, int hitterId, int inningId) {
@@ -73,5 +80,49 @@ public class LogService {
             matches.put("home", 9);
             matches.put("away", 10);
         } return matches;
+    }
+
+    public void createLog(Record record, String action, int inningId) {
+        String sql = "insert into log (log_id, hitter_name, hitter_number, plate_appearance, action_result, strike_count, ball_count, out_count, hit_count, available, inning_id) VALUES (?, ?, ?, ?, ?, ?, ?, ? , ?, ?, ?)";
+        jdbcTemplate.update(sql,
+                null, record.getHitterName(), record.getHitterNumber(), record.getPlateAppearance(), action, record.getStrikeCount(), record.getBallCount(), record.getOutCount(), record.getHitCount(), 1, inningId);
+    }
+
+    public String getRandomAction() {
+        List<String> sboh = Arrays.asList("스트라이크", "아웃", "볼", "안타");
+        Random random = new Random();
+        String actionType = sboh.get(random.nextInt(sboh.size()));
+        return actionType;
+    }
+
+    public String findPitcher(int teamId) {
+        String sql = "SELECT pitcher_name from pitcher where pitcher_id =" + teamId;
+        String pitcherName = jdbcTemplate.queryForObject(sql, new Object[]{}, String.class);
+        return pitcherName;
+    }
+
+    public void updatePitchCountToInning(int inningId) {
+        String inningSql = "UPDATE halfInning SET number_of_pitches = number_of_pitches + 1 where inning_id =" + inningId;
+        jdbcTemplate.update(inningSql);
+    }
+
+    public ResponseDto makePitch(int inningId, int homeOrAwayId) {
+        updatePitchCountToInning(inningId);
+        //find available player to throw pitch
+        Record record = recordDao.findPlayerToPlay(homeOrAwayId);
+        int hitterId = record.getHitterId();
+        //get random result (s,b,o,h)
+        String actionType = getRandomAction();
+        //find a pitcher
+        String pitcherName = findPitcher(homeOrAwayId);
+        //update halfInning table's pitcher_name column searched by inningId
+        inningDao.updateHalfInning(inningId, pitcherName);
+        //create an empty Log first
+        createLog(record, actionType, inningId);
+        //find a newest Log added to the data base
+        int logId = logDao.findLatestLog().getLogId();
+        //then update value for *_count columns
+        updateDbBasedOnActionType(actionType, logId, hitterId, inningId);
+        return new ResponseDto(200, inningDao.findInningById(inningId));
     }
 }

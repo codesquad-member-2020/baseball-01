@@ -25,7 +25,7 @@ public class ScoreController {
 
     private ArrayList<List> scores = new ArrayList<>();
 
-    @GetMapping("/scores")
+    @GetMapping("/matches/scores")
     public ResponseDto showScores(){
         List<Integer> homeScores = getScores("'home'");
         List<Integer> awayScores = getScores("'away'");
