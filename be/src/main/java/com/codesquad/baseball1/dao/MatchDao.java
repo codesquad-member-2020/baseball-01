@@ -19,7 +19,7 @@ public class MatchDao {
     }
 
     private Object findTeam(int matchId, String teamType) {
-        String sql = "SELECT team_name, user_name, logo.url " +
+        String sql = "SELECT team_id, team_name, user_name, logo.url " +
                 "FROM team " +
                 "JOIN logo " +
                 "ON logo.logo_id = team.logo_id " +
@@ -27,8 +27,9 @@ public class MatchDao {
                 "AND team.team_type = ?";
 
         RowMapper<Object> teamsRowMapper = (rs, rowNum) -> {
-            TeamDto teamDto = new TeamDto.Builder(rs.getString("team_name"))
-                    .player(rs.getString("user_name"))
+            TeamDto teamDto = new TeamDto.Builder(rs.getInt("team_id"))
+                    .teamName(rs.getString("team_name"))
+                    .player(rs.getBoolean("user_name"))
                     .logoImage(rs.getString("url"))
                     .build();
             return teamDto;
