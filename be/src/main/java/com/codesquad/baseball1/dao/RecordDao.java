@@ -42,7 +42,7 @@ public class RecordDao {
     }
 
     public void resetScore(int teamId) {
-        String sql = "UPDATE record set out_count = 0, strike_count = 0, ball_count = 0, hit_count = 0 where team_id =" + teamId;
+        String sql = "UPDATE record set out_count = 0, strike_count = 0, ball_count = 0, hit_count = 0, available = 1 where team_id =" + teamId;
         jdbcTemplate.update(sql);
     }
 
