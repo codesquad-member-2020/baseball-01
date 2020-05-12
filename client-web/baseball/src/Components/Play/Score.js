@@ -6,8 +6,7 @@ const ScoreWrapDiv = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: auto;
-  border-radius: 13px;
+  border-radius: 8px;
   border: 3px solid #000;
 `;
 
@@ -20,7 +19,7 @@ const InningDiv = styled.div`
   font-weight: bold;
   font-size: 32px;
   color: #333;
-  border-radius: 10px 0 0 10px;
+  border-radius: 5px 0 0 5px;
   background: rgb(253, 253, 253);
   background: linear-gradient(180deg, rgba(253, 253, 253, 1) 45%, rgba(227, 227, 227, 1) 50%, rgba(248, 248, 248, 1) 100%);
 `;
@@ -34,7 +33,7 @@ const MatchDiv = styled.div`
   padding-right: 15%;
   text-align: center;
   color: #fff;
-  border-radius: 0 10px 10px 0;
+  border-radius: 0 5px 5px 0;
   background: rgb(13, 25, 37);
   background: linear-gradient(180deg, rgba(13, 25, 37, 1) 50%, rgba(0, 0, 1, 1) 100%);
 `;
@@ -56,6 +55,7 @@ const TeamDiv = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    ${props => props.home && 'flex-direction: row-reverse'};
     font-size: 24px;
   }
 `;
@@ -78,18 +78,18 @@ const Score = () => {
       <InningDiv>1회 초</InningDiv>
       <MatchDiv>
         <TeamDiv>
-          <span>Home</span>
-          <div>
-            <img src='https://sports-phinf.pstatic.net/team/kbo/default/LT.png' alt='롯데자 이언츠 로고' />
-            롯데 자이언츠
-          </div>
-        </TeamDiv>
-        <ScoreDiv children={'0:0'} />
-        <TeamDiv>
-          <span>Away</span>
+          <span>AWAY</span>
           <div>
             <img src='https://sports-phinf.pstatic.net/team/kbo/default/WO.png' alt='키움 히어로즈' />
             키움 히어로즈
+          </div>
+        </TeamDiv>
+        <ScoreDiv children={'0:0'} />
+        <TeamDiv home>
+          <span>HOME</span>
+          <div>
+            <img src='https://sports-phinf.pstatic.net/team/kbo/default/LT.png' alt='롯데자 이언츠 로고' />
+            롯데 자이언츠
           </div>
         </TeamDiv>
       </MatchDiv>
