@@ -32,8 +32,8 @@ public class PitchController {
     }
 
 
-    @GetMapping("/matches/{matchId}/pitch")
-    public ResponseDto pitch(@PathVariable int matchId) {
+    @PostMapping("/matches/{matchId}/pitch")
+    public ResponseDto throwPitch(@PathVariable int matchId) {
         Map matches = logService.figureHomeOrAway(matchId);
         int homeId = (int) matches.get("home");
         int awayId = (int) matches.get("away");
@@ -48,11 +48,11 @@ public class PitchController {
         return null;
     }
 
-//    @GetMapping("/matches/{matchId}/getPitch")
-//    public ResponseDto getPitch(@PathVariable int matchId) {
-//        HalfInning thisInning = inningDao.findHalfInningToPlay();
-//        int inningId = thisInning.getInningId();
-//        return new ResponseDto(200, inningDao.findInningById(inningId));
-//    }
+    @GetMapping("/matches/{matchId}/pitch")
+    public ResponseDto getPitch(@PathVariable int matchId) {
+        HalfInning thisInning = inningDao.findHalfInningToPlay(matchId);
+        int inningId = thisInning.getInningId();
+        return new ResponseDto(200, inningDao.findInningById(inningId));
+    }
 
 }

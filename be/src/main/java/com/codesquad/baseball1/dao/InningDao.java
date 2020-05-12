@@ -49,7 +49,7 @@ public class InningDao {
         halfInning.setLogs(logs);
         return halfInning;
     }
-    
+
     @GetMapping("/innings")
     public List<HalfInning> getHalfInnings(int matchId) {
         String sql = "SELECT * FROM halfInning where match_id = " +matchId;
