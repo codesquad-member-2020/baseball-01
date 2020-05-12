@@ -31,7 +31,7 @@ public class RecordDao {
         List<Record> records = findRecordByTeamId(teamId);
         for (int i = 0; i < records.size(); i++) {
             Record r = records.get(i);
-            if (r.getOutCount() == 0) {
+            if (r.isAvailable()) {
                 return r;
             }
             System.out.println("this player is out : " + r.getHitterName());

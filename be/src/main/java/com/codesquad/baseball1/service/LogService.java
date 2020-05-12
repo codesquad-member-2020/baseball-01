@@ -26,32 +26,20 @@ public class LogService {
 
     public void updateDbBasedOnActionType(String actionType, int logId, int hitterId, int inningId) {
         if (actionType.equals("스트라이크")) {
-            String sql = "UPDATE log SET strike_count = strike_count +1 where log_id =" + logId;
-            String sql2 = "UPDATE record SET strike_count = strike_count +1 where hitter_id =" + hitterId;
-            String sql3 = "UPDATE record SET available = 0 where strike_count = 3";
-            jdbcTemplate.update(sql);
-            jdbcTemplate.update(sql2);
-            jdbcTemplate.update(sql3);
+            updateLogWhenStrike(logId);
+            updateRecordWhenStrike(hitterId);
+
         } else if (actionType.equals("볼")) {
-            String sql = "UPDATE log SET ball_count = ball_count +1 where log_id =" + logId;
-            String sql2 = "UPDATE record SET ball_count = ball_count +1 where hitter_id =" + hitterId;
-            if (logDao.findBallCountOfLogById(logId) == 4) {
-                String sql3 = "UPDATE halfInning SET hit_score = hit_score +1 where inning_id =" + inningId;
-                jdbcTemplate.update(sql3);
-            }
-            jdbcTemplate.update(sql);
-            jdbcTemplate.update(sql2);
+            updateLogWhenBall(logId);
+            updateRecordWhenBall(hitterId);
+            updateHitCountWhenFourBalls(logId, inningId);
+
         } else if (actionType.equals("아웃")) {
-            String sql = "UPDATE log SET out_count = out_count +1, available = 0 where log_id =" + logId;
-            String sql2 = "UPDATE record SET out_count = out_count +1, available = 0 where hitter_id =" + hitterId;
-            String sql3 = "UPDATE halfInning SET outsum = outsum + 1 where inning_id=" + inningId;
+            updateLogWhenOut(logId);
+            updateRecordWhenOut(hitterId);
             String sql4 = "UPDATE record SET plate_appearance = plate_appearance + 1 where record_id =" + hitterId;
             String sql5 = "UPDATE log SET plate_appearance = plate_appearance + 1 where log_id =" + logId;
-            jdbcTemplate.update(sql);
-            jdbcTemplate.update(sql2);
-            jdbcTemplate.update(sql3);
-            jdbcTemplate.update(sql4);
-            jdbcTemplate.update(sql5);
+
         } else if (actionType.equals("안타")) {
             String sql = "UPDATE log SET hit_count = hit_count +1 where log_id =" + logId;
             String sql2 = "UPDATE record SET hit_count = hit_count +1, available = 0 where hitter_id =" + hitterId;
@@ -60,6 +48,54 @@ public class LogService {
             jdbcTemplate.update(sql2);
             jdbcTemplate.update(sql3);
         }
+    }
+
+    public void updateLogWhenStrike(int logId) {
+        String sql = "UPDATE log SET strike_count = strike_count +1 where log_id =" + logId;
+        jdbcTemplate.update(sql);
+    }
+
+    public void updateLogWhenBall(int logId) {
+        String sql = "UPDATE log SET ball_count = ball_count +1 where log_id =" + logId;
+        jdbcTemplate.update(sql);
+    }
+
+    public void updateHitCountWhenFourBalls(int logId, int inningId) {
+        if (logDao.findBallCountOfLogById(logId) == 4) {
+            String sql3 = "UPDATE halfInning SET hit_score = hit_score +1 where inning_id =" + inningId;
+            jdbcTemplate.update(sql3);
+        }
+    }
+
+    public void updateLogWhenOut(int logId) {
+        String sql = "UPDATE log SET out_count = out_count +1, available = 0 where log_id =" + logId;
+        jdbcTemplate.update(sql);
+
+    }
+
+    public void updateRecordWhenStrike(int hitterId) {
+        String sql = "UPDATE record SET strike_count = strike_count +1 where hitter_id =" + hitterId;
+        String sql3 = "UPDATE record SET available = 0 where strike_count = 3";
+        jdbcTemplate.update(sql);
+        jdbcTemplate.update(sql3);
+    }
+
+    public void updateRecordWhenBall(int hitterId) {
+        String sql = "UPDATE record SET ball_count = ball_count +1 where hitter_id =" + hitterId;
+        String sql2 = "UPDATE record SET available = 0 where ball_count = 4";
+        jdbcTemplate.update(sql);
+        jdbcTemplate.update(sql2);
+    }
+
+    public void updateRecordWhenOut(int hitterId) {
+        String sql = "UPDATE record SET out_count = out_count +1, available = 0 where hitter_id =" + hitterId;
+        jdbcTemplate.update(sql);
+
+    }
+
+    public void updateHalfInning(int inningId) {
+        String sql = "UPDATE halfInning SET outsum = outsum + 1 where inning_id=" + inningId;
+        jdbcTemplate.update(sql);
     }
 
     public Map<String, Integer> figureHomeOrAway(int matchId) {
