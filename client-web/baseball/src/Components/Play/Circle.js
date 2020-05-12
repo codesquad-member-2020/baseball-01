@@ -4,21 +4,22 @@ import styled from 'styled-components';
 const switchColor = type => {
   switch (type) {
     case 'ball':
-      return '#6acb12';
+      return 'rgb(4,116,194)';
     case 'strike':
-      return '#e0e004';
+      return 'rgb(182,133,3)';
     default:
-      return '#e01a1a';
+      return 'rgb(197,14,11)';
   }
 };
-const switchBoxShadow = type => {
+
+const switchColorGradient = type => {
   switch (type) {
     case 'ball':
-      return 'rgba(0, 0, 0, 0.2) 0 0 5px 1px, inset #304701 0 0 5px, #6acb12 0 0 5px';
+      return 'linear-gradient(180deg, rgba(4,116,194,1) 0%, rgba(0,191,249,1) 100%)';
     case 'strike':
-      return 'rgba(0, 0, 0, 0.2) 0 0 5px 1px, inset #808002 0 0 5px, #e0e004 0 0 5px';
+      return 'linear-gradient(180deg, rgba(182,133,3,1) 0%, rgba(241,198,36,1) 100%)';
     default:
-      return 'rgba(0, 0, 0, 0.2) 0 0 5px 1px, inset #441313 0 0 5px, rgba(255, 0, 0, 0.5) 0 0 5px';
+      return 'linear-gradient(180deg, rgba(197,14,11,1) 49%, rgba(228,33,16,1) 100%)';
   }
 };
 
@@ -34,7 +35,7 @@ const CircleBackgroundSpan = styled.span`
   display: inline-block;
   width: 20px;
   height: 20px;
-  margin: 0 2px;
+  margin: 0 5px;
   border-radius: 50%;
   background: rgb(255, 255, 255);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.7) 0%, rgba(204, 204, 204, 0.7) 100%);
@@ -51,10 +52,10 @@ const OnCircleSpan = styled.span`
   display: inline-block;
   width: 20px;
   height: 20px;
-  margin: 0 2px;
+  margin: 0 5px;
   border-radius: 50%;
-  box-shadow: ${({ type }) => switchBoxShadow(type)};
   background: ${({ type }) => switchColor(type)};
+  background: ${({ type }) => switchColorGradient(type)};
 `;
 
 const Circle = ({ number, show, type }) => {
@@ -68,7 +69,7 @@ const Circle = ({ number, show, type }) => {
   for (let i = 0; i < show; i++) {
     onCircleList.push(<OnCircleSpan type={type} key={i} />);
   }
-  
+
   return (
     <CircleWrapDiv>
       <CircleListSpan>{circleList}</CircleListSpan>
