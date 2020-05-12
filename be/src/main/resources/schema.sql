@@ -41,10 +41,6 @@ CREATE TABLE hitter
     hitter_id      int auto_increment primary key,
     hitter_name    varchar(64),
     hitter_number int,
---     accumulatedPA int,
---     accumulatedHit int,
---     accumulatedOut int,
---     accumulatedAverage int,
     average float,
     team_id int REFERENCES team (team_id) ON UPDATE CASCADE
 );
@@ -61,6 +57,8 @@ create table record (
                         plate_appearance int,
                         available bit(1),
                         team_id int references team(team_id),
+                        total_out_count int,
+                        total_hit_count int,
                         hitter_id int references hitter(hitter_id)
 );
 create table halfInning (
@@ -70,6 +68,7 @@ create table halfInning (
                         pitcher_name varchar (255),
                         number_of_pitches int,
                         outSum int,
+                        match_id int,
                         status varchar(255)
 );
 create table log (

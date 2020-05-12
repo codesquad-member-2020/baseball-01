@@ -73,20 +73,20 @@ public class LogService {
 
     public void updateRecordWhenStrike(int hitterId) {
         String sql = "UPDATE record SET strike_count = strike_count +1 where hitter_id =" + hitterId;
-        String sql3 = "UPDATE record SET available = 0 where strike_count = 3";
+        String sql3 = "UPDATE record SET available = 0, total_out_count = total_out_count + 1 where strike_count = 3";
         jdbcTemplate.update(sql);
         jdbcTemplate.update(sql3);
     }
 
     public void updateRecordWhenBall(int hitterId) {
         String sql = "UPDATE record SET ball_count = ball_count +1 where hitter_id =" + hitterId;
-        String sql2 = "UPDATE record SET available = 0 where ball_count = 4";
+        String sql2 = "UPDATE record SET available = 0, total_hit_count = total_hit_count + 1 where ball_count = 4";
         jdbcTemplate.update(sql);
         jdbcTemplate.update(sql2);
     }
 
     public void updateRecordWhenOut(int hitterId) {
-        String sql = "UPDATE record SET out_count = out_count +1, available = 0 where hitter_id =" + hitterId;
+        String sql = "UPDATE record SET out_count = out_count +1, available = 0, total_out_count = total_out_count + 1 where hitter_id =" + hitterId;
         jdbcTemplate.update(sql);
 
     }
@@ -101,7 +101,7 @@ public class LogService {
         jdbcTemplate.update(sql);
     };
     public void updateRecordWhenHit(int hitterId) {
-        String sql = "UPDATE record SET hit_count = hit_count +1, available = 0 where hitter_id =" + hitterId;
+        String sql = "UPDATE record SET hit_count = hit_count +1, available = 0, total_hit_count = total_hit_count + 1 where hitter_id =" + hitterId;
         jdbcTemplate.update(sql);
     };
     public void updateHalfInningWhenHit(int inningId) {

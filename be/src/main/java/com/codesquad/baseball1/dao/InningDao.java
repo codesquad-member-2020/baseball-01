@@ -56,8 +56,8 @@ public class InningDao {
 //        return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(HalfInning.class));
 //    }
     @GetMapping("/innings")
-    public List<HalfInning> getHalfInnings() {
-        String sql = "SELECT * FROM halfInning";
+    public List<HalfInning> getHalfInnings(int matchId) {
+        String sql = "SELECT * FROM halfInning where match_id = " +matchId;
         return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(HalfInning.class));
     }
 
@@ -69,8 +69,8 @@ public class InningDao {
 //            }
 //        } return null;
 //    }
-    public HalfInning findHalfInningToPlay() {
-        List<HalfInning> halfInnings = getHalfInnings();
+    public HalfInning findHalfInningToPlay(int matchId) {
+        List<HalfInning> halfInnings = getHalfInnings(matchId);
         for (HalfInning h : halfInnings) {
             if (h.getOutSum() < 3) {
                 return h;

@@ -16,6 +16,9 @@ public class HalfInning {
     @JsonProperty("inning_id")
     private int inningId;
 
+    @JsonProperty("team_id")
+    private int teamId;
+
     @JsonProperty("round")
     private String round;
 

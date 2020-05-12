@@ -37,21 +37,22 @@ public class PitchController {
         Map matches = logService.figureHomeOrAway(matchId);
         int homeId = (int) matches.get("home");
         int awayId = (int) matches.get("away");
-        HalfInning thisInning = inningDao.findHalfInningToPlay();
-        int inningId = thisInning.getInningId();
-        if (inningId%2 != 0 && !inningDao.isThreeOut(thisInning)) {
+        HalfInning homeInning = inningDao.findHalfInningToPlay(matchId);
+
+        int inningId = homeInning.getInningId();
+        if (inningId%2 != 0 && !inningDao.isThreeOut(homeInning)) {
             return logService.makePitch(inningId, homeId);
-        } else if (inningId%2 == 0 && !inningDao.isThreeOut(thisInning)) {
+        } else if (inningId%2 == 0 && !inningDao.isThreeOut(homeInning)) {
             return logService.makePitch(inningId, awayId);
         }
         return null;
     }
 
-    @GetMapping("/matches/{matchId}/getPitch")
-    public ResponseDto getPitch(@PathVariable int matchId) {
-        HalfInning thisInning = inningDao.findHalfInningToPlay();
-        int inningId = thisInning.getInningId();
-        return new ResponseDto(200, inningDao.findInningById(inningId));
-    }
+//    @GetMapping("/matches/{matchId}/getPitch")
+//    public ResponseDto getPitch(@PathVariable int matchId) {
+//        HalfInning thisInning = inningDao.findHalfInningToPlay();
+//        int inningId = thisInning.getInningId();
+//        return new ResponseDto(200, inningDao.findInningById(inningId));
+//    }
 
 }

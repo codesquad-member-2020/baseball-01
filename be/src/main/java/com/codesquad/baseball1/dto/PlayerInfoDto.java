@@ -12,11 +12,11 @@ public class PlayerInfoDto {
     @JsonProperty("plate_appearance")
     private int plateAppearance;
 
-    @JsonProperty("hit_score")
-    private int hitScore;
+    @JsonProperty("total_hit_count")
+    private int totalHitCount;
 
-    @JsonProperty("out_score")
-    private int outScore;
+    @JsonProperty("total_out_score")
+    private int totalOutScore;
 
     @JsonProperty("average")
     private int average;
@@ -24,16 +24,16 @@ public class PlayerInfoDto {
     public PlayerInfoDto(Builder builder) {
         name = builder.name;
         plateAppearance = builder.plateAppearance;
-        hitScore = builder.hitScore;
-        outScore = builder.outScore;
+        totalHitCount = builder.totalHitCount;
+        totalOutScore = builder.totalOutScore;
         average = builder.average;
     }
 
     public static class Builder {
         private String name;
         private int plateAppearance;
-        private int hitScore;
-        private int outScore;
+        private int totalHitCount;
+        private int totalOutScore;
         private int average;
 
         public Builder (String name) {
@@ -44,12 +44,12 @@ public class PlayerInfoDto {
             this.plateAppearance = plateAppearance;
             return this;
         }
-        public Builder hitScore(int hitScore) {
-            this.hitScore = hitScore;
+        public Builder hitScore(int totalHitCount) {
+            this.totalHitCount = totalHitCount;
             return this;
         }
-        public Builder outScore(int outScore) {
-            this.outScore = outScore;
+        public Builder outScore(int totalOutScore) {
+            this.totalOutScore = totalOutScore;
             return this;
         }
         public Builder average(int average) {

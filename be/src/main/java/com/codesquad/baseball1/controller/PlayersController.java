@@ -28,8 +28,8 @@ public class PlayersController {
         String home = matchDao.findTeamNameByMatchId(matchId, "'home'");
         String away = matchDao.findTeamNameByMatchId(matchId, "'away'");
 
-        Object playerInfoDto1 = playerInfoDao.findPlayersInfo(homeId);
-        Object playerInfoDto2 = playerInfoDao.findPlayersInfo(awayId);
+        Object playerInfoDto1 = playerInfoDao.findPlayersInfoByTeamId(homeId);
+        Object playerInfoDto2 = playerInfoDao.findPlayersInfoByTeamId(awayId);
 
         BoardDto boardDto1 = new BoardDto(home, playerInfoDto1);
         BoardDto boardDto2 = new BoardDto(away, playerInfoDto2);
