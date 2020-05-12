@@ -41,6 +41,10 @@ CREATE TABLE hitter
     hitter_id      int auto_increment primary key,
     hitter_name    varchar(64),
     hitter_number int,
+--     accumulatedPA int,
+--     accumulatedHit int,
+--     accumulatedOut int,
+--     accumulatedAverage int,
     average float,
     team_id int REFERENCES team (team_id) ON UPDATE CASCADE
 );

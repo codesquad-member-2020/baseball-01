@@ -8,9 +8,7 @@ import com.codesquad.baseball1.domain.Record;
 import com.codesquad.baseball1.dto.ResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.sql.DataSource;
 import java.util.*;
@@ -36,105 +34,51 @@ public class LogController {
     public ResponseDto aaa(@PathVariable int teamId) {
         return new ResponseDto(200, "good", recordDao.findRecordByTeamId(teamId));
     }
-    //        //API to return when a player chooses 'home' team (defense)
-//        @GetMapping("/matches/{matchId}/pitch")
-//        public ResponseDto defense(@PathVariable int matchId) {
-//            Map matches = figureHomeOrAway(matchId);
-//            int teamId = (int) matches.get("home");
-//            //find half-inning in order
-//            HalfInning thisInning = inningDao.findHalfInningToPlay("'home'");
-//            int inningId = thisInning.getInning_id();
-//            if (!inningDao.isThreeOut(thisInning)) {
-//                //update number of pitches every time player throws a pitch
-//                updatePitchCountToInning(inningId);
-//                //find available player to throw pitch
-//                Record record = recordDao.findPlayerToPlay(teamId);
-//                int hitterId = record.getHitterId();
-//                //get random result (s,b,o,h)
-//                String actionType = getRandomAction();
-//                //find a pitcher
-//                String pitcherName = findPitcher(teamId);
-//                //update halfInning table's pitcher_name column searched by inningId
-//                inningDao.updateHalfInning(inningId, pitcherName);
-//                //create an empty Log first
-//                createLog(record, actionType, inningId);
-//                //find a newest Log added to the data base
-//                int logId = logDao.findLatestLog().getLogId();
-//                //then update value for *_count columns
-//                updateDbBasedOnActionType(actionType, logId, hitterId, inningId);
-//                return new ResponseDto(200, "SUCCESS", inningDao.findInningById(inningId));
-//            }
-//            return new ResponseDto(200, "세 번 아웃되어 공수가 전환됩니다");
-//        }
+
     @GetMapping("/matches/{matchId}/pitch")
     public ResponseDto pitch(@PathVariable int matchId) {
         Map matches = figureHomeOrAway(matchId);
         int homeId = (int) matches.get("home");
         int awayId = (int) matches.get("away");
-        //find half-inning in order
         HalfInning thisInning = inningDao.findHalfInningToPlay();
         int inningId = thisInning.getInningId();
-        //if inningId%2 == 0, that inning is home's turn to pitch
         if (inningId%2 != 0 && !inningDao.isThreeOut(thisInning)) {
-            //update number of pitches every time player throws a pitch
-            updatePitchCountToInning(inningId);
-            //find available player to throw pitch
-            Record record = recordDao.findPlayerToPlay(homeId);
-            int hitterId = record.getHitterId();
-            //get random result (s,b,o,h)
-            String actionType = getRandomAction();
-            //find a pitcher
-            String pitcherName = findPitcher(homeId);
-            //update halfInning table's pitcher_name column searched by inningId
-            inningDao.updateHalfInning(inningId, pitcherName);
-            //create an empty Log first
-            createLog(record, actionType, inningId);
-            //find a newest Log added to the data base
-            int logId = logDao.findLatestLog().getLogId();
-            //then update value for *_count columns
-            updateDbBasedOnActionType(actionType, logId, hitterId, inningId);
-            return new ResponseDto(200, inningDao.findInningById(inningId));
+            return makePitch(inningId, homeId);
         } else if (inningId%2 == 0 && !inningDao.isThreeOut(thisInning)) {
-            //update number of pitches every time player throws a pitch
-            updatePitchCountToInning(inningId);
-            //find available player to throw pitch
-            Record record = recordDao.findPlayerToPlay(awayId);
-            int hitterId = record.getHitterId();
-            //get random result (s,b,o,h)
-            String actionType = getRandomAction();
-            //find a pitcher
-            String pitcherName = findPitcher(awayId);
-            //update halfInning table's pitcher_name column searched by inningId
-            inningDao.updateHalfInning(inningId, pitcherName);
-            //create an empty Log first
-            createLog(record, actionType, inningId);
-            //find a newest Log added to the data base
-            int logId = logDao.findLatestLog().getLogId();
-            //then update value for *_count columns
-            updateDbBasedOnActionType(actionType, logId, hitterId, inningId);
-            return new ResponseDto(200, inningDao.findInningById(inningId));
+            return makePitch(inningId, awayId);
         }
         return null;
     }
-    //        //API to return when a player chooses 'away' team (attack)
-//        @GetMapping("/away/{matchId}")
-//        public ResponseDto attack(@PathVariable int matchId) {
-//            Map matches = figureHomeOrAway(matchId);
-//            int teamId = (int) matches.get("away");
-//
-//            HalfInning thisInning = inningDao.findHalfInningToPlay("'away'");
-//            int inningId = thisInning.getInning_id();
-//            updatePitchCountToInning(inningId);
-//            Record record = recordDao.findPlayerToPlay(teamId);
-//            int hitterId = record.getHitterId();
-//            String actionType = getRandomAction();
-//            String pitcherName = findPitcher(teamId);
-//            inningDao.updateHalfInning(inningId, pitcherName);
-//            createLog(record, actionType, inningId);
-//            int logId = logDao.findLatestLog().getLogId();
-//            updateDbBasedOnActionType(actionType, logId, hitterId, inningId);
-//            return new ResponseDto(200, "SUCCESS", inningDao.findInningById(inningId));
-//        }
+
+    @GetMapping("/matches/{matchId}/getPitch")
+    public ResponseDto getPitch(@PathVariable int matchId) {
+        HalfInning thisInning = inningDao.findHalfInningToPlay();
+        int inningId = thisInning.getInningId();
+        return new ResponseDto(200, inningDao.findInningById(inningId));
+    }
+
+    public ResponseDto makePitch(int inningId, int homeOrAwayId) {
+        updatePitchCountToInning(inningId);
+        //find available player to throw pitch
+        Record record = recordDao.findPlayerToPlay(homeOrAwayId);
+        int hitterId = record.getHitterId();
+        //get random result (s,b,o,h)
+        String actionType = getRandomAction();
+        //find a pitcher
+        String pitcherName = findPitcher(homeOrAwayId);
+        //update halfInning table's pitcher_name column searched by inningId
+                inningDao.updateHalfInning(inningId, pitcherName);
+        //create an empty Log first
+        createLog(record, actionType, inningId);
+        //find a newest Log added to the data base
+        int logId = logDao.findLatestLog().getLogId();
+        //then update value for *_count columns
+        updateDbBasedOnActionType(actionType, logId, hitterId, inningId);
+                return new ResponseDto(200, inningDao.findInningById(inningId));
+    }
+
+
+
     public Map<String, Integer>figureHomeOrAway(int matchId) {
         Map<String, Integer> matches = new HashMap<>();
         if (matchId == 1) {
@@ -165,7 +109,7 @@ public class LogController {
         return pitcherName;
     }
     public String getRandomAction() {
-        List<String> sboh = Arrays.asList("아웃", "아웃", "아웃", "아웃");
+        List<String> sboh = Arrays.asList("스트라이크", "아웃", "볼", "안타");
         Random random = new Random();
         String actionType = sboh.get(random.nextInt(sboh.size()));
         return actionType;

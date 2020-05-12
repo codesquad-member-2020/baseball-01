@@ -50,4 +50,17 @@ public class MatchDao {
         };
         return jdbcTemplate.query(sql, matchesRowMapper);
     }
+
+
+    public String findTeamNameByMatchId(int matchId, String homeOrAway) {
+        String sql = "SELECT team_name from team where team.match_id = ? and team.team_type = " + homeOrAway;
+        String teamName = (String) jdbcTemplate.queryForObject(sql, new Object[]{matchId},String.class);
+        return teamName;
+    }
+
+    public Integer findTeamIdByMatchId(int matchId, String homeOrAway) {
+        String sql = "SELECT team_id from team where team.match_id = ? and team.team_type = " + homeOrAway;
+        int teamId = jdbcTemplate.queryForObject(sql, new Object[]{matchId},Integer.class);
+        return teamId;
+    }
 }

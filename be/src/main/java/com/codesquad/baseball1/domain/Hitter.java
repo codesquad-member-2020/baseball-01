@@ -13,4 +13,13 @@ public class Hitter {
     private int id;
     private String name;
     private float average;
+
+    private int accumulatedPA;
+    private int accumulatedHit;
+    private int accumulatedOut;
+    private int accumulatedAverage;
+
+
+
+//    타석 안타 아웃 평균          -모든 이닝 누적
 }

@@ -34,7 +34,17 @@ public class ScoreController {
         scores.add(homeScores);
         scores.add(awayScores);
 
-        return new ResponseDto(200, "scores", scores);
+        return new ResponseDto(200, "scores", homeScores, awayScores);
+    }
+
+    @GetMapping("/score/home")
+    public List<Integer> scorePractice1(String homeOrAway) {
+        return getScores("'home'");
+    }
+
+    @GetMapping("/score/away")
+    public List<Integer> scorePractice2(String homeOrAway) {
+        return getScores("'away'");
     }
 
     public List<Integer> getScores(String homeOrAway) {
