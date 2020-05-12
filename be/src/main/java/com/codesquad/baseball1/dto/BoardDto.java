@@ -9,11 +9,14 @@ import lombok.Setter;
 @Setter @Getter
 public class BoardDto {
 
-    private String team_name;
+    @JsonProperty("team_name")
+    private String teamName;
+
+    @JsonProperty("players_info")
     private Object playersInfo;
 
-    public BoardDto(String team_name, Object playersInfo) {
-        this.team_name = team_name;
+    public BoardDto(String teamName, Object playersInfo) {
+        this.teamName = teamName;
         this.playersInfo = playersInfo;
     }
 }

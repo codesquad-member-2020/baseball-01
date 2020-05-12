@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class TestController {
+public class PlayersController {
 
     @Autowired
     private PlayerInfoDao playerInfoDao;
@@ -19,7 +19,7 @@ public class TestController {
     private MatchDao matchDao;
 
 
-    @GetMapping("/test/{matchId}")
+    @GetMapping("/matches/{matchId}/players")
     public ResponseDto findPlayerInfo(@PathVariable int matchId) {
 
         int homeId = matchDao.findTeamIdByMatchId(matchId, "'home'");
@@ -34,7 +34,7 @@ public class TestController {
         BoardDto boardDto1 = new BoardDto(home, playerInfoDto1);
         BoardDto boardDto2 = new BoardDto(away, playerInfoDto2);
 
-        return new ResponseDto(200,  "good",boardDto1,boardDto2);
+        return new ResponseDto(200,  "test",boardDto1,boardDto2);
 
     }
 

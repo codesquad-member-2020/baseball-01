@@ -6,11 +6,19 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class PlayerInfoDto {
 
+    @JsonProperty("name")
     private String name;
 
+    @JsonProperty("plate_appearance")
     private int plateAppearance;
+
+    @JsonProperty("hit_score")
     private int hitScore;
+
+    @JsonProperty("out_score")
     private int outScore;
+
+    @JsonProperty("average")
     private int average;
 
     public PlayerInfoDto(Builder builder) {
