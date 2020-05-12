@@ -49,26 +49,13 @@ public class InningDao {
         halfInning.setLogs(logs);
         return halfInning;
     }
-
-    //    @GetMapping("/innings")
-//    public List<HalfInning> getHalfInnings(String status) {
-//        String sql = "SELECT * FROM HalfInning where status =" + status;
-//        return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(HalfInning.class));
-//    }
+    
     @GetMapping("/innings")
     public List<HalfInning> getHalfInnings(int matchId) {
         String sql = "SELECT * FROM halfInning where match_id = " +matchId;
         return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(HalfInning.class));
     }
 
-    //    public HalfInning findHalfInningToPlay(String status) {
-//        List<HalfInning> halfInnings = getHalfInnings(status);
-//        for(HalfInning h : halfInnings) {
-//            if (h.getOutSum() < 3) {
-//                return h;
-//            }
-//        } return null;
-//    }
     public HalfInning findHalfInningToPlay(int matchId) {
         List<HalfInning> halfInnings = getHalfInnings(matchId);
         for (HalfInning h : halfInnings) {
