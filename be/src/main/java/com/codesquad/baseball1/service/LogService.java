@@ -25,6 +25,7 @@ public class LogService {
 
 
     public void updateDbBasedOnActionType(String actionType, int logId, int hitterId, int inningId) {
+
         if (actionType.equals("스트라이크")) {
             updateLogWhenStrike(logId);
             updateRecordWhenStrike(hitterId);
@@ -38,16 +39,11 @@ public class LogService {
             updateLogWhenOut(logId);
             updateRecordWhenOut(hitterId);
             updateHalfInningWhenOut(inningId);
-            String sql4 = "UPDATE record SET plate_appearance = plate_appearance + 1 where record_id =" + hitterId;
-            String sql5 = "UPDATE log SET plate_appearance = plate_appearance + 1 where log_id =" + logId;
 
         } else if (actionType.equals("안타")) {
-            String sql = "UPDATE log SET hit_count = hit_count +1, available = 0 where log_id =" + logId;
-            String sql2 = "UPDATE record SET hit_count = hit_count +1, available = 0 where hitter_id =" + hitterId;
-            String sql3 = "UPDATE halfInning SET hit_score = hit_score +1 where inning_id =" + inningId;
-            jdbcTemplate.update(sql);
-            jdbcTemplate.update(sql2);
-            jdbcTemplate.update(sql3);
+            updateLogWhenHit(logId);
+            updateRecordWhenHit(hitterId);
+            updateHalfInningWhenHit(hitterId);
         }
         updatePlateAppearance(hitterId, logId);
     }
@@ -100,6 +96,20 @@ public class LogService {
         jdbcTemplate.update(sql);
     }
 
+    public void updateLogWhenHit(int logId) {
+        String sql = "UPDATE log SET hit_count = hit_count +1, available = 0 where log_id =" + logId;
+        jdbcTemplate.update(sql);
+    };
+    public void updateRecordWhenHit(int hitterId) {
+        String sql = "UPDATE record SET hit_count = hit_count +1, available = 0 where hitter_id =" + hitterId;
+        jdbcTemplate.update(sql);
+    };
+    public void updateHalfInningWhenHit(int inningId) {
+        String sql = "UPDATE halfInning SET hit_score = hit_score +1 where inning_id =" + inningId;
+        jdbcTemplate.update(sql);
+    };
+
+
     public Integer getPlateAppearance(int hitterId) {
         String sql = "SELECT hitter_name from hitter where hitter_id =" + hitterId;
         String hitterName = jdbcTemplate.queryForObject(sql, String.class);
@@ -115,6 +125,7 @@ public class LogService {
 
         String sql2 = "UPDATE log SET plate_appearance = ? where log_id =" + logId;
         jdbcTemplate.update(sql, getPlateAppearance(hitterId));
+        jdbcTemplate.update(sql2, getPlateAppearance(hitterId));
     }
 
     public Map<String, Integer> figureHomeOrAway(int matchId) {
