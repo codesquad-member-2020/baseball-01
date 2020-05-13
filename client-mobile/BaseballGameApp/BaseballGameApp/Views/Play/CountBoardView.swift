@@ -17,6 +17,12 @@ class CountBoardView: UIView {
     @IBOutlet weak var strikeCountStackView: UIStackView!
     @IBOutlet weak var outCountStackView: UIStackView!
     
+    enum CountType: String {
+        case ball = "ball"
+        case strike = "strike"
+        case out = "out"
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -42,6 +48,28 @@ class CountBoardView: UIView {
         layer.borderColor = UIColor.black.cgColor
         layer.borderWidth = 1.5
         innerView.layer.cornerRadius = 8
+    }
+    
+    func updateCount(type: CountType, count: Int) {
+        var filledCount = 0
+        var fillColor: UIColor!
+        var countStackView: UIStackView!
+        switch type {
+        case .ball:
+            fillColor = UIColor(named: "count.board.ball")
+            countStackView = ballCountStackView
+        case .strike:
+            fillColor = UIColor(named: "count.board.strike")
+            countStackView = strikeCountStackView
+        case .out:
+            fillColor = UIColor(named: "count.board.out")
+            countStackView = outCountStackView
+        }
+        countStackView.arrangedSubviews.forEach {
+            guard filledCount < count else { return }
+            filledCount += 1
+            $0.backgroundColor = fillColor
+        }
     }
     
     func configureCountCircleViews() {
