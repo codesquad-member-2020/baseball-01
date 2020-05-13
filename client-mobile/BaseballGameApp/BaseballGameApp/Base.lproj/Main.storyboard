@@ -47,11 +47,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="403"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yU4-wF-v4o">
-                                <rect key="frame" x="12" y="113" width="121" height="93"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="843-Wj-Jqc" customClass="MatchBoardView" customModule="BaseballGameApp" customModuleProvider="target">
                                 <rect key="frame" x="12" y="44" width="390" height="62.5"/>
                                 <subviews>

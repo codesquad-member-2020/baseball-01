@@ -19,6 +19,8 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var homePlayingBar: UIView!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var inningLabel: UILabel!
+    
+    private var countBoardView: CountBoardView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +30,16 @@ class PlayViewController: UIViewController {
 
     private func configure() {
         configureMatchBoardView()
-        matchBoardView.updatePlayingIndexBar(isAway: false)
+        configureCountBoardView()
+    }
+    
+    private func configureCountBoardView() {
+        countBoardView = CountBoardView()
+        view.addSubview(countBoardView)
+        countBoardView.constraints(topAnchor: matchBoardView.bottomAnchor, leadingAnchor: view.leadingAnchor, bottomAnchor: nil, trailingAnchor: nil, padding: .init(top: 8, left: 12, bottom: 0, right: 0), size: .init(width: matchBoardView.frame.width * 0.25, height: 0))
+        countBoardView.heightAnchor.constraint(equalTo: countBoardView.widthAnchor, multiplier: 0.8).isActive = true
+        view.layoutIfNeeded()
+        countBoardView.configureCountCircleViews()
     }
     
     private func configureMatchBoardView() {

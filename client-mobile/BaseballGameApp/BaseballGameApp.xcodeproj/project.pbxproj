@@ -24,6 +24,8 @@
 		38959BA12460580B00C7AD4D /* MatchPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959BA02460580B00C7AD4D /* MatchPopupView.swift */; };
 		38AB806D2463B67800A75572 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AB806C2463B67800A75572 /* MainViewController.swift */; };
 		38BB53C5246BDECD00526167 /* PlayingTeamIndexBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BB53C4246BDECD00526167 /* PlayingTeamIndexBar.swift */; };
+		38BB53C7246BE55600526167 /* CountBoardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38BB53C6246BE55600526167 /* CountBoardView.xib */; };
+		38BB53C9246BECB300526167 /* CountBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BB53C8246BECB300526167 /* CountBoardView.swift */; };
 		38EA5AC42462E6BC00055D6B /* LogoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA5AC32462E6BC00055D6B /* LogoImageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +49,8 @@
 		38959BA02460580B00C7AD4D /* MatchPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchPopupView.swift; sourceTree = "<group>"; };
 		38AB806C2463B67800A75572 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		38BB53C4246BDECD00526167 /* PlayingTeamIndexBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingTeamIndexBar.swift; sourceTree = "<group>"; };
+		38BB53C6246BE55600526167 /* CountBoardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountBoardView.xib; sourceTree = "<group>"; };
+		38BB53C8246BECB300526167 /* CountBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountBoardView.swift; sourceTree = "<group>"; };
 		38EA5AC32462E6BC00055D6B /* LogoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +87,8 @@
 			children = (
 				38743A3C24682733007B0E51 /* MatchBoardView.swift */,
 				38BB53C4246BDECD00526167 /* PlayingTeamIndexBar.swift */,
+				38BB53C6246BE55600526167 /* CountBoardView.xib */,
+				38BB53C8246BECB300526167 /* CountBoardView.swift */,
 			);
 			path = Play;
 			sourceTree = "<group>";
@@ -212,6 +218,7 @@
 				38959B8F2460058300C7AD4D /* LaunchScreen.storyboard in Resources */,
 				38959B8C2460058300C7AD4D /* Assets.xcassets in Resources */,
 				38743A282463F282007B0E51 /* BungeeOutline-Regular.ttf in Resources */,
+				38BB53C7246BE55600526167 /* CountBoardView.xib in Resources */,
 				38959B8A2460058100C7AD4D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,6 +231,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38743A3A24681AC0007B0E51 /* MatchViewController.swift in Sources */,
+				38BB53C9246BECB300526167 /* CountBoardView.swift in Sources */,
 				38959B872460058100C7AD4D /* MatchListViewController.swift in Sources */,
 				38959B832460058100C7AD4D /* AppDelegate.swift in Sources */,
 				38959B9D246038C800C7AD4D /* MatchListCollectionView.swift in Sources */,
