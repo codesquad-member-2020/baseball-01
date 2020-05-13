@@ -89,8 +89,8 @@ class MatchBoardView: UIView {
     
     private func configureMatchBoardView() {
         layer.cornerRadius = Self.cornerRadius
-        layer.borderColor = UIColor.darkGray.cgColor
-        layer.borderWidth = 1
+        layer.borderColor = UIColor.black.cgColor
+        layer.borderWidth = 2
         clipsToBounds = true
     }
     
@@ -98,6 +98,6 @@ class MatchBoardView: UIView {
         inningLabel.clipsToBounds = true
         inningLabel.layer.cornerRadius = 4
         inningLabel.layer.borderColor = UIColor.black.cgColor
-        inningLabel.layer.borderWidth = 1
+        inningLabel.layer.borderWidth = 2
     }
 }
