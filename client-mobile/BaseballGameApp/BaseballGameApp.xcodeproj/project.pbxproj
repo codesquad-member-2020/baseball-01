@@ -13,6 +13,8 @@
 		38743A3D24682733007B0E51 /* MatchBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38743A3C24682733007B0E51 /* MatchBoardView.swift */; };
 		3875C712246C28AD00B579FE /* CurrentPitcherHitterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3875C711246C28AD00B579FE /* CurrentPitcherHitterView.xib */; };
 		3875C714246C28CB00B579FE /* CurrentPitcherHitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3875C713246C28CB00B579FE /* CurrentPitcherHitterView.swift */; };
+		3875C71D246C32D300B579FE /* PlayerLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3875C71B246C32D300B579FE /* PlayerLogCell.swift */; };
+		3875C71E246C32D300B579FE /* PlayerLogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3875C71C246C32D300B579FE /* PlayerLogCell.xib */; };
 		38959B832460058100C7AD4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B822460058100C7AD4D /* AppDelegate.swift */; };
 		38959B852460058100C7AD4D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B842460058100C7AD4D /* SceneDelegate.swift */; };
 		38959B872460058100C7AD4D /* MatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B862460058100C7AD4D /* MatchListViewController.swift */; };
@@ -38,6 +40,8 @@
 		38743A3C24682733007B0E51 /* MatchBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchBoardView.swift; sourceTree = "<group>"; };
 		3875C711246C28AD00B579FE /* CurrentPitcherHitterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrentPitcherHitterView.xib; sourceTree = "<group>"; };
 		3875C713246C28CB00B579FE /* CurrentPitcherHitterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentPitcherHitterView.swift; sourceTree = "<group>"; };
+		3875C71B246C32D300B579FE /* PlayerLogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLogCell.swift; sourceTree = "<group>"; };
+		3875C71C246C32D300B579FE /* PlayerLogCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerLogCell.xib; sourceTree = "<group>"; };
 		38959B7F2460058100C7AD4D /* BaseballGameApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseballGameApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38959B822460058100C7AD4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38959B842460058100C7AD4D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +99,8 @@
 				38BB53C8246BECB300526167 /* CountBoardView.swift */,
 				3875C711246C28AD00B579FE /* CurrentPitcherHitterView.xib */,
 				3875C713246C28CB00B579FE /* CurrentPitcherHitterView.swift */,
+				3875C71C246C32D300B579FE /* PlayerLogCell.xib */,
+				3875C71B246C32D300B579FE /* PlayerLogCell.swift */,
 			);
 			path = Play;
 			sourceTree = "<group>";
@@ -222,6 +228,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3875C712246C28AD00B579FE /* CurrentPitcherHitterView.xib in Resources */,
+				3875C71E246C32D300B579FE /* PlayerLogCell.xib in Resources */,
 				38959B8F2460058300C7AD4D /* LaunchScreen.storyboard in Resources */,
 				38959B8C2460058300C7AD4D /* Assets.xcassets in Resources */,
 				38743A282463F282007B0E51 /* BungeeOutline-Regular.ttf in Resources */,
@@ -238,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38743A3A24681AC0007B0E51 /* MatchViewController.swift in Sources */,
+				3875C71D246C32D300B579FE /* PlayerLogCell.swift in Sources */,
 				38BB53C9246BECB300526167 /* CountBoardView.swift in Sources */,
 				38959B872460058100C7AD4D /* MatchListViewController.swift in Sources */,
 				38959B832460058100C7AD4D /* AppDelegate.swift in Sources */,
