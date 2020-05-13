@@ -29,6 +29,30 @@ class CurrentPitcherHitterView: UIView {
         configure()
     }
     
+    func updatePitcherName(_ pitcherName: String) {
+        pitcherNameLabel.text = pitcherName
+    }
+    
+    func updateHitterName(_ hitterName: String) {
+        hitterNameLabel.text = hitterName
+    }
+    
+    func updatePitcherTeamLogo(_ logoImage: UIImage?) {
+        pitcherTeamLogoImageView.image = logoImage
+    }
+    
+    func updateHitterTeamLogo(_ logoImage: UIImage?) {
+        hitterTeamLogoImageView.image = logoImage
+    }
+    
+    func updatePitcherInfo(_ pitcherInfo: String) {
+        pitcherInfoLabel.text = pitcherInfo
+    }
+    
+    func updateHitterInfo(_ hitterInfo: String) {
+        hitterInfoLabel.text = hitterInfo
+    }
+    
     private func configure() {
         let bundle = Bundle(for: Self.self)
         bundle.loadNibNamed(String(describing: Self.self), owner: self, options: nil)
