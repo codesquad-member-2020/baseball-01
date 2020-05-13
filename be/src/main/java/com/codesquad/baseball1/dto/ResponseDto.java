@@ -11,10 +11,11 @@ public class ResponseDto {
     private int statusCode;
 
     @JsonProperty("message")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private String message;
 
     @JsonProperty("data")
-    @JsonInclude(JsonInclude.Include.NON_EMPTY)
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Object data;
 
     public ResponseDto() {
@@ -24,6 +25,11 @@ public class ResponseDto {
         this.statusCode = statusCode;
         this.message = message;
         this.data = data;
+    }
+
+    public ResponseDto(int statusCode, String message) {
+        this.statusCode = statusCode;
+        this.message = message;
     }
 
     public ResponseDto(int statusCode, Object data) {
