@@ -28,6 +28,7 @@ class PlayViewController: UIViewController {
 
     private func configure() {
         configureMatchBoardView()
+        matchBoardView.updatePlayingIndexBar(isAway: false)
     }
     
     private func configureMatchBoardView() {

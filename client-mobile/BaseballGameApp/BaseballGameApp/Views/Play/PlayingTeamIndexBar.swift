@@ -25,5 +25,6 @@ class PlayingTeamIndexBar: UIView {
     
     private func configure() {
         layer.cornerRadius = cornerRadius
+        alpha = 0
     }
 }

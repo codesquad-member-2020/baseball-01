@@ -35,6 +35,39 @@ class MatchBoardView: UIView {
         configureMatchBoardView()
     }
     
+    func updateTeamName(away: String, home: String) {
+        awayTeamLabel.text = away
+        homeTeamLabel.text = home
+    }
+    
+    func updateTeamLogo(away: UIImage?, home: UIImage?) {
+        awayLogoImageView.image = away
+        homeLogoImageView.image = home
+    }
+    
+    func updateScore(away: Int, home: Int) {
+        let seperator = " : "
+        scoreLabel.text = "\(away)\(seperator)\(home)"
+    }
+    
+    func updateInning(_ inning: String) {
+        inningLabel.text = inning
+    }
+    
+    func updatePlayingIndexBar(isAway: Bool) {
+        if isAway {
+            UIView.animate(withDuration: 1.5) {
+                self.awayPlayingBar.alpha = 1
+                self.homePlayingBar.alpha = 0
+            }
+        } else {
+            UIView.animate(withDuration: 1.5) {
+                self.awayPlayingBar.alpha = 0
+                self.homePlayingBar.alpha = 1
+            }
+        }
+    }
+    
     func configureUIProperties(awayLogoImageView: UIImageView,
                                awayTeamLabel: UILabel,
                                awayPlayingBar: UIView,
