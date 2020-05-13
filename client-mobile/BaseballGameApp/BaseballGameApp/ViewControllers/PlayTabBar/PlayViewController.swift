@@ -43,6 +43,7 @@ class PlayViewController: UIViewController {
         playerLogsTableView.dataSource = self
         let nib = UINib(nibName: PlayerLogCell.nibName, bundle: nil)
         playerLogsTableView.register(nib, forCellReuseIdentifier: PlayerLogCell.identifier)
+        playerLogsTableView.allowsSelection = false
     }
     
     private func configureCountBoardView() {
