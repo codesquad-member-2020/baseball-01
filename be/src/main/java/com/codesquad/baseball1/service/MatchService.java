@@ -33,4 +33,15 @@ public class MatchService {
         return new ResponseDto(200, "다른 유저가 대기 중입니다. 다른 팀을 골라주세요.");
     }
 
+    public ResponseDto getTeamStatus(int teamId) {
+        Object teamStatusDto = matchDao.findStatus(teamId);
+        return new ResponseDto(200, teamStatusDto);
+
+    }
+
+    public ResponseDto getReadyMatch(int matchId) {
+        Object matchDto = matchDao.findReadyMatch(matchId);
+        return new ResponseDto(200, matchDto);
+
+    }
 }

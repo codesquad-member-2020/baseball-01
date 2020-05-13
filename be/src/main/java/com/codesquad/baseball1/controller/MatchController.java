@@ -26,4 +26,16 @@ public class MatchController {
         ResponseDto responseDto = matchService.updatePlayerStatus(teamId);
         return ResponseEntity.ok().body(responseDto);
     }
+
+    @GetMapping("matches/{matchId}/teams/{teamId}")
+    public ResponseEntity<ResponseDto> showStatus(@PathVariable("teamId") int teamId) {
+        ResponseDto responseDto = matchService.getTeamStatus(teamId);
+        return ResponseEntity.ok().body(responseDto);
+    }
+
+    @GetMapping("matches/{matchId}")
+    public ResponseEntity<ResponseDto> showReadyMatch(@PathVariable("matchId") int matchId) {
+        ResponseDto responseDto = matchService.getReadyMatch(matchId);
+        return ResponseEntity.ok().body(responseDto);
+    }
 }
