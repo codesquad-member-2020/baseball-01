@@ -33,65 +33,65 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play.backgroound" translatesAutoresizingMaskIntoConstraints="NO" id="dJK-rq-zNE">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="406.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="488"/>
                             </imageView>
                             <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VEf-rs-XeU">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="406.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="488"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="843-Wj-Jqc" customClass="MatchBoardView" customModule="BaseballGameApp" customModuleProvider="target">
-                                <rect key="frame" x="12" y="44" width="390" height="57"/>
+                                <rect key="frame" x="12" y="44" width="390" height="65"/>
                                 <subviews>
                                     <view alpha="0.25" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ml-zg-pvv">
-                                        <rect key="frame" x="0.0" y="28.5" width="390" height="28.5"/>
+                                        <rect key="frame" x="0.0" y="32.5" width="390" height="32.5"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 : 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sn1-MX-yUh">
-                                        <rect key="frame" x="172" y="9" width="46" height="26.5"/>
+                                        <rect key="frame" x="172" y="13.5" width="46" height="26.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.doosan" translatesAutoresizingMaskIntoConstraints="NO" id="JYs-oQ-00V">
-                                        <rect key="frame" x="12" y="14" width="28.5" height="28.5"/>
+                                        <rect key="frame" x="12" y="16.5" width="32.5" height="32.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="JYs-oQ-00V" secondAttribute="height" multiplier="1:1" id="Zee-dA-3Od"/>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.doosan" translatesAutoresizingMaskIntoConstraints="NO" id="WYe-T5-fGW">
-                                        <rect key="frame" x="349.5" y="14" width="28.5" height="28.5"/>
+                                        <rect key="frame" x="345.5" y="16.5" width="32.5" height="32.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="WYe-T5-fGW" secondAttribute="height" multiplier="1:1" id="r82-41-LAD"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AWAY TEAM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="mtf-LZ-rY7">
-                                        <rect key="frame" x="48.5" y="18.5" width="91" height="20"/>
+                                        <rect key="frame" x="52.5" y="22.5" width="91" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HOME TEAM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="j3J-SH-tsK">
-                                        <rect key="frame" x="247.5" y="18.5" width="94" height="20"/>
+                                        <rect key="frame" x="243.5" y="22.5" width="94" height="20"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1회초" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8i-eu-PEg">
-                                        <rect key="frame" x="172" y="37.5" width="46" height="15.5"/>
+                                        <rect key="frame" x="172" y="42" width="46" height="19"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Py0-Vo-i52" customClass="PlayingTeamIndexBar" customModule="BaseballGameApp" customModuleProvider="target">
-                                        <rect key="frame" x="48.5" y="42.5" width="91" height="4"/>
+                                        <rect key="frame" x="52.5" y="46.5" width="91" height="4"/>
                                         <color key="backgroundColor" name="match.board.view"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="4" id="eNi-BX-TRX"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fFr-sf-LxO" customClass="PlayingTeamIndexBar" customModule="BaseballGameApp" customModuleProvider="target">
-                                        <rect key="frame" x="247.5" y="42.5" width="94" height="4"/>
+                                        <rect key="frame" x="243.5" y="46.5" width="94" height="4"/>
                                         <color key="backgroundColor" name="match.board.view"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="4" id="7eG-eZ-22H"/>
@@ -131,20 +131,20 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wfh-AA-MsB" customClass="CountBoardView" customModule="BaseballGameApp" customModuleProvider="target">
-                                <rect key="frame" x="12" y="109" width="97.5" height="78"/>
+                                <rect key="frame" x="12" y="117" width="97.5" height="78"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="wfh-AA-MsB" secondAttribute="height" multiplier="10:8" id="13Q-WE-MgT"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yp4-0d-ka6" customClass="CurrentPitcherHitterView" customModule="BaseballGameApp" customModuleProvider="target">
-                                <rect key="frame" x="12" y="333.5" width="227.5" height="65"/>
+                                <rect key="frame" x="12" y="415" width="260" height="65"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Yp4-0d-ka6" secondAttribute="height" multiplier="3.5:1" id="Y3w-L5-9EE"/>
+                                    <constraint firstAttribute="width" secondItem="Yp4-0d-ka6" secondAttribute="height" multiplier="4:1" id="Y3w-L5-9EE"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pZA-WW-RVu">
-                                <rect key="frame" x="0.0" y="406.5" width="414" height="406.5"/>
+                                <rect key="frame" x="0.0" y="488" width="414" height="325"/>
                                 <color key="backgroundColor" name="board.view"/>
                             </tableView>
                         </subviews>
@@ -155,7 +155,7 @@
                             <constraint firstItem="Yp4-0d-ka6" firstAttribute="height" secondItem="cxr-3Q-JGJ" secondAttribute="height" multiplier="0.08" id="3Tj-OP-27n"/>
                             <constraint firstItem="cMy-Qx-fKq" firstAttribute="bottom" secondItem="pZA-WW-RVu" secondAttribute="bottom" id="C5J-eD-WCz"/>
                             <constraint firstItem="843-Wj-Jqc" firstAttribute="top" secondItem="cMy-Qx-fKq" secondAttribute="top" id="GuY-IT-0g8"/>
-                            <constraint firstItem="843-Wj-Jqc" firstAttribute="height" secondItem="cxr-3Q-JGJ" secondAttribute="height" multiplier="0.07" id="L9H-cq-cDl"/>
+                            <constraint firstItem="843-Wj-Jqc" firstAttribute="height" secondItem="cxr-3Q-JGJ" secondAttribute="height" multiplier="0.08" id="L9H-cq-cDl"/>
                             <constraint firstItem="wfh-AA-MsB" firstAttribute="top" secondItem="843-Wj-Jqc" secondAttribute="bottom" constant="8" id="RSL-v4-ekd"/>
                             <constraint firstItem="VEf-rs-XeU" firstAttribute="leading" secondItem="dJK-rq-zNE" secondAttribute="leading" id="Set-sb-5kQ"/>
                             <constraint firstItem="Yp4-0d-ka6" firstAttribute="bottom" secondItem="dJK-rq-zNE" secondAttribute="bottom" constant="-8" id="UDP-85-PZT"/>
@@ -171,7 +171,7 @@
                             <constraint firstItem="dJK-rq-zNE" firstAttribute="leading" secondItem="cMy-Qx-fKq" secondAttribute="leading" id="n6n-4c-osG"/>
                             <constraint firstItem="pZA-WW-RVu" firstAttribute="top" secondItem="dJK-rq-zNE" secondAttribute="bottom" id="pTH-hC-EeS"/>
                             <constraint firstItem="pZA-WW-RVu" firstAttribute="leading" secondItem="cMy-Qx-fKq" secondAttribute="leading" id="xrq-MD-O6G"/>
-                            <constraint firstItem="dJK-rq-zNE" firstAttribute="height" secondItem="cxr-3Q-JGJ" secondAttribute="height" multiplier="0.5" id="z2U-ss-Fp2"/>
+                            <constraint firstItem="dJK-rq-zNE" firstAttribute="height" secondItem="cxr-3Q-JGJ" secondAttribute="height" multiplier="0.6" id="z2U-ss-Fp2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cMy-Qx-fKq"/>
                     </view>
