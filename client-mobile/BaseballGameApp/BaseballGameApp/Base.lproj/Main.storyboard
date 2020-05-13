@@ -143,7 +143,7 @@
                                     <constraint firstAttribute="width" secondItem="Yp4-0d-ka6" secondAttribute="height" multiplier="4:1" id="Y3w-L5-9EE"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pZA-WW-RVu">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pZA-WW-RVu" customClass="PlayerLogsTableView" customModule="BaseballGameApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="488" width="414" height="325"/>
                                 <color key="backgroundColor" name="board.view"/>
                             </tableView>

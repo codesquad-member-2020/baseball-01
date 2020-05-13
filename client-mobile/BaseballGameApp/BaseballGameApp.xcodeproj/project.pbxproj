@@ -15,6 +15,7 @@
 		3875C714246C28CB00B579FE /* CurrentPitcherHitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3875C713246C28CB00B579FE /* CurrentPitcherHitterView.swift */; };
 		3875C71D246C32D300B579FE /* PlayerLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3875C71B246C32D300B579FE /* PlayerLogCell.swift */; };
 		3875C71E246C32D300B579FE /* PlayerLogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3875C71C246C32D300B579FE /* PlayerLogCell.xib */; };
+		3875C720246C63A700B579FE /* PlayerLogsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3875C71F246C63A700B579FE /* PlayerLogsTableView.swift */; };
 		38959B832460058100C7AD4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B822460058100C7AD4D /* AppDelegate.swift */; };
 		38959B852460058100C7AD4D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B842460058100C7AD4D /* SceneDelegate.swift */; };
 		38959B872460058100C7AD4D /* MatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B862460058100C7AD4D /* MatchListViewController.swift */; };
@@ -42,6 +43,7 @@
 		3875C713246C28CB00B579FE /* CurrentPitcherHitterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentPitcherHitterView.swift; sourceTree = "<group>"; };
 		3875C71B246C32D300B579FE /* PlayerLogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLogCell.swift; sourceTree = "<group>"; };
 		3875C71C246C32D300B579FE /* PlayerLogCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerLogCell.xib; sourceTree = "<group>"; };
+		3875C71F246C63A700B579FE /* PlayerLogsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLogsTableView.swift; sourceTree = "<group>"; };
 		38959B7F2460058100C7AD4D /* BaseballGameApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseballGameApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38959B822460058100C7AD4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38959B842460058100C7AD4D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +103,7 @@
 				3875C713246C28CB00B579FE /* CurrentPitcherHitterView.swift */,
 				3875C71C246C32D300B579FE /* PlayerLogCell.xib */,
 				3875C71B246C32D300B579FE /* PlayerLogCell.swift */,
+				3875C71F246C63A700B579FE /* PlayerLogsTableView.swift */,
 			);
 			path = Play;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				38743A3A24681AC0007B0E51 /* MatchViewController.swift in Sources */,
+				3875C720246C63A700B579FE /* PlayerLogsTableView.swift in Sources */,
 				3875C71D246C32D300B579FE /* PlayerLogCell.swift in Sources */,
 				38BB53C9246BECB300526167 /* CountBoardView.swift in Sources */,
 				38959B872460058100C7AD4D /* MatchListViewController.swift in Sources */,

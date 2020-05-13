@@ -21,7 +21,7 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var inningLabel: UILabel!
     
     @IBOutlet weak var countBoardView: CountBoardView!
-    @IBOutlet weak var playerLogsTableView: UITableView!
+    @IBOutlet weak var playerLogsTableView: PlayerLogsTableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
