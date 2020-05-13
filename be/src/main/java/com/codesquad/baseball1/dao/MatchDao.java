@@ -83,4 +83,19 @@ public class MatchDao {
         };
         return jdbcTemplate.queryForObject(sql, new Object[]{matchId}, readyMatchRowMapper);
     }
+
+    public boolean findUserStatusById(int teamId) {
+        String sql = "SELECT team.user_status " +
+                "FROM team " +
+                "WHERE team_id = ?";
+        return jdbcTemplate.queryForObject(sql, new Object[]{teamId}, Boolean.class);
+    }
+
+    public void updateTrue(int teamId) {
+        String sql = "UPDATE team " +
+                "SET user_status = ? " +
+                "WHERE team_id = ? ";
+        jdbcTemplate.update(sql, true, teamId);
+    }
+
 }
