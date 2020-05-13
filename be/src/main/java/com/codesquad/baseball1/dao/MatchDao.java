@@ -55,6 +55,20 @@ public class MatchDao {
         return jdbcTemplate.queryForObject(sql, new Object[]{matchId, teamType}, readyTeamRowMapper);
     }
 
+    public int findAgainstTeamId(int currentTeamId) {
+        int againstTeamId;
+
+        if (currentTeamId % 2 == 0) {
+            againstTeamId = currentTeamId - 1;
+        } else {
+            againstTeamId = currentTeamId + 1;
+        }
+        String sql = "SELECT team.team_id " +
+                "FROM team " +
+                "WHERE team_id = ?";
+        return jdbcTemplate.queryForObject(sql, new Object[]{againstTeamId}, Integer.class);
+    }
+
     public Object findMatches() {
         String sql = "SELECT matches.match_id " +
                 "FROM matches ";
@@ -97,5 +111,4 @@ public class MatchDao {
                 "WHERE team_id = ? ";
         jdbcTemplate.update(sql, true, teamId);
     }
-
 }
