@@ -34,6 +34,9 @@ public class HalfInning {
     @JsonProperty("out_sum")
     private int outSum;
 
+    @JsonProperty("change_status")
+    private boolean changeStatus;
+
     @JsonProperty("logs")
     private List<Log> logs;
 

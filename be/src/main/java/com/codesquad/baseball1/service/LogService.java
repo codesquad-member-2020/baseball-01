@@ -94,6 +94,10 @@ public class LogService {
     public void updateHalfInningWhenOut(int inningId) {
         String sql = "UPDATE halfInning SET outsum = outsum + 1 where inning_id=" + inningId;
         jdbcTemplate.update(sql);
+        if (inningDao.findInningById(inningId).getOutSum() == 3) {
+            String sql2 = "UPDATE halfInning SET change_status = 1 where inning_id=" + inningId;
+            jdbcTemplate.update(sql2);
+        }
     }
 
     public void updateLogWhenHit(int logId) {

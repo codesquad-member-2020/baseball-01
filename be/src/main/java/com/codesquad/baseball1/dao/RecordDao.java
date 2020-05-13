@@ -56,6 +56,11 @@ public class RecordDao {
         return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Hitter.class));
     }
 
+    public List<Hitter> findThreePlayersByTeamId(int teamId) {
+        String sql = "SELECT * FROM hitter where team_id =" + teamId + " ORDER BY hitter_id DESC LIMIT 3";
+        return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Hitter.class));
+    }
+
     public Team findTeamWithPlayersByTeamId(int teamId) {
         Team myTeam = findTeamById(teamId);
         List<Hitter> hitters = findPlayersByTeamId(teamId);
