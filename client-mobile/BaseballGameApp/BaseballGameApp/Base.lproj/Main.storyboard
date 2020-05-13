@@ -138,6 +138,13 @@
                                     <constraint firstItem="WYe-T5-fGW" firstAttribute="leading" secondItem="j3J-SH-tsK" secondAttribute="trailing" constant="8" id="zAd-DX-Vgi"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wfh-AA-MsB" customClass="CountBoardView" customModule="BaseballGameApp" customModuleProvider="target">
+                                <rect key="frame" x="12" y="114.5" width="97.5" height="78"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="wfh-AA-MsB" secondAttribute="height" multiplier="10:8" id="13Q-WE-MgT"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -150,13 +157,16 @@
                             <constraint firstItem="l8w-V0-BGG" firstAttribute="top" secondItem="Yp4-0d-ka6" secondAttribute="bottom" id="JkC-0v-1qc"/>
                             <constraint firstItem="843-Wj-Jqc" firstAttribute="height" secondItem="cxr-3Q-JGJ" secondAttribute="height" multiplier="0.07" id="L9H-cq-cDl"/>
                             <constraint firstItem="cMy-Qx-fKq" firstAttribute="trailing" secondItem="l8w-V0-BGG" secondAttribute="trailing" id="Qbl-m0-KTp"/>
+                            <constraint firstItem="wfh-AA-MsB" firstAttribute="top" secondItem="843-Wj-Jqc" secondAttribute="bottom" constant="8" id="RSL-v4-ekd"/>
                             <constraint firstItem="VEf-rs-XeU" firstAttribute="leading" secondItem="dJK-rq-zNE" secondAttribute="leading" id="Set-sb-5kQ"/>
                             <constraint firstItem="Yp4-0d-ka6" firstAttribute="top" secondItem="dJK-rq-zNE" secondAttribute="bottom" id="U3J-SN-VXi"/>
                             <constraint firstItem="VEf-rs-XeU" firstAttribute="trailing" secondItem="dJK-rq-zNE" secondAttribute="trailing" id="V13-gb-BBb"/>
                             <constraint firstItem="843-Wj-Jqc" firstAttribute="leading" secondItem="cMy-Qx-fKq" secondAttribute="leading" constant="12" id="Wep-fk-5OP"/>
                             <constraint firstItem="dJK-rq-zNE" firstAttribute="top" secondItem="cxr-3Q-JGJ" secondAttribute="top" id="XLo-tK-bi8"/>
                             <constraint firstItem="dJK-rq-zNE" firstAttribute="trailing" secondItem="cMy-Qx-fKq" secondAttribute="trailing" id="Xwx-mi-2wB"/>
+                            <constraint firstItem="wfh-AA-MsB" firstAttribute="leading" secondItem="cMy-Qx-fKq" secondAttribute="leading" constant="12" id="b1I-nh-8lI"/>
                             <constraint firstItem="VEf-rs-XeU" firstAttribute="top" secondItem="dJK-rq-zNE" secondAttribute="top" id="d3J-0h-JpE"/>
+                            <constraint firstItem="wfh-AA-MsB" firstAttribute="width" secondItem="843-Wj-Jqc" secondAttribute="width" multiplier="0.25" id="dmX-If-rj4"/>
                             <constraint firstItem="cMy-Qx-fKq" firstAttribute="trailing" secondItem="Yp4-0d-ka6" secondAttribute="trailing" id="fkw-GC-tRM"/>
                             <constraint firstItem="VEf-rs-XeU" firstAttribute="bottom" secondItem="dJK-rq-zNE" secondAttribute="bottom" id="ml9-os-5CB"/>
                             <constraint firstItem="dJK-rq-zNE" firstAttribute="leading" secondItem="cMy-Qx-fKq" secondAttribute="leading" id="n6n-4c-osG"/>
@@ -169,6 +179,7 @@
                         <outlet property="awayLogoImageView" destination="JYs-oQ-00V" id="hTj-2q-Ko8"/>
                         <outlet property="awayPlayingBar" destination="Py0-Vo-i52" id="Hzp-bE-O5C"/>
                         <outlet property="awayTeamLabel" destination="mtf-LZ-rY7" id="ZA2-Rn-sHY"/>
+                        <outlet property="countBoardView" destination="wfh-AA-MsB" id="Ha4-uU-d9c"/>
                         <outlet property="homeLogoImageView" destination="WYe-T5-fGW" id="USd-ow-6RK"/>
                         <outlet property="homePlayingBar" destination="fFr-sf-LxO" id="Uwn-a7-SLq"/>
                         <outlet property="homeTeamLabel" destination="j3J-SH-tsK" id="7vO-4x-jHj"/>
@@ -205,7 +216,7 @@
         <image name="play.backgroound" width="960" height="540"/>
         <image name="tabbar.icon.play" width="25" height="25"/>
         <namedColor name="board.view">
-            <color red="0.081589337107558543" green="0.11768783159957502" blue="0.16788913952517626" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+            <color red="0.082352941176470587" green="0.11764705882352941" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
         <namedColor name="match.board.view">
             <color red="1" green="0.76202752691296727" blue="0.2859027293795563" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>

@@ -8,8 +8,10 @@
 
 import UIKit
 
+@IBDesignable
 class CountBoardView: UIView {
 
+    @IBOutlet var contentView: UIView!
     @IBOutlet weak var innerView: UIView!
     @IBOutlet weak var ballCountStackView: UIStackView!
     @IBOutlet weak var strikeCountStackView: UIStackView!
@@ -26,9 +28,11 @@ class CountBoardView: UIView {
     }
     
     private func configure() {
-        let view = Bundle.main.loadNibNamed(NSStringFromClass(self.classForCoder).components(separatedBy: ".").last!, owner: self, options: nil)?.first as! UIView
-        view.frame = self.bounds
-        addSubview(view)
+        let bundle = Bundle(for: Self.self)
+        bundle.loadNibNamed(String(describing: Self.self), owner: self, options: nil)
+        addSubview(contentView)
+        contentView.frame = self.bounds
+        contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         configureUI()
     }
     
@@ -38,6 +42,8 @@ class CountBoardView: UIView {
         layer.borderColor = UIColor.black.cgColor
         layer.borderWidth = 1.5
         innerView.layer.cornerRadius = 8
+        
+        print(self.superview)
     }
     
     func configureCountCircleViews() {

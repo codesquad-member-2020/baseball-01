@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CountBoardView" customModule="BaseballGameApp" customModuleProvider="target">
             <connections>
                 <outlet property="ballCountStackView" destination="25c-eF-b3W" id="9Bg-o9-fqN"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="8uK-qp-QKh"/>
                 <outlet property="innerView" destination="LSX-C3-uxI" id="C27-AX-OGX"/>
                 <outlet property="outCountStackView" destination="8oO-c6-NIT" id="HzC-NI-LED"/>
                 <outlet property="strikeCountStackView" destination="EZ2-er-3jj" id="FUe-pr-8to"/>
