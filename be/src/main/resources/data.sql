@@ -13,16 +13,16 @@ VALUES (1, '두산', 'home', 1, 1, 1),
 
 INSERT INTO logo
     (logo_id, url)
-VALUES (1, 'https://github.com/codesquad-member-2020/baseball-01/blob/dev/images/logo/Doosan.png?raw=true'),
-       (2, 'https://github.com/codesquad-member-2020/baseball-01/blob/dev/images/logo/Hanwha.png?raw=true'),
-       (3, 'https://github.com/codesquad-member-2020/baseball-01/blob/dev/images/logo/Kia.png?raw=true'),
-       (4, 'https://github.com/codesquad-member-2020/baseball-01/blob/dev/images/logo/Kiwoom.png?raw=true'),
-       (5, 'https://github.com/codesquad-member-2020/baseball-01/blob/dev/images/logo/Kt.png?raw=true'),
-       (6, 'https://github.com/codesquad-member-2020/baseball-01/blob/dev/images/logo/Lg.png?raw=true'),
-       (7, 'https://github.com/codesquad-member-2020/baseball-01/blob/dev/images/logo/Lotte.png?raw=true'),
-       (8, 'https://github.com/codesquad-member-2020/baseball-01/blob/dev/images/logo/Nc.png?raw=true'),
-       (9, 'https://github.com/codesquad-member-2020/baseball-01/blob/dev/images/logo/Samsung.png?raw=true'),
-       (10, 'https://github.com/codesquad-member-2020/baseball-01/blob/dev/images/logo/Sk.png?raw=true');
+VALUES (1, 'https://sports-phinf.pstatic.net/team/kbo/default/OB.png'),
+       (2, 'https://sports-phinf.pstatic.net/team/kbo/default/HH.png'),
+       (3, 'https://sports-phinf.pstatic.net/team/kbo/default/HT.png'),
+       (4, 'https://sports-phinf.pstatic.net/team/kbo/default/WO.png'),
+       (5, 'https://sports-phinf.pstatic.net/team/kbo/default/KT.png'),
+       (6, 'https://sports-phinf.pstatic.net/team/kbo/default/LG.png'),
+       (7, 'https://sports-phinf.pstatic.net/team/kbo/default/LT.png'),
+       (8, 'https://sports-phinf.pstatic.net/team/kbo/default/NC.png'),
+       (9, 'https://sports-phinf.pstatic.net/team/kbo/default/SS.png'),
+       (10, 'https://sports-phinf.pstatic.net/team/kbo/default/SK.png');
 
 INSERT INTO user
     (user_id, name)
