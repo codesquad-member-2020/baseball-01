@@ -19,7 +19,7 @@ public class MatchDao {
     }
 
     private Object findTeam(int matchId, String teamType) {
-        String sql = "SELECT team_id, team_name, user_name, logo.url " +
+        String sql = "SELECT team_id, team_name, user_status, logo.url " +
                 "FROM team " +
                 "JOIN logo " +
                 "ON logo.logo_id = team.logo_id " +
@@ -29,13 +29,30 @@ public class MatchDao {
         RowMapper<Object> teamsRowMapper = (rs, rowNum) -> {
             TeamDto teamDto = new TeamDto.Builder(rs.getInt("team_id"))
                     .teamName(rs.getString("team_name"))
-                    .player(rs.getBoolean("user_name"))
+                    .userStatus(rs.getBoolean("user_status"))
                     .logoImage(rs.getString("url"))
                     .build();
             return teamDto;
         };
 
         return jdbcTemplate.queryForObject(sql, new Object[]{matchId, teamType}, teamsRowMapper);
+    }
+
+    private Object findReadyTeam(int matchId, String teamType) {
+        String sql = "SELECT team_id, team_name, user_status " +
+                "FROM team " +
+                "WHERE team.match_id = ? " +
+                "AND team.team_type = ?";
+
+        RowMapper<Object> readyTeamRowMapper = (rs, rowNum) -> {
+            TeamDto readyTeamDto = new TeamDto.Builder(rs.getInt("team_id"))
+                    .teamName(rs.getString("team_name"))
+                    .userStatus(rs.getBoolean("user_status"))
+                    .build();
+            return readyTeamDto;
+        };
+
+        return jdbcTemplate.queryForObject(sql, new Object[]{matchId, teamType}, readyTeamRowMapper);
     }
 
     public Object findMatches() {
@@ -50,5 +67,20 @@ public class MatchDao {
             return matchDto;
         };
         return jdbcTemplate.query(sql, matchesRowMapper);
+    }
+
+    public Object findReadyMatch(int matchId) {
+        String sql = "SELECT matches.match_id " +
+                "FROM matches " +
+                "WHERE match_id = ?";
+
+        RowMapper<Object> readyMatchRowMapper = (rs, rowNum) -> {
+            MatchDto matchDto = new MatchDto();
+            matchDto.setMatchId(rs.getInt("match_id"));
+            matchDto.setHome(findReadyTeam(rs.getInt("match_Id"), "home"));
+            matchDto.setAway(findReadyTeam(rs.getInt("match_Id"), "away"));
+            return matchDto;
+        };
+        return jdbcTemplate.queryForObject(sql, new Object[]{matchId}, readyMatchRowMapper);
     }
 }
