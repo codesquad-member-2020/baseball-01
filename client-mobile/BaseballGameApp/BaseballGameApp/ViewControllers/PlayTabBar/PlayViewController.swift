@@ -10,11 +10,15 @@ import UIKit
 
 class PlayViewController: UIViewController {
     
-    let matchBoardView = MatchBoardView()
-    let gameFieldView = UIView()
-    let SBOCountBoardView = UIView()
-    let playerView = UIView()
-    let pitchesView = UIView()
+    @IBOutlet weak var matchBoardView: MatchBoardView!
+    @IBOutlet weak var awayLogoImageView: UIImageView!
+    @IBOutlet weak var awayTeamLabel: UILabel!
+    @IBOutlet weak var awayPlayingBar: UIView!
+    @IBOutlet weak var homeLogoImageView: UIImageView!
+    @IBOutlet weak var homeTeamLabel: UILabel!
+    @IBOutlet weak var homePlayingBar: UIView!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var inningLabel: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,36 +27,17 @@ class PlayViewController: UIViewController {
     }
 
     private func configure() {
-        configureTabBar()
-        configureUI()
+        configureMatchBoardView()
     }
     
-    private func configureTabBar() {
-        tabBarItem.title = "play"
-        tabBarItem.image = UIImage(named: "tabbar.icon.play")
-    }
-    
-    private func configureUI() {
-        view.backgroundColor = .white
-        
-        view.addSubview(matchBoardView)
-        matchBoardView.constraints(topAnchor: view.safeAreaLayoutGuide.topAnchor, leadingAnchor: view.leadingAnchor, bottomAnchor: nil, trailingAnchor: view.trailingAnchor, size: .init(width: 0, height: view.frame.height * 0.1))
-        
-        view.addSubview(gameFieldView)
-        gameFieldView.backgroundColor = #colorLiteral(red: 0.5058823824, green: 0.3372549117, blue: 0.06666667014, alpha: 1)
-        gameFieldView.constraints(topAnchor: matchBoardView.bottomAnchor, leadingAnchor: view.leadingAnchor, bottomAnchor: nil, trailingAnchor: view.trailingAnchor, size: .init(width: 0, height: view.frame.height * 0.35))
-        
-        view.addSubview(SBOCountBoardView)
-        SBOCountBoardView.backgroundColor = .black
-        SBOCountBoardView.alpha = 0.7
-        SBOCountBoardView.constraints(topAnchor: gameFieldView.topAnchor, leadingAnchor: gameFieldView.leadingAnchor, bottomAnchor: nil, trailingAnchor: nil, padding: .init(top: 16, left: 16, bottom: 0, right: 0), size: .init(width: 120, height: 100))
-        
-        view.addSubview(playerView)
-        playerView.backgroundColor = .orange
-        playerView.constraints(topAnchor: gameFieldView.bottomAnchor, leadingAnchor: view.leadingAnchor, bottomAnchor: nil, trailingAnchor: view.trailingAnchor, size: .init(width: 0, height: view.frame.height * 0.13))
-        
-        view.addSubview(pitchesView)
-        pitchesView.backgroundColor = .cyan
-        pitchesView.constraints(topAnchor: playerView.bottomAnchor, leadingAnchor: view.leadingAnchor, bottomAnchor: view.bottomAnchor, trailingAnchor: view.trailingAnchor)
+    private func configureMatchBoardView() {
+        matchBoardView.configureUIProperties(awayLogoImageView: awayLogoImageView,
+                                             awayTeamLabel: awayTeamLabel,
+                                             awayPlayingBar: awayPlayingBar,
+                                             homeLogoImageView: homeLogoImageView,
+                                             homeTeamLabel: homeTeamLabel,
+                                             homePlayingBar: homePlayingBar,
+                                             scoreLabel: scoreLabel,
+                                             inningLabel: inningLabel)
     }
 }
