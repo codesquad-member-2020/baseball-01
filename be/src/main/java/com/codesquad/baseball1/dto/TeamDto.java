@@ -1,6 +1,7 @@
 package com.codesquad.baseball1.dto;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
@@ -13,16 +14,17 @@ public class TeamDto {
     private final String teamName;
 
     @JsonProperty("logo_image")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private final String logoImage;
 
-    @JsonProperty("user")
-    private final boolean player;
+    @JsonProperty("user_status")
+    private final boolean userStatus;
 
     public TeamDto(Builder builder) {
         teamId = builder.teamId;
         teamName = builder.teamName;
         logoImage = builder.logoImage;
-        player = builder.player;
+        userStatus = builder.userStatus;
     }
 
     public static class Builder {
@@ -30,7 +32,7 @@ public class TeamDto {
         private final int teamId;
         private String teamName;
         private String logoImage;
-        private boolean player;
+        private boolean userStatus;
 
         public Builder (int teamId) {
             this.teamId = teamId;
@@ -46,8 +48,8 @@ public class TeamDto {
             return this;
         }
 
-        public Builder player(boolean player) {
-            this.player = player;
+        public Builder userStatus(boolean userStatus) {
+            this.userStatus = userStatus;
             return this;
         }
 
