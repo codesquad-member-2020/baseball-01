@@ -2,6 +2,7 @@ package com.codesquad.baseball1.dao;
 
 import com.codesquad.baseball1.dto.MatchDto;
 import com.codesquad.baseball1.dto.TeamDto;
+import com.codesquad.baseball1.dto.TeamStatusDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -110,5 +111,21 @@ public class MatchDao {
                 "SET user_status = ? " +
                 "WHERE team_id = ? ";
         jdbcTemplate.update(sql, true, teamId);
+    }
+
+    public Object findStatus(int teamId) {
+        String sql = "SELECT user_status, team_name, team_type " +
+                "FROM team " +
+                "WHERE team_id = ?";
+
+        RowMapper<Object> statusRowMapper = (rs, rowNum) -> {
+            TeamStatusDto teamStatusDto = new TeamStatusDto.Builder()
+                    .userStatus(rs.getBoolean("user_status"))
+                    .teamName(rs.getString("team_name"))
+                    .teamType(rs.getString("team_type"))
+                    .build();
+            return teamStatusDto;
+        };
+        return jdbcTemplate.queryForObject(sql, new Object[]{teamId}, statusRowMapper);
     }
 }
