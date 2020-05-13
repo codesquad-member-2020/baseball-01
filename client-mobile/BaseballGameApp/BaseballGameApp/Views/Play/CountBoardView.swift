@@ -42,8 +42,6 @@ class CountBoardView: UIView {
         layer.borderColor = UIColor.black.cgColor
         layer.borderWidth = 1.5
         innerView.layer.cornerRadius = 8
-        
-        print(self.superview)
     }
     
     func configureCountCircleViews() {
