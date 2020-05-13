@@ -80,8 +80,8 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="1회초" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8i-eu-PEg">
-                                        <rect key="frame" x="181" y="45" width="29" height="16"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1회초" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a8i-eu-PEg">
+                                        <rect key="frame" x="172" y="40" width="46" height="18"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="11"/>
                                         <nil key="textColor"/>
@@ -141,8 +141,8 @@
                                     <constraint firstAttribute="width" secondItem="wfh-AA-MsB" secondAttribute="height" multiplier="10:8" id="13Q-WE-MgT"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yp4-0d-ka6" customClass="CurrentPitcherHitterView" customModule="BaseballGameApp" customModuleProvider="target">
-                                <rect key="frame" x="12" y="365" width="300" height="72"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yp4-0d-ka6" customClass="CurrentPitcherHitterView" customModule="BaseballGameApp" customModuleProvider="target">
+                                <rect key="frame" x="12" y="368.5" width="251" height="71.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Yp4-0d-ka6" secondAttribute="height" multiplier="3.5:1" id="Y3w-L5-9EE"/>
                                 </constraints>
