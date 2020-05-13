@@ -31,12 +31,11 @@ class PlayViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        configureCountBoardView()
     }
 
     private func configure() {
         configureMatchBoardView()
-        configureCountBoardView()
         configureTableView()
     }
     
