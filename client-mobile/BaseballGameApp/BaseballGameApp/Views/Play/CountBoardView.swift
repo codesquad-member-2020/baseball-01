@@ -46,7 +46,7 @@ class CountBoardView: UIView {
         clipsToBounds = true
         layer.cornerRadius = 8
         layer.borderColor = UIColor.black.cgColor
-        layer.borderWidth = 1.5
+        layer.borderWidth = 2
         innerView.layer.cornerRadius = 8
     }
     

@@ -66,7 +66,7 @@ class CurrentPitcherHitterView: UIView {
         contentView.alpha = 0.9
         contentView.layer.cornerRadius = 8
         contentView.layer.borderColor = UIColor.black.cgColor
-        contentView.layer.borderWidth = 1.5
+        contentView.layer.borderWidth = 2
         contentView.clipsToBounds = true
     }
 }
