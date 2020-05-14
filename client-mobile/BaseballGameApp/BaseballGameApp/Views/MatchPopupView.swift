@@ -90,7 +90,7 @@ class MatchPopupView: UIView {
         seperatorView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         
         // Home-Away Labels
-        let verticalSpacingFromTeamLabelToContainer: CGFloat = -16.0
+        let verticalSpacingFromTeamLabelToContainer: CGFloat = -20.0
         
         addSubview(awayLabel)
         awayLabel.constraints(topAnchor: nil, leadingAnchor: self.leadingAnchor, bottomAnchor: self.bottomAnchor, trailingAnchor: self.centerXAnchor, padding: .init(top: 0, left: 0, bottom: verticalSpacingFromTeamLabelToContainer, right: 0))

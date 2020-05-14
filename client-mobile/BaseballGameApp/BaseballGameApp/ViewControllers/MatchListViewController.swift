@@ -167,7 +167,7 @@ extension MatchListViewController {
         NSLayoutConstraint(item: popupView, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
         popupViewCenterYAnchor = popupView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 800)
         popupViewCenterYAnchor?.isActive = true
-        popupView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7).isActive = true
+        popupView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.75).isActive = true
         popupView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
         popupView.alpha = 0
         view.layoutIfNeeded()
