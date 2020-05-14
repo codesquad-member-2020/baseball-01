@@ -76,4 +76,24 @@ const afterBorders = keyframes`
     height: calc((var(--border-width) * 2) + 100%);
   }
 `;
-export { introBallMove, introTitleMove, grow, beforeBorders, afterBorders };
+
+const messageMove = keyframes `
+ 0% {
+    transform: scale(0.9) translateX(-50%);
+  }
+  80%,
+  100% {
+    transform: scale(1) rotateZ(-3deg) translateX(-50%);
+  }
+`
+
+const feadIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`
+
+export { introBallMove, introTitleMove, grow, beforeBorders, afterBorders, messageMove, feadIn };
