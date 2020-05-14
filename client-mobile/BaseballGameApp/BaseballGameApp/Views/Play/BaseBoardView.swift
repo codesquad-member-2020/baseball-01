@@ -37,7 +37,7 @@ class BaseBoardView: UIView {
     }
     
     private func configureUI() {
-        let baseWidth = bounds.width / 2 + 2
+        let baseWidth = bounds.width / 2
         let baseHeight = baseWidth * 3 / 4
         
         secondBase = UIView(frame: .init(x: bounds.midX - baseWidth / 2 , y: -4, width: baseWidth, height: baseHeight))
