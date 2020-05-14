@@ -57,6 +57,8 @@ create table record (
                         plate_appearance int,
                         available bit(1),
                         team_id int references team(team_id),
+                        total_out_count int,
+                        total_hit_count int,
                         hitter_id int references hitter(hitter_id)
 );
 create table halfInning (
@@ -66,7 +68,9 @@ create table halfInning (
                         pitcher_name varchar (255),
                         number_of_pitches int,
                         outSum int,
-                        status varchar(255)
+                        match_id int,
+                        status varchar(255),
+                        change_status bit(1)
 );
 create table log (
                      log_id int primary key auto_increment,
@@ -81,4 +85,5 @@ create table log (
                      available bit(1),
                      inning_id int references halfInning(inning_id)
 );
+
 
