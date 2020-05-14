@@ -18,6 +18,8 @@ class CurrentPitcherHitterView: UIView {
     @IBOutlet weak var hitterTeamLogoImageView: UIImageView!
     @IBOutlet weak var pitcherInfoLabel: UILabel!
     @IBOutlet weak var hitterInfoLabel: UILabel!
+    @IBOutlet weak var pitcherArrow: UIImageView!
+    @IBOutlet weak var hitterArrow: UIImageView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
