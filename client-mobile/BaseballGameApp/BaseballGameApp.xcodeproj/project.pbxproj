@@ -16,6 +16,7 @@
 		3875C71D246C32D300B579FE /* PlayerLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3875C71B246C32D300B579FE /* PlayerLogCell.swift */; };
 		3875C71E246C32D300B579FE /* PlayerLogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3875C71C246C32D300B579FE /* PlayerLogCell.xib */; };
 		3875C720246C63A700B579FE /* PlayerLogsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3875C71F246C63A700B579FE /* PlayerLogsTableView.swift */; };
+		3875C722246D1ACF00B579FE /* PlayerLogsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3875C721246D1ACF00B579FE /* PlayerLogsHeaderView.swift */; };
 		38959B832460058100C7AD4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B822460058100C7AD4D /* AppDelegate.swift */; };
 		38959B852460058100C7AD4D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B842460058100C7AD4D /* SceneDelegate.swift */; };
 		38959B872460058100C7AD4D /* MatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B862460058100C7AD4D /* MatchListViewController.swift */; };
@@ -44,6 +45,7 @@
 		3875C71B246C32D300B579FE /* PlayerLogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLogCell.swift; sourceTree = "<group>"; };
 		3875C71C246C32D300B579FE /* PlayerLogCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerLogCell.xib; sourceTree = "<group>"; };
 		3875C71F246C63A700B579FE /* PlayerLogsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLogsTableView.swift; sourceTree = "<group>"; };
+		3875C721246D1ACF00B579FE /* PlayerLogsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLogsHeaderView.swift; sourceTree = "<group>"; };
 		38959B7F2460058100C7AD4D /* BaseballGameApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseballGameApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38959B822460058100C7AD4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38959B842460058100C7AD4D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				3875C71C246C32D300B579FE /* PlayerLogCell.xib */,
 				3875C71B246C32D300B579FE /* PlayerLogCell.swift */,
 				3875C71F246C63A700B579FE /* PlayerLogsTableView.swift */,
+				3875C721246D1ACF00B579FE /* PlayerLogsHeaderView.swift */,
 			);
 			path = Play;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 				38743A382467FCE3007B0E51 /* PlayViewController.swift in Sources */,
 				3875C714246C28CB00B579FE /* CurrentPitcherHitterView.swift in Sources */,
 				38959B982460138000C7AD4D /* AutoLayout.swift in Sources */,
+				3875C722246D1ACF00B579FE /* PlayerLogsHeaderView.swift in Sources */,
 				38959B852460058100C7AD4D /* SceneDelegate.swift in Sources */,
 				38959B9B246030CE00C7AD4D /* PlainLabel.swift in Sources */,
 				38EA5AC42462E6BC00055D6B /* LogoImageView.swift in Sources */,

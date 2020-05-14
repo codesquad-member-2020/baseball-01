@@ -41,8 +41,10 @@ class PlayViewController: UIViewController {
     
     private func configureTableView() {
         playerLogsTableView.dataSource = self
+        playerLogsTableView.delegate = self
         let nib = UINib(nibName: PlayerLogCell.nibName, bundle: nil)
         playerLogsTableView.register(nib, forCellReuseIdentifier: PlayerLogCell.identifier)
+        playerLogsTableView.register(PlayerLogsHeaderView.self, forHeaderFooterViewReuseIdentifier: PlayerLogsHeaderView.reuseIdentifier)
         playerLogsTableView.allowsSelection = false
     }
     
@@ -64,6 +66,7 @@ class PlayViewController: UIViewController {
 }
 
 extension PlayViewController: UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         2
     }
@@ -75,5 +78,17 @@ extension PlayViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: PlayerLogCell.identifier, for: indexPath) as! PlayerLogCell
         return cell
+    }
+}
+
+extension PlayViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: PlayerLogsHeaderView.reuseIdentifier) as! PlayerLogsHeaderView
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        PlayerLogsHeaderView.height
     }
 }
