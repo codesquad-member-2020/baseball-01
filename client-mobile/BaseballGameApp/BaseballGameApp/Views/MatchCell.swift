@@ -15,8 +15,8 @@ class MatchCell: UICollectionViewCell {
     
     private let awayLogoImageView = LogoImageView()
     private let homeLogoImageView = LogoImageView()
-    private let awayLabel = PlainLabel(text: "AWAY", color: UIColor(named: "match.board.current.player.bar"), fontSize: 13, weight: .semibold, alignment: .center)
-    private let homeLabel = PlainLabel(text: "HOME", color: UIColor(named: "match.board.current.player.bar"), fontSize: 13, weight: .semibold, alignment: .center)
+    private let awayLabel = PlainLabel(text: "AWAY", color: UIColor(named: "away.home.label"), fontSize: 13, weight: .semibold, alignment: .center)
+    private let homeLabel = PlainLabel(text: "HOME", color: UIColor(named: "away.home.label"), fontSize: 13, weight: .semibold, alignment: .center)
     private let versusLabel = PlainLabel(text: "VS", color: .white, fontSize: 23, weight: .heavy, alignment: .center)
     private let awayNameLabel = PlainLabel(text: "AWAY", color: .white, fontSize: 15, weight: .bold, alignment: .center)
     private let homeNameLabel = PlainLabel(text: "HOME", color: .white, fontSize: 15, weight: .bold, alignment: .center)
