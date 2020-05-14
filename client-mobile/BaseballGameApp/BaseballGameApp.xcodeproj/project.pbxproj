@@ -13,6 +13,7 @@
 		385614FA246D75F500320CB9 /* MatchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385614F9246D75F500320CB9 /* MatchUseCase.swift */; };
 		385614FD246D797600320CB9 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385614FC246D797600320CB9 /* Match.swift */; };
 		385614FF246D7AD600320CB9 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385614FE246D7AD600320CB9 /* Team.swift */; };
+		38561501246D7FBD00320CB9 /* MatchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38561500246D7FBD00320CB9 /* MatchList.swift */; };
 		38743A282463F282007B0E51 /* BungeeOutline-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38743A272463F282007B0E51 /* BungeeOutline-Regular.ttf */; };
 		38743A382467FCE3007B0E51 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38743A372467FCE3007B0E51 /* PlayViewController.swift */; };
 		38743A3A24681AC0007B0E51 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38743A3924681AC0007B0E51 /* MatchViewController.swift */; };
@@ -50,6 +51,7 @@
 		385614F9246D75F500320CB9 /* MatchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchUseCase.swift; sourceTree = "<group>"; };
 		385614FC246D797600320CB9 /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		385614FE246D7AD600320CB9 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
+		38561500246D7FBD00320CB9 /* MatchList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchList.swift; sourceTree = "<group>"; };
 		38743A272463F282007B0E51 /* BungeeOutline-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BungeeOutline-Regular.ttf"; path = "../../../../../../../../../../Downloads/Fonts/Bungee_Outline/BungeeOutline-Regular.ttf"; sourceTree = "<group>"; };
 		38743A372467FCE3007B0E51 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		38743A3924681AC0007B0E51 /* MatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			children = (
 				385614FC246D797600320CB9 /* Match.swift */,
 				385614FE246D7AD600320CB9 /* Team.swift */,
+				38561500246D7FBD00320CB9 /* MatchList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				38743A3A24681AC0007B0E51 /* MatchViewController.swift in Sources */,
 				385614F3246D473700320CB9 /* NetworkDispatcher.swift in Sources */,
 				3875C720246C63A700B579FE /* PlayerLogsTableView.swift in Sources */,
+				38561501246D7FBD00320CB9 /* MatchList.swift in Sources */,
 				3875C71D246C32D300B579FE /* PlayerLogCell.swift in Sources */,
 				38BB53C9246BECB300526167 /* CountBoardView.swift in Sources */,
 				3875C724246D241B00B579FE /* BaseBoardView.swift in Sources */,
