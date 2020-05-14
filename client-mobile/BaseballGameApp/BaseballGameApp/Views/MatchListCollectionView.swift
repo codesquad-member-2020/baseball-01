@@ -46,6 +46,8 @@ extension MatchListCollectionView: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath) as! MatchCell
+        guard !cell.isPlaying else { return }
         NotificationCenter.default.post(name: .didSelectMatch, object: nil, userInfo: ["indexPath": indexPath])
     }
 }

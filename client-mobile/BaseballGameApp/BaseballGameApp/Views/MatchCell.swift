@@ -24,7 +24,7 @@ class MatchCell: UICollectionViewCell {
     private let containerView = UIView()
     private let containerEffectView = UIView()
     private let cornerRadius: CGFloat = 16
-    private(set) var isOccupied: Bool = false
+    private(set) var isPlaying: Bool = false
     
     private var away: Team! {
         didSet {
@@ -68,7 +68,7 @@ class MatchCell: UICollectionViewCell {
     
     private func checkAvailability() {
         guard away.isOccupied && home.isOccupied else { return }
-        self.isOccupied = true
+        isPlaying = true
         addBlockView()
     }
     
