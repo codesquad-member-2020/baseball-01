@@ -168,7 +168,7 @@ extension MatchListViewController {
         popupViewCenterYAnchor = popupView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 800)
         popupViewCenterYAnchor?.isActive = true
         popupView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7).isActive = true
-        popupView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.22).isActive = true
+        popupView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
         popupView.alpha = 0
         view.layoutIfNeeded()
         
