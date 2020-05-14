@@ -13,4 +13,10 @@ public class Hitter {
     private int id;
     private String name;
     private float average;
+
+    private int totalPlateAppearance;
+    private int totalHitCount;
+    private int totalOutCount;
+    private int totalAverage;
+
 }
