@@ -31,7 +31,7 @@ public class RecordDao {
         List<Record> records = findRecordByTeamId(teamId);
         for (int i = 0; i < records.size(); i++) {
             Record r = records.get(i);
-            if (r.getOutCount() == 0) {
+            if (r.isAvailable()) {
                 return r;
             }
             System.out.println("this player is out : " + r.getHitterName());
@@ -42,7 +42,7 @@ public class RecordDao {
     }
 
     public void resetScore(int teamId) {
-        String sql = "UPDATE record set out_count = 0, strike_count = 0, ball_count = 0, hit_count = 0 where team_id =" + teamId;
+        String sql = "UPDATE record set out_count = 0, strike_count = 0, ball_count = 0, hit_count = 0, available = 1 where team_id =" + teamId;
         jdbcTemplate.update(sql);
     }
 
@@ -53,6 +53,11 @@ public class RecordDao {
 
     public List<Hitter> findPlayersByTeamId(int teamId) {
         String sql = "SELECT * FROM hitter where team_id =" + teamId;
+        return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Hitter.class));
+    }
+
+    public List<Hitter> findThreePlayersByTeamId(int teamId) {
+        String sql = "SELECT * FROM hitter where team_id =" + teamId + " ORDER BY hitter_id DESC LIMIT 3";
         return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Hitter.class));
     }
 
