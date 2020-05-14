@@ -22,8 +22,11 @@ class MatchListViewController: UIViewController {
     private let collectionView = MatchListCollectionView()
     private let matchListDataSource = MatchListDataSource()
     
+    private let intervalTime: CGFloat = 5.0
+    
     // AutoLayout properties for animation
     private var popupViewCenterYAnchor: NSLayoutConstraint?
+    private var timer = Timer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +39,7 @@ class MatchListViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        reloadMatchListPeriodically()
         
         guard !hasEnteredFromMain else { return }
         let mainViewController = MainViewController()
@@ -43,6 +47,14 @@ class MatchListViewController: UIViewController {
         self.present(mainViewController, animated: false, completion: {
             mainViewController.delegate = self
         })
+    }
+    
+    private func reloadMatchListPeriodically() {
+        timer = Timer.scheduledTimer(timeInterval: TimeInterval(intervalTime), target: self, selector: #selector(reloadMatchList), userInfo: nil, repeats: true)
+    }
+    
+    @objc private func reloadMatchList() {
+        requestMatchList()
     }
     
     deinit {
