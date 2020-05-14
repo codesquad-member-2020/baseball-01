@@ -2,10 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import ballBg from '../Styles/ball_bg.png';
 import { grow } from '../Styles/Keyframes';
+import { IntroBg } from '../Styles/Backgorund';
 
 const LoaderWrap = styled.div`
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: ${IntroBg};
+  width: 100%;
+  height: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  
   &::before {
     content: '';
     width: 20px;

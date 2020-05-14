@@ -1,7 +1,8 @@
+import axios from 'axios';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Team from './Team';
+import { URL } from '../../constant/url';
 
 const TeamListDiv = styled.div`
   position: relative;
@@ -10,6 +11,11 @@ const TeamListDiv = styled.div`
   align-items: center;
   text-align: center;
   box-sizing: border-box;
+  padding: 15px;
+  z-index: 10;
+  & + & {
+    margin-top: 20px;
+  }
   &::before,
   &::after {
     content: '';
@@ -19,6 +25,9 @@ const TeamListDiv = styled.div`
     width: 0;
     height: 0;
     border-top: 2px solid transparent;
+  }
+  > * {
+    margin: 0 20px;
   }
   a {
     position: relative;
@@ -46,16 +55,44 @@ const TeamListDiv = styled.div`
       border-left: 2px solid #fff;
     }
   }
+  &.active {
+    pointer-events: none;
+    > * {
+      opacity: 0.3;
+    }
+    .active::before {
+      display: none;
+    }
+    &::before {
+      content: '경기중입니다.';
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 100;
+      opacity: 1;
+      background: rgba(0, 0, 0, 0.7);
+    }
+  }
 `;
 
-const TeamList = ({ link, home, away }) => {
+const TeamList = ({ link, home, away, matchID, onSelectTeam }) => {
+  
+  const getMatch = async team => {
+    const response = await axios.patch(`${URL}/matches/${matchID}/teams/${team}`);
+    return onSelectTeam(response, matchID, team);
+  };
+
   return (
-    <TeamListDiv>
-      <Link to={link}>
-        <Team type='HOME' name={home.name} logoSrc={home.logoImg} />
-        <span>VS</span>
-        <Team type='AWAY' name={away.name} logoSrc={away.logoImg} />
-      </Link>
+    <TeamListDiv className={home.user_status && away.user_status && 'active'}>
+      <Team type='home' name={home.team_name} logoSrc={home.logo_image} teamID={home.team_id} onClickHandler={getMatch} status={home.user_status} />
+      <span>VS</span>
+      <Team type='away' name={away.team_name} logoSrc={away.logo_image} teamID={away.team_id} onClickHandler={getMatch} status={away.user_status} />
+      
     </TeamListDiv>
   );
 };
