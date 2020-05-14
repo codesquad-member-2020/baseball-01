@@ -25,7 +25,18 @@ class MatchCell: UICollectionViewCell {
     private let containerEffectView = UIView()
     private let cornerRadius: CGFloat = 16
     private(set) var identifier: Int!
-    private(set) var isPlaying: Bool = false
+    private(set) var isPlaying: Bool = false {
+        didSet {
+            if isPlaying {
+                showBlockView()
+            } else {
+                hideBlockView()
+            }
+        }
+    }
+    
+    private var blockView: UIView!
+    private var unavailableMessageLabel: UIView!
     
     private var away: Team! {
         didSet {
@@ -68,25 +79,19 @@ class MatchCell: UICollectionViewCell {
     func updateTeam(away: Team, home: Team) {
         self.away = away
         self.home = home
-        checkAvailability()
+        isPlaying = away.isOccupied && home.isOccupied
     }
     
-    private func checkAvailability() {
-        guard away.isOccupied && home.isOccupied else { return }
-        isPlaying = true
-        addBlockView()
+    private func showBlockView() {
+        guard blockView != nil, unavailableMessageLabel != nil else { return }
+        blockView.isHidden = false
+        unavailableMessageLabel.isHidden = false
     }
     
-    private func addBlockView() {
-        let blockView = UIView()
-        containerView.addSubview(blockView)
-        let unavailableMessageLabel = PlainLabel(text: "경기 중인 매치입니다.", color: .white, fontSize: 16, weight: .semibold, alignment: .center)
-        unavailableMessageLabel.backgroundColor = .black
-        containerView.addSubview(unavailableMessageLabel)
-        unavailableMessageLabel.centerInSuperView()
-        blockView.backgroundColor = .black
-        blockView.alpha = 0.8
-        blockView.fillSuperView()
+    private func hideBlockView() {
+        guard blockView != nil, unavailableMessageLabel != nil else { return }
+        blockView.isHidden = true
+        unavailableMessageLabel.isHidden = true
     }
     
     func pass(handler: (_ identifier: Int, _ awayTeam: Team, _ awayTeamLogoImage: UIImage?, _ homeTeam: Team, _ homeTeamLogoImage: UIImage?) -> Void) {
@@ -113,6 +118,20 @@ class MatchCell: UICollectionViewCell {
         
         containerEffectView.backgroundColor = .black
         containerEffectView.alpha = 0.25
+        
+        addBlockView()
+    }
+    
+    private func addBlockView() {
+        blockView = UIView()
+        containerView.addSubview(blockView)
+        unavailableMessageLabel = PlainLabel(text: "경기 중인 매치입니다.", color: .white, fontSize: 16, weight: .semibold, alignment: .center)
+        unavailableMessageLabel.backgroundColor = .black
+        containerView.addSubview(unavailableMessageLabel)
+        unavailableMessageLabel.centerInSuperView()
+        blockView.backgroundColor = .black
+        blockView.alpha = 0.8
+        blockView.fillSuperView()
     }
     
     private func configureLayout() {
