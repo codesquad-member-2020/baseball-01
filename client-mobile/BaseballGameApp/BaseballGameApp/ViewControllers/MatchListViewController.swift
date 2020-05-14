@@ -12,13 +12,15 @@ class MatchListViewController: UIViewController {
     
     private let titleLabel = PlainLabel(text: "Match List", color: .white, fontSize: 32, weight: .semibold, alignment: .center)
     private let descriptionLabel = PlainLabel(text: "플레이할 매치를 선택하세요", color: .white, fontSize: 16, weight: .medium, alignment: .center)
-    private let collectionView = MatchListCollectionView()
     
     private var popupView: MatchPopupView!
     private var popupBackgroundView: UIView!
     
     private var hasEnteredFromMain = false
     private let enterTransitionView = UIView()
+    
+    private let collectionView = MatchListCollectionView()
+    private let matchListDataSource = MatchListDataSource()
     
     // AutoLayout properties for animation
     private var popupViewCenterYAnchor: NSLayoutConstraint?
@@ -28,6 +30,8 @@ class MatchListViewController: UIViewController {
         
         configureUI()
         configureNotification()
+        configureCollectionView()
+        requestMatchList()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -44,6 +48,28 @@ class MatchListViewController: UIViewController {
     deinit {
         NotificationCenter.default.removeObserver(self, name: .didSelectMatch, object: nil)
         NotificationCenter.default.removeObserver(self, name: .didSelectTeam, object: nil)
+        NotificationCenter.default.removeObserver(self, name: .didUpdateMatchList, object: nil)
+    }
+    
+    private func configureCollectionView() {
+        collectionView.dataSource = matchListDataSource
+    }
+    
+    private func requestMatchList() {
+        MatchListUseCase.getMatchList(from: MatchListUseCase.MatchListRequest(),
+                                      with: MatchListUseCase.MatchListTask(networkDispatcher: NetworkManager())
+        ) { (result) in
+            switch result {
+            case .success(let matchList):
+                DispatchQueue.main.async {
+                    self.matchListDataSource.updateMatchList(matchList.data)
+                }
+            case .failure(_):
+                break
+            default:
+                break
+            }
+        }
     }
 
     private func configureUI() {
@@ -78,8 +104,22 @@ extension MatchListViewController: MainViewControllerDelegate {
 extension MatchListViewController {
     
     private func configureNotification() {
-        NotificationCenter.default.addObserver(self, selector: #selector(didTapMatchCell), name: .didSelectMatch, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(didSelectTeam), name: .didSelectTeam, object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(didTapMatchCell),
+                                               name: .didSelectMatch,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(didSelectTeam),
+                                               name: .didSelectTeam,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(didUpdateMatchList),
+                                               name: .didUpdateMatchList,
+                                               object: nil)
+    }
+    
+    @objc private func didUpdateMatchList(notification: Notification) {
+        self.collectionView.reloadData()
     }
     
     @objc func didTapMatchCell(notification: Notification) {
