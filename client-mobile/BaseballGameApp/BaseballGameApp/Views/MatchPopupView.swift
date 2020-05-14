@@ -68,16 +68,16 @@ class MatchPopupView: UIView {
     @objc private func didTapTeam(recognizer: UIGestureRecognizer) {
         switch recognizer.view {
         case awayTapView:
-            self.postNotification(isAway: true)
+            self.postNotification(identifier: away.identifier)
         case homeTapView:
-            self.postNotification(isAway: false)
+            self.postNotification(identifier: home.identifier)
         default:
             break
         }
     }
     
-    private func postNotification(isAway: Bool) {
-        NotificationCenter.default.post(name: .didSelectTeam, object: nil, userInfo: ["isAway": isAway])
+    private func postNotification(identifier: Int) {
+        NotificationCenter.default.post(name: .didSelectTeam, object: nil, userInfo: ["identifier": identifier])
     }
     
     private func configureUI() {

@@ -138,7 +138,7 @@ extension MatchListViewController {
     }
     
     @objc private func didSelectTeam(notification: Notification) {
-        guard let isAway = notification.userInfo?["isAway"] as? Bool else { return }
+        guard let identifier = notification.userInfo?["identifier"] as? Int else { return }
     }
 }
 
