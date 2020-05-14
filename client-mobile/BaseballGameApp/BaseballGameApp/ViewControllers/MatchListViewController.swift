@@ -23,10 +23,10 @@ class MatchListViewController: UIViewController {
     private let matchListDataSource = MatchListDataSource()
     
     private let intervalTime: CGFloat = 5.0
+    private var timer = Timer()
     
     // AutoLayout properties for animation
     private var popupViewCenterYAnchor: NSLayoutConstraint?
-    private var timer = Timer()
 
     override func viewDidLoad() {
         super.viewDidLoad()
