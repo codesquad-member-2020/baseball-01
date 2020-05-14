@@ -6,6 +6,8 @@ import com.codesquad.baseball1.dao.RecordDao;
 import com.codesquad.baseball1.domain.HalfInning;
 import com.codesquad.baseball1.dto.ResponseDto;
 import com.codesquad.baseball1.service.LogService;
+import com.codesquad.baseball1.service.ResetService;
+import jdk.nashorn.internal.objects.annotations.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,18 +30,25 @@ public class PitchController {
     private InningDao inningDao;
     @Autowired
     private LogService logService;
+    @Autowired
+    private ResetService resetService;
 
     public PitchController(DataSource dataSource) {
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
-
 
     @PostMapping("/matches/{matchId}/pitch")
     public ResponseDto throwPitch(@PathVariable int matchId) {
         Map matches = logService.figureHomeOrAway(matchId);
         int homeId = (int) matches.get("home");
         int awayId = (int) matches.get("away");
+
         HalfInning homeInning = inningDao.findHalfInningToPlay(matchId);
+
+        if (homeInning.getHitScore() == 100) {
+            resetService.resetInningsAndRecordsWithMatchId(matchId);
+            return new ResponseDto(200, "9회말까지 플레이하여 경기가 끝났습니다. 이제 게임이 초기화됩니다.");
+        }
 
         int inningId = homeInning.getInningId();
         if (inningId%2 != 0 && !inningDao.isThreeOut(homeInning)) {
@@ -47,11 +56,13 @@ public class PitchController {
         } else if (inningId%2 == 0 && !inningDao.isThreeOut(homeInning)) {
             return logService.makePitch(inningId, awayId);
         }
+
         return null;
     }
 
     @GetMapping("/matches/{matchId}/pitch")
     public ResponseDto getPitch(@PathVariable int matchId) {
+
         HalfInning thisInning = inningDao.findHalfInningToPlay(matchId);
         int inningId = thisInning.getInningId();
         return new ResponseDto(200, inningDao.findInningById(inningId));

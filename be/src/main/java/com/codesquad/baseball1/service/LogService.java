@@ -159,7 +159,7 @@ public class LogService {
     }
 
     public String getRandomAction() {
-        List<String> sboh = Arrays.asList("스트라이크", "아웃", "볼", "안타");
+        List<String> sboh = Arrays.asList("스트라이크", "아웃", "안타", "볼");
         Random random = new Random();
         String actionType = sboh.get(random.nextInt(sboh.size()));
         return actionType;
