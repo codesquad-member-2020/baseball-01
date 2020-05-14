@@ -35,11 +35,17 @@ class MatchCell: UICollectionViewCell {
         configureUI()
     }
     
-    func configureMatchCell(awayName: String, awayLogoImage: UIImage?, homeName: String, homeLogoImage: UIImage?) {
+    func updateLogoImage(_ image: UIImage?, isAway: Bool) {
+        if isAway {
+            self.awayLogoImageView.image = image
+        } else {
+            self.homeLogoImageView.image = image
+        }
+    }
+    
+    func updateTeamNames(awayName: String, homeName: String) {
         self.awayNameLabel.text = awayName
-        self.awayLogoImageView.image = awayLogoImage
         self.homeNameLabel.text = homeName
-        self.homeLogoImageView.image = homeLogoImage
     }
     
     private func configureUI() {

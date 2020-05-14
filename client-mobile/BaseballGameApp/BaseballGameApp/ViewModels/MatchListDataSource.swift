@@ -30,7 +30,42 @@ class MatchListDataSource: NSObject, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MatchCell.reuseIdentifier, for: indexPath) as! MatchCell
+        let match = matchList[indexPath.item]
+        let awayTeam = match.awayTeam
+        let homeTeam = match.homeTeam
+        
+        DispatchQueue.main.async {
+            cell.updateTeamNames(awayName: awayTeam.name, homeName: homeTeam.name)
+        }
+        
+        fetchImageWithCaching(imageURL: awayTeam.logoImage) { (image) in
+            DispatchQueue.main.async {
+                cell.updateLogoImage(image, isAway: true)
+            }
+        }
+        fetchImageWithCaching(imageURL: homeTeam.logoImage) { (image) in
+            DispatchQueue.main.async {
+                cell.updateLogoImage(image, isAway: false)
+            }
+        }
         return cell
+    }
+    
+    private func fetchImageWithCaching(imageURL: String, completion: @escaping (UIImage?) -> Void) {
+        let url = URL(string: imageURL)!
+        let cachedImageFileURL = try! FileManager.default.url(for: .cachesDirectory,
+                                                              in: .userDomainMask,
+                                                              appropriateFor: nil,
+                                                              create: true)
+                                                 .appendingPathComponent(url.lastPathComponent)
+        if let cachedData = try? Data(contentsOf: cachedImageFileURL) {
+            let image = UIImage(data: cachedData)
+            completion(image)
+        } else {
+            ImageNetworkManager.fetchImage(from: imageURL, cachedImageFileURL: cachedImageFileURL) { (image) in
+                completion(image)
+            }
+        }
     }
 }
 
