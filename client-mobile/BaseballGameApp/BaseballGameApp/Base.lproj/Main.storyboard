@@ -147,14 +147,14 @@
                                 </constraints>
                             </view>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tqV-4X-X37" userLabel="Base Board BG View" customClass="BaseBoardBackgroundView" customModule="BaseballGameApp" customModuleProvider="target">
-                                <rect key="frame" x="343.5" y="117" width="58.5" height="39"/>
+                                <rect key="frame" x="332" y="117" width="70" height="41.5"/>
                                 <color key="backgroundColor" name="board.view"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="tqV-4X-X37" secondAttribute="height" multiplier="1.5:1" id="gAr-If-v99"/>
+                                    <constraint firstAttribute="width" secondItem="tqV-4X-X37" secondAttribute="height" multiplier="1.7:1" id="gAr-If-v99"/>
                                 </constraints>
                             </view>
                             <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W99-vR-Rlc" customClass="BaseBoardView" customModule="BaseballGameApp" customModuleProvider="target">
-                                <rect key="frame" x="343.5" y="117" width="58.5" height="39"/>
+                                <rect key="frame" x="332" y="117" width="70" height="41.5"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
                                         <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -168,7 +168,7 @@
                         <color key="backgroundColor" name="board.view"/>
                         <constraints>
                             <constraint firstItem="Yp4-0d-ka6" firstAttribute="leading" secondItem="cMy-Qx-fKq" secondAttribute="leading" constant="12" id="0TG-Id-2OR"/>
-                            <constraint firstItem="tqV-4X-X37" firstAttribute="width" secondItem="843-Wj-Jqc" secondAttribute="width" multiplier="0.15" id="1i1-kk-osu"/>
+                            <constraint firstItem="tqV-4X-X37" firstAttribute="width" secondItem="843-Wj-Jqc" secondAttribute="width" multiplier="0.18" id="1i1-kk-osu"/>
                             <constraint firstItem="cMy-Qx-fKq" firstAttribute="trailing" secondItem="843-Wj-Jqc" secondAttribute="trailing" constant="12" id="326-Xc-FKx"/>
                             <constraint firstItem="Yp4-0d-ka6" firstAttribute="height" secondItem="cxr-3Q-JGJ" secondAttribute="height" multiplier="0.08" id="3Tj-OP-27n"/>
                             <constraint firstItem="tqV-4X-X37" firstAttribute="top" secondItem="843-Wj-Jqc" secondAttribute="bottom" constant="8" id="5rP-9b-rEz"/>
