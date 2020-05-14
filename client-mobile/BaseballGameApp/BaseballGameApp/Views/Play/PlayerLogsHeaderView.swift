@@ -26,6 +26,19 @@ class PlayerLogsHeaderView: UITableViewHeaderFooterView {
         configure()
     }
     
+    func updateHeaderView(playerNumber: Int, playerName: String) {
+        updatePlayerNumber(playerNumber)
+        updatePlayerName(playerName)
+    }
+    
+    private func updatePlayerNumber(_ playerNumber: Int) {
+        playerNumberLabel.text = "\(playerNumber)번"
+    }
+    
+    private func updatePlayerName(_ playerName: String) {
+        playerNameLabel.text = playerName
+    }
+    
     private func configure() {
         configureUI()
         configureLayout()
