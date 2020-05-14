@@ -71,7 +71,7 @@ class MatchCell: UICollectionViewCell {
         homeLabel.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 900), for: .vertical)
         
         // LogoImageViews
-        let verticalSpacingFromLogoImageToTeamLabel: CGFloat = 4.0
+        let verticalSpacingFromLogoImageToTeamLabel: CGFloat = 0.0
         
         containerView.addSubview(awayLogoImageView)
         awayLogoImageView.centerXAnchor.constraint(equalTo: awayLabel.centerXAnchor).isActive = true
@@ -82,7 +82,7 @@ class MatchCell: UICollectionViewCell {
         homeLogoImageView.constraints(topAnchor: homeLabel.bottomAnchor, leadingAnchor: nil, bottomAnchor: nil, trailingAnchor: nil, padding: .init(top: verticalSpacingFromLogoImageToTeamLabel, left: 0, bottom: 0, right: 0))
         
         // TeamNameLabels
-        let verticalSpacingFromNameLabelToLogoImage: CGFloat = 4.0
+        let verticalSpacingFromNameLabelToLogoImage: CGFloat = 0.0
         let verticalSpacingFromContainerToNameLabel: CGFloat = 12.0
         
         containerView.addSubview(awayNameLabel)
