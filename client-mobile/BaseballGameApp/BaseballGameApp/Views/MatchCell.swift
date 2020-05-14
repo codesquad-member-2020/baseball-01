@@ -48,6 +48,10 @@ class MatchCell: UICollectionViewCell {
         self.homeNameLabel.text = homeName
     }
     
+    func pass(handler: (_ awayTeamName: String, _ awayTeamLogoImage: UIImage?, _ homeTeamName: String, _ homeTeamLogoImage: UIImage?) -> Void) {
+        handler(awayNameLabel.text ?? "", awayLogoImageView.image, homeNameLabel.text ?? "", homeLogoImageView.image)
+    }
+    
     private func configureUI() {
         addSubview(containerView)
         containerView.layer.cornerRadius = cornerRadius

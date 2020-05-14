@@ -39,7 +39,10 @@ class MatchPopupView: UIView {
         configureUI()
     }
     
-    func configureMatchPopupView(awayName: String, awayLogoImage: UIImage?, homeName: String, homeLogoImage: UIImage?) {
+    func update(awayName: String,
+                awayLogoImage: UIImage?,
+                homeName: String,
+                homeLogoImage: UIImage?) {
         self.awayNameLabel.text = awayName
         self.awayLogoImageView.image = awayLogoImage
         self.homeNameLabel.text = homeName

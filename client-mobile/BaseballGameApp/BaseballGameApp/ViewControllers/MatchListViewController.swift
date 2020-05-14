@@ -164,7 +164,12 @@ extension MatchListViewController {
         
         // Configure Pop-up View
         let cell = collectionView.cellForItem(at: indexPath) as! MatchCell
-        popupView.configureMatchPopupView(awayName: "두산 베어스", awayLogoImage: UIImage(named: "logo.doosan"), homeName: "두산 베어스", homeLogoImage: UIImage(named: "logo.doosan"))
+        cell.pass { (awayTeamName, awayLogo, homeTeamName, homeLogo) in
+            popupView.update(awayName: awayTeamName,
+                             awayLogoImage: awayLogo,
+                             homeName: homeTeamName,
+                             homeLogoImage: homeLogo)
+        }
         
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.popupViewCenterYAnchor?.constant = -20
