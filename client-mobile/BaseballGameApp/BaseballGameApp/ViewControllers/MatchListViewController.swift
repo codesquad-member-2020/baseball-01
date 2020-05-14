@@ -73,16 +73,26 @@ class MatchListViewController: UIViewController {
     }
 
     private func configureUI() {
-        view.backgroundColor = .black
+        let imageView = UIImageView(image: UIImage(named: "matchlist.bg"))
+        imageView.contentMode = .scaleAspectFill
+        let backgroundEffectView = UIView()
+        backgroundEffectView.backgroundColor = .black
+        backgroundEffectView.alpha = 0.6
         
+        view.addSubview(imageView)
+        view.addSubview(backgroundEffectView)
         view.addSubview(titleLabel)
         view.addSubview(descriptionLabel)
         view.addSubview(collectionView)
         view.addSubview(enterTransitionView)
+        
+        imageView.fillSuperView()
+        backgroundEffectView.fillSuperView()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         NSLayoutConstraint(item: titleLabel, attribute: .top, relatedBy: .equal, toItem: self.view.safeAreaLayoutGuide, attribute: .top, multiplier: 2.8, constant: 0).isActive = true
         descriptionLabel.constraints(topAnchor: titleLabel.bottomAnchor, leadingAnchor: view.leadingAnchor, bottomAnchor: nil, trailingAnchor: view.trailingAnchor, padding: .init(top: 8, left: 0, bottom: 0, right: 0))
+        collectionView.backgroundColor = .clear
         collectionView.constraints(topAnchor: descriptionLabel.bottomAnchor, leadingAnchor: view.leadingAnchor, bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, trailingAnchor: view.trailingAnchor, padding: .init(top: 28, left: 32, bottom: -16, right: -32))
         enterTransitionView.backgroundColor = .black
         enterTransitionView.fillSuperView()
