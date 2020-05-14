@@ -123,8 +123,8 @@ extension MatchListViewController {
     }
     
     @objc func didTapMatchCell(notification: Notification) {
-        guard let index = notification.userInfo?["index"] as? Int else { return }
-        showPopupView()
+        guard let indexPath = notification.userInfo?["indexPath"] as? IndexPath else { return }
+        showPopupView(at: indexPath)
     }
     
     @objc private func didSelectTeam(notification: Notification) {
@@ -144,7 +144,7 @@ extension MatchListViewController {
 // MARK:- Pop up View
 extension MatchListViewController {
     
-    private func showPopupView() {
+    private func showPopupView(at indexPath: IndexPath) {
         self.popupView = MatchPopupView()
         self.popupBackgroundView = UIView()
         view.addSubview(popupBackgroundView)
@@ -163,6 +163,7 @@ extension MatchListViewController {
         view.layoutIfNeeded()
         
         // Configure Pop-up View
+        let cell = collectionView.cellForItem(at: indexPath) as! MatchCell
         popupView.configureMatchPopupView(awayName: "두산 베어스", awayLogoImage: UIImage(named: "logo.doosan"), homeName: "두산 베어스", homeLogoImage: UIImage(named: "logo.doosan"))
         
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {

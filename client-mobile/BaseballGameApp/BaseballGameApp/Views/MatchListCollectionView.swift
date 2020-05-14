@@ -46,7 +46,7 @@ extension MatchListCollectionView: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        NotificationCenter.default.post(name: .didSelectMatch, object: nil, userInfo: ["index": indexPath.item])
+        NotificationCenter.default.post(name: .didSelectMatch, object: nil, userInfo: ["indexPath": indexPath])
     }
 }
 
