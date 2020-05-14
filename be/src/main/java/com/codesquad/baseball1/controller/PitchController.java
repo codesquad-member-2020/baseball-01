@@ -37,6 +37,7 @@ public class PitchController {
         jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
+
     @PostMapping("/matches/{matchId}/pitch")
     public ResponseDto throwPitch(@PathVariable int matchId) {
         Map matches = logService.figureHomeOrAway(matchId);
@@ -46,7 +47,7 @@ public class PitchController {
         HalfInning homeInning = inningDao.findHalfInningToPlay(matchId);
 
         if (homeInning.getHitScore() == 100) {
-            resetService.resetInningsAndRecordsWithMatchId(matchId);
+            resetService.resetInningsAndRecordsAndLogsWithMatchId(matchId);
             return new ResponseDto(200, "9회말까지 플레이하여 경기가 끝났습니다. 이제 게임이 초기화됩니다.");
         }
 

@@ -7,6 +7,8 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.sql.DataSource;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 public class ResetService {
@@ -26,14 +28,34 @@ public class ResetService {
         this.namedJdbcTemplate = namedJdbcTemplate;
     }
 
-    public void resetInningsAndRecordsWithMatchId(int matchId) {
+    public void resetInningsAndRecordsAndLogsWithMatchId(int matchId) {
         resetInningWithMatchID(matchId);
+        deleteLogsWithMatchId(matchId);
         resetRecordsWithMatchId(matchId);
     }
 
     public void resetInningWithMatchID(int matchId) {
         String sql = "UPDATE halfInning SET hit_score = 0, number_of_pitches = 0, outSum = 0 where halfInning.match_id =" + matchId;
         jdbcTemplate.update(sql);
+    }
+
+    public void deleteLogsWithMatchId(int matchId) {
+        if (matchId == 1)   for (int i = 1; i < 18; i++) {
+            String sql = "DELETE FROM log where log.inning_id = ?";
+            jdbcTemplate.update(sql, i);
+        } else if (matchId == 2 ) for (int i = 19; i < 36; i++) {
+            String sql = "DELETE FROM log where log.inning_id = ?";
+            jdbcTemplate.update(sql, i);
+        } else if (matchId == 3 ) for (int i = 37; i < 54; i++) {
+            String sql = "DELETE FROM log where log.inning_id = ?";
+            jdbcTemplate.update(sql, i);
+        } else if (matchId == 4 ) for (int i = 55; i < 73; i++) {
+            String sql = "DELETE FROM log where log.inning_id = ?";
+            jdbcTemplate.update(sql, i);
+        } else if (matchId == 5 ) for (int i = 75; i < 90; i++) {
+            String sql = "DELETE FROM log where log.inning_id = ?";
+            jdbcTemplate.update(sql, i);
+        }
     }
 
     public void resetRecordsWithMatchId(int matchId) {
