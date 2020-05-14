@@ -19,8 +19,8 @@ class MatchPopupView: UIView {
     private let awayLabel = PlainLabel(text: "AWAY", color: UIColor(named: "away.home.label"), fontSize: 11, weight: .semibold, alignment: .center)
     private let homeLabel = PlainLabel(text: "HOME", color: UIColor(named: "away.home.label"), fontSize: 11, weight: .semibold, alignment: .center)
     
-    private let awayNameLabel = PlainLabel(text: "AWAY", color: .white, fontSize: 13, weight: .bold, alignment: .center)
-    private let homeNameLabel = PlainLabel(text: "HOME", color: .white, fontSize: 13, weight: .bold, alignment: .center)
+    private let awayNameLabel = PlainLabel(text: "AWAY", color: .white, fontSize: 15, weight: .bold, alignment: .center)
+    private let homeNameLabel = PlainLabel(text: "HOME", color: .white, fontSize: 15, weight: .bold, alignment: .center)
     
     private let awayTapView = UIView()
     private let homeTapView = UIView()
