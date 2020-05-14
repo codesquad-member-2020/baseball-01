@@ -150,6 +150,7 @@ extension MatchListViewController {
         showPopupView(at: indexPath)
     }
     
+    // MARK:- Select Team
     @objc private func didSelectTeam(notification: Notification) {
         guard
             let matchIdentifier = notification.userInfo?["matchIdentifier"] as? Int,
@@ -161,6 +162,9 @@ extension MatchListViewController {
         ) { (result) in
             switch result {
             case .success(let selectingStatus):
+                DispatchQueue.main.async {
+                    self.showAlertView(message: selectingStatus.message)
+                }
                 break
             case .failure(_):
                 break
@@ -174,6 +178,13 @@ extension MatchListViewController {
     private func presentMatch() {
         let matchViewController = MatchViewController()
         self.present(matchViewController, animated: true, completion: nil)
+    }
+    
+    private func showAlertView(message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Done", style: .default, handler: nil)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
