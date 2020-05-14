@@ -74,24 +74,25 @@ const DetailBtn = styled.button`
   width: 12.5%;
 `;
 
-const Score = () => {
+const Score = ({data}) => {
+  const {round, home_team, away_team} = data
   return (
     <ScoreWrapDiv>
-      <InningDiv>1회 초</InningDiv>
+      <InningDiv>{round ? `${round}` : '1회 초'}</InningDiv>
       <MatchDiv>
         <TeamDiv>
           <span>AWAY</span>
           <div>
-            <img src='https://sports-phinf.pstatic.net/team/kbo/default/WO.png' alt='키움 히어로즈' />
-            키움 히어로즈
+            <img src={away_team.logo_url} alt={away_team.team_name} />
+            {away_team.team_name}
           </div>
         </TeamDiv>
         <ScoreDiv children={'0:0'} />
         <TeamDiv home>
           <span>HOME</span>
           <div>
-            <img src='https://sports-phinf.pstatic.net/team/kbo/default/LT.png' alt='롯데자 이언츠 로고' />
-            롯데 자이언츠
+            <img src={home_team.logo_url} alt={home_team.team_name} />
+            {home_team.team_name}
           </div>
         </TeamDiv>
       </MatchDiv>

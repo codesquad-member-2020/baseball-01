@@ -1,8 +1,11 @@
 import axios from 'axios';
 import React from 'react';
+import { URL } from '../../constant/url';
 import styled from 'styled-components';
 import { messageMove } from '../Styles/Keyframes';
 import { PlayBg } from '../Styles/Backgorund';
+import useAsync from '../Utils/useAsync';
+import { Loader } from '../Utils/Loader';
 import Score from './Score';
 import Player from './Player';
 import Pitch from './Pitch';
@@ -50,13 +53,24 @@ const Play = ({ location }) => {
   console.log(location);
   const { matchID, userTeam } = location.state.detail;
 
-  fetch(`http://13.124.60.97:8080/matches/${matchID}/teams/${userTeam}/setup`)
-    .then(res => res.json())
-    .then(res => res);
+  const setupData = async () => {
+    const response = await axios(`${URL}/matches/${matchID}/teams/${userTeam}/setup`);
+    return response;
+  };
+
+  const state = useAsync(setupData);
+  const { loading, data, error } = state;
+  if (loading) return <Loader />;
+  if (error) return <div>에러</div>;
+  if (!data) return null;
+  
+  const setData = data.data
+  console.log(setData)
+
   return (
     <PlayWrapDiv>
       <InnerDiv width='1000px'>
-        <Score />
+        <Score data={setData}/>
         <Player />
         <Pitch />
         <BottomDiv>
@@ -65,13 +79,6 @@ const Play = ({ location }) => {
         </BottomDiv>
         <Message children='STRIKE!!' />
       </InnerDiv>
-      {/* <div>스코어</div>
-      <div>베이스</div>
-      <div>아웃카운트</div>
-      <div>던지기버튼</div>
-      <div>로그</div>
-      <div>투수정보</div>
-      <div>타자정보</div> */}
     </PlayWrapDiv>
   );
 };
