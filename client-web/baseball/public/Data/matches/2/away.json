@@ -1,0 +1,8 @@
+{
+  "statusCode": 200,
+  "data": {
+      "message": "매치가 완료되었습니다.",
+      "my_team": "LG 트윈스",
+      "type": "away"
+  }
+}    
