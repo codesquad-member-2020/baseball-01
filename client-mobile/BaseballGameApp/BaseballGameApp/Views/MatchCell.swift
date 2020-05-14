@@ -24,6 +24,7 @@ class MatchCell: UICollectionViewCell {
     private let containerView = UIView()
     private let containerEffectView = UIView()
     private let cornerRadius: CGFloat = 16
+    private(set) var isOccupied: Bool = false
     
     private var away: Team! {
         didSet {
@@ -62,6 +63,25 @@ class MatchCell: UICollectionViewCell {
     func updateTeam(away: Team, home: Team) {
         self.away = away
         self.home = home
+        checkAvailability()
+    }
+    
+    private func checkAvailability() {
+        guard away.isOccupied && home.isOccupied else { return }
+        self.isOccupied = true
+        addBlockView()
+    }
+    
+    private func addBlockView() {
+        let blockView = UIView()
+        containerView.addSubview(blockView)
+        let unavailableMessageLabel = PlainLabel(text: "경기 중인 매치입니다.", color: .white, fontSize: 16, weight: .semibold, alignment: .center)
+        unavailableMessageLabel.backgroundColor = .black
+        containerView.addSubview(unavailableMessageLabel)
+        unavailableMessageLabel.centerInSuperView()
+        blockView.backgroundColor = .black
+        blockView.alpha = 0.8
+        blockView.fillSuperView()
     }
     
     func pass(handler: (_ awayTeam: Team, _ awayTeamLogoImage: UIImage?, _ homeTeam: Team, _ homeTeamLogoImage: UIImage?) -> Void) {
