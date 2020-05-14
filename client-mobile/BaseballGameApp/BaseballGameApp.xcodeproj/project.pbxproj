@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		385614F1246D44A000320CB9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385614F0246D44A000320CB9 /* Request.swift */; };
 		385614F3246D473700320CB9 /* NetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385614F2246D473700320CB9 /* NetworkDispatcher.swift */; };
+		385614F5246D4CA400320CB9 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385614F4246D4CA400320CB9 /* NetworkTask.swift */; };
 		38743A282463F282007B0E51 /* BungeeOutline-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38743A272463F282007B0E51 /* BungeeOutline-Regular.ttf */; };
 		38743A382467FCE3007B0E51 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38743A372467FCE3007B0E51 /* PlayViewController.swift */; };
 		38743A3A24681AC0007B0E51 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38743A3924681AC0007B0E51 /* MatchViewController.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		385614F0246D44A000320CB9 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		385614F2246D473700320CB9 /* NetworkDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDispatcher.swift; sourceTree = "<group>"; };
+		385614F4246D4CA400320CB9 /* NetworkTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
 		38743A272463F282007B0E51 /* BungeeOutline-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BungeeOutline-Regular.ttf"; path = "../../../../../../../../../../Downloads/Fonts/Bungee_Outline/BungeeOutline-Regular.ttf"; sourceTree = "<group>"; };
 		38743A372467FCE3007B0E51 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		38743A3924681AC0007B0E51 /* MatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 			children = (
 				385614F0246D44A000320CB9 /* Request.swift */,
 				385614F2246D473700320CB9 /* NetworkDispatcher.swift */,
+				385614F4246D4CA400320CB9 /* NetworkTask.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				3875C722246D1ACF00B579FE /* PlayerLogsHeaderView.swift in Sources */,
 				38959B852460058100C7AD4D /* SceneDelegate.swift in Sources */,
 				38959B9B246030CE00C7AD4D /* PlainLabel.swift in Sources */,
+				385614F5246D4CA400320CB9 /* NetworkTask.swift in Sources */,
 				385614F1246D44A000320CB9 /* Request.swift in Sources */,
 				38EA5AC42462E6BC00055D6B /* LogoImageView.swift in Sources */,
 				38959B9F24603A9800C7AD4D /* MatchCell.swift in Sources */,
