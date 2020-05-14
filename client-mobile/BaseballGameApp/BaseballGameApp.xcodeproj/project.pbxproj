@@ -10,7 +10,7 @@
 		385614F1246D44A000320CB9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385614F0246D44A000320CB9 /* Request.swift */; };
 		385614F3246D473700320CB9 /* NetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385614F2246D473700320CB9 /* NetworkDispatcher.swift */; };
 		385614F5246D4CA400320CB9 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385614F4246D4CA400320CB9 /* NetworkTask.swift */; };
-		385614FA246D75F500320CB9 /* MatchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385614F9246D75F500320CB9 /* MatchUseCase.swift */; };
+		385614FA246D75F500320CB9 /* MatchListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385614F9246D75F500320CB9 /* MatchListUseCase.swift */; };
 		385614FD246D797600320CB9 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385614FC246D797600320CB9 /* Match.swift */; };
 		385614FF246D7AD600320CB9 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385614FE246D7AD600320CB9 /* Team.swift */; };
 		38561501246D7FBD00320CB9 /* MatchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38561500246D7FBD00320CB9 /* MatchList.swift */; };
@@ -50,7 +50,7 @@
 		385614F0246D44A000320CB9 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		385614F2246D473700320CB9 /* NetworkDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDispatcher.swift; sourceTree = "<group>"; };
 		385614F4246D4CA400320CB9 /* NetworkTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
-		385614F9246D75F500320CB9 /* MatchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchUseCase.swift; sourceTree = "<group>"; };
+		385614F9246D75F500320CB9 /* MatchListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchListUseCase.swift; sourceTree = "<group>"; };
 		385614FC246D797600320CB9 /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		385614FE246D7AD600320CB9 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		38561500246D7FBD00320CB9 /* MatchList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchList.swift; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 		385614F8246D75E600320CB9 /* UseCase */ = {
 			isa = PBXGroup;
 			children = (
-				385614F9246D75F500320CB9 /* MatchUseCase.swift */,
+				385614F9246D75F500320CB9 /* MatchListUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -341,7 +341,7 @@
 				38959B9F24603A9800C7AD4D /* MatchCell.swift in Sources */,
 				38AB806D2463B67800A75572 /* MainViewController.swift in Sources */,
 				38743A3D24682733007B0E51 /* MatchBoardView.swift in Sources */,
-				385614FA246D75F500320CB9 /* MatchUseCase.swift in Sources */,
+				385614FA246D75F500320CB9 /* MatchListUseCase.swift in Sources */,
 				38959BA12460580B00C7AD4D /* MatchPopupView.swift in Sources */,
 				38BB53C5246BDECD00526167 /* PlayingTeamIndexBar.swift in Sources */,
 				38561504246D81A000320CB9 /* MatchListDataSource.swift in Sources */,

@@ -1,5 +1,5 @@
 //
-//  MatchUseCase.swift
+//  MatchListUseCase.swift
 //  BaseballGameApp
 //
 //  Created by Cory Kim on 2020/05/14.
