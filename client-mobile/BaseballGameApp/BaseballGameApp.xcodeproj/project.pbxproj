@@ -8,6 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		38743A282463F282007B0E51 /* BungeeOutline-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38743A272463F282007B0E51 /* BungeeOutline-Regular.ttf */; };
+		38743A382467FCE3007B0E51 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38743A372467FCE3007B0E51 /* PlayViewController.swift */; };
+		38743A3A24681AC0007B0E51 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38743A3924681AC0007B0E51 /* MatchViewController.swift */; };
+		38743A3D24682733007B0E51 /* MatchBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38743A3C24682733007B0E51 /* MatchBoardView.swift */; };
+		3875C712246C28AD00B579FE /* CurrentPitcherHitterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3875C711246C28AD00B579FE /* CurrentPitcherHitterView.xib */; };
+		3875C714246C28CB00B579FE /* CurrentPitcherHitterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3875C713246C28CB00B579FE /* CurrentPitcherHitterView.swift */; };
+		3875C71D246C32D300B579FE /* PlayerLogCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3875C71B246C32D300B579FE /* PlayerLogCell.swift */; };
+		3875C71E246C32D300B579FE /* PlayerLogCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3875C71C246C32D300B579FE /* PlayerLogCell.xib */; };
+		3875C720246C63A700B579FE /* PlayerLogsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3875C71F246C63A700B579FE /* PlayerLogsTableView.swift */; };
+		3875C722246D1ACF00B579FE /* PlayerLogsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3875C721246D1ACF00B579FE /* PlayerLogsHeaderView.swift */; };
+		3875C724246D241B00B579FE /* BaseBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3875C723246D241B00B579FE /* BaseBoardView.swift */; };
+		3875C728246D371300B579FE /* BaseBoardBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3875C727246D371300B579FE /* BaseBoardBackgroundView.swift */; };
 		38959B832460058100C7AD4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B822460058100C7AD4D /* AppDelegate.swift */; };
 		38959B852460058100C7AD4D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B842460058100C7AD4D /* SceneDelegate.swift */; };
 		38959B872460058100C7AD4D /* MatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B862460058100C7AD4D /* MatchListViewController.swift */; };
@@ -20,11 +31,25 @@
 		38959B9F24603A9800C7AD4D /* MatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B9E24603A9800C7AD4D /* MatchCell.swift */; };
 		38959BA12460580B00C7AD4D /* MatchPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959BA02460580B00C7AD4D /* MatchPopupView.swift */; };
 		38AB806D2463B67800A75572 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AB806C2463B67800A75572 /* MainViewController.swift */; };
+		38BB53C5246BDECD00526167 /* PlayingTeamIndexBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BB53C4246BDECD00526167 /* PlayingTeamIndexBar.swift */; };
+		38BB53C7246BE55600526167 /* CountBoardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38BB53C6246BE55600526167 /* CountBoardView.xib */; };
+		38BB53C9246BECB300526167 /* CountBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BB53C8246BECB300526167 /* CountBoardView.swift */; };
 		38EA5AC42462E6BC00055D6B /* LogoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA5AC32462E6BC00055D6B /* LogoImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		38743A272463F282007B0E51 /* BungeeOutline-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BungeeOutline-Regular.ttf"; path = "../../../../../../../../../../Downloads/Fonts/Bungee_Outline/BungeeOutline-Regular.ttf"; sourceTree = "<group>"; };
+		38743A372467FCE3007B0E51 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
+		38743A3924681AC0007B0E51 /* MatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
+		38743A3C24682733007B0E51 /* MatchBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchBoardView.swift; sourceTree = "<group>"; };
+		3875C711246C28AD00B579FE /* CurrentPitcherHitterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrentPitcherHitterView.xib; sourceTree = "<group>"; };
+		3875C713246C28CB00B579FE /* CurrentPitcherHitterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentPitcherHitterView.swift; sourceTree = "<group>"; };
+		3875C71B246C32D300B579FE /* PlayerLogCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLogCell.swift; sourceTree = "<group>"; };
+		3875C71C246C32D300B579FE /* PlayerLogCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlayerLogCell.xib; sourceTree = "<group>"; };
+		3875C71F246C63A700B579FE /* PlayerLogsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLogsTableView.swift; sourceTree = "<group>"; };
+		3875C721246D1ACF00B579FE /* PlayerLogsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLogsHeaderView.swift; sourceTree = "<group>"; };
+		3875C723246D241B00B579FE /* BaseBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBoardView.swift; sourceTree = "<group>"; };
+		3875C727246D371300B579FE /* BaseBoardBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBoardBackgroundView.swift; sourceTree = "<group>"; };
 		38959B7F2460058100C7AD4D /* BaseballGameApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseballGameApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38959B822460058100C7AD4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38959B842460058100C7AD4D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +64,9 @@
 		38959B9E24603A9800C7AD4D /* MatchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCell.swift; sourceTree = "<group>"; };
 		38959BA02460580B00C7AD4D /* MatchPopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchPopupView.swift; sourceTree = "<group>"; };
 		38AB806C2463B67800A75572 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		38BB53C4246BDECD00526167 /* PlayingTeamIndexBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingTeamIndexBar.swift; sourceTree = "<group>"; };
+		38BB53C6246BE55600526167 /* CountBoardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountBoardView.xib; sourceTree = "<group>"; };
+		38BB53C8246BECB300526167 /* CountBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountBoardView.swift; sourceTree = "<group>"; };
 		38EA5AC32462E6BC00055D6B /* LogoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -59,6 +87,34 @@
 				38743A272463F282007B0E51 /* BungeeOutline-Regular.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		38743A342467FB2B007B0E51 /* PlayTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				38743A372467FCE3007B0E51 /* PlayViewController.swift */,
+				38743A3924681AC0007B0E51 /* MatchViewController.swift */,
+			);
+			path = PlayTabBar;
+			sourceTree = "<group>";
+		};
+		38743A3B2468271A007B0E51 /* Play */ = {
+			isa = PBXGroup;
+			children = (
+				38743A3C24682733007B0E51 /* MatchBoardView.swift */,
+				38BB53C4246BDECD00526167 /* PlayingTeamIndexBar.swift */,
+				38BB53C6246BE55600526167 /* CountBoardView.xib */,
+				38BB53C8246BECB300526167 /* CountBoardView.swift */,
+				3875C711246C28AD00B579FE /* CurrentPitcherHitterView.xib */,
+				3875C713246C28CB00B579FE /* CurrentPitcherHitterView.swift */,
+				3875C71C246C32D300B579FE /* PlayerLogCell.xib */,
+				3875C71B246C32D300B579FE /* PlayerLogCell.swift */,
+				3875C71F246C63A700B579FE /* PlayerLogsTableView.swift */,
+				3875C721246D1ACF00B579FE /* PlayerLogsHeaderView.swift */,
+				3875C723246D241B00B579FE /* BaseBoardView.swift */,
+				3875C727246D371300B579FE /* BaseBoardBackgroundView.swift */,
+			);
+			path = Play;
 			sourceTree = "<group>";
 		};
 		38959B762460058100C7AD4D = {
@@ -105,6 +161,7 @@
 		38959B992460306100C7AD4D /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				38743A3B2468271A007B0E51 /* Play */,
 				38959B9A246030CE00C7AD4D /* PlainLabel.swift */,
 				38959B9C246038C800C7AD4D /* MatchListCollectionView.swift */,
 				38959B9E24603A9800C7AD4D /* MatchCell.swift */,
@@ -117,6 +174,7 @@
 		38AB806B2463B65200A75572 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				38743A342467FB2B007B0E51 /* PlayTabBar */,
 				38959B862460058100C7AD4D /* MatchListViewController.swift */,
 				38AB806C2463B67800A75572 /* MainViewController.swift */,
 			);
@@ -181,9 +239,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3875C712246C28AD00B579FE /* CurrentPitcherHitterView.xib in Resources */,
+				3875C71E246C32D300B579FE /* PlayerLogCell.xib in Resources */,
 				38959B8F2460058300C7AD4D /* LaunchScreen.storyboard in Resources */,
 				38959B8C2460058300C7AD4D /* Assets.xcassets in Resources */,
 				38743A282463F282007B0E51 /* BungeeOutline-Regular.ttf in Resources */,
+				38BB53C7246BE55600526167 /* CountBoardView.xib in Resources */,
 				38959B8A2460058100C7AD4D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,16 +256,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				38743A3A24681AC0007B0E51 /* MatchViewController.swift in Sources */,
+				3875C720246C63A700B579FE /* PlayerLogsTableView.swift in Sources */,
+				3875C71D246C32D300B579FE /* PlayerLogCell.swift in Sources */,
+				38BB53C9246BECB300526167 /* CountBoardView.swift in Sources */,
+				3875C724246D241B00B579FE /* BaseBoardView.swift in Sources */,
+				3875C728246D371300B579FE /* BaseBoardBackgroundView.swift in Sources */,
 				38959B872460058100C7AD4D /* MatchListViewController.swift in Sources */,
 				38959B832460058100C7AD4D /* AppDelegate.swift in Sources */,
 				38959B9D246038C800C7AD4D /* MatchListCollectionView.swift in Sources */,
+				38743A382467FCE3007B0E51 /* PlayViewController.swift in Sources */,
+				3875C714246C28CB00B579FE /* CurrentPitcherHitterView.swift in Sources */,
 				38959B982460138000C7AD4D /* AutoLayout.swift in Sources */,
+				3875C722246D1ACF00B579FE /* PlayerLogsHeaderView.swift in Sources */,
 				38959B852460058100C7AD4D /* SceneDelegate.swift in Sources */,
 				38959B9B246030CE00C7AD4D /* PlainLabel.swift in Sources */,
 				38EA5AC42462E6BC00055D6B /* LogoImageView.swift in Sources */,
 				38959B9F24603A9800C7AD4D /* MatchCell.swift in Sources */,
 				38AB806D2463B67800A75572 /* MainViewController.swift in Sources */,
+				38743A3D24682733007B0E51 /* MatchBoardView.swift in Sources */,
 				38959BA12460580B00C7AD4D /* MatchPopupView.swift in Sources */,
+				38BB53C5246BDECD00526167 /* PlayingTeamIndexBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

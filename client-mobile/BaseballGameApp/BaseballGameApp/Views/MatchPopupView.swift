@@ -27,11 +27,15 @@ class MatchPopupView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureUI()
+        configure()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        configure()
+    }
+    
+    private func configure() {
         configureUI()
     }
     
@@ -50,12 +54,16 @@ class MatchPopupView: UIView {
     @objc private func didTapTeam(recognizer: UIGestureRecognizer) {
         switch recognizer.view {
         case awayTapView:
-            break
+            self.postNotification(isAway: true)
         case homeTapView:
-            break
+            self.postNotification(isAway: false)
         default:
             break
         }
+    }
+    
+    private func postNotification(isAway: Bool) {
+        NotificationCenter.default.post(name: .didSelectTeam, object: nil, userInfo: ["isAway": isAway])
     }
     
     private func configureUI() {
@@ -114,4 +122,8 @@ class MatchPopupView: UIView {
         homeTapView.constraints(topAnchor: titleLabel.bottomAnchor, leadingAnchor: self.centerXAnchor, bottomAnchor: self.bottomAnchor, trailingAnchor: self.trailingAnchor, padding: .init(top: 16, left: 16, bottom: -8, right: -16))
         configureTapGestures()
     }
+}
+
+extension Notification.Name {
+    static let didSelectTeam = Notification.Name(rawValue: "didSelectTeam")
 }

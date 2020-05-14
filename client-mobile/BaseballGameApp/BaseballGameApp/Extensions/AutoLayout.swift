@@ -47,10 +47,10 @@ extension UIView {
         self.trailingAnchor.constraint(equalTo: superView.trailingAnchor).isActive = true
     }
     
-    func centerInSuperView() {
-        guard let superView = self.superview else { return }
+    func centerInSuperView(constantX: CGFloat = 0, constantY: CGFloat = 0) {
+        guard let superview = self.superview else { return }
         self.translatesAutoresizingMaskIntoConstraints = false
-        self.centerXAnchor.constraint(equalTo: superView.centerXAnchor).isActive = true
-        self.centerYAnchor.constraint(equalTo: superView.centerYAnchor).isActive = true
+        self.centerXAnchor.constraint(equalTo: superview.centerXAnchor, constant: constantX).isActive = true
+        self.centerYAnchor.constraint(equalTo: superview.centerYAnchor, constant: constantY).isActive = true
     }
 }
