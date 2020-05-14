@@ -55,6 +55,8 @@ public class PitchController {
         }
 
         int inningId = homeInning.getInningId();
+
+
         if (inningId%2 != 0 && !inningDao.isThreeOut(homeInning)) {
             return logService.makePitch(inningId, homeId);
         } else if (inningId%2 == 0 && !inningDao.isThreeOut(homeInning)) {

@@ -1,15 +1,15 @@
 INSERT INTO team
     (team_id, team_name, team_type, logo_id, match_id, pitcher_id)
-VALUES (1, '두산', 'home', 1, 1, 1),
-       (2, '한화', 'away', 2, 1, 2),
-       (3, '기아', 'home', 3, 2, 3),
-       (4, '키움', 'away', 4, 2, 4),
-       (5, 'KT', 'home', 5, 3, 5),
-       (6, 'LG', 'away', 6, 3, 6),
-       (7, '롯데', 'home', 7, 4, 7),
-       (8, 'NC', 'away', 8, 4, 8),
-       (9, '삼성', 'home', 9, 5, 9),
-       (10, 'SK', 'away', 10, 5, 10);
+VALUES (1, '두산 베어스', 'home', 1, 1, 1),
+       (2, '한화 이글스', 'away', 2, 1, 2),
+       (3, '기기아 타이거스', 'home', 3, 2, 3),
+       (4, '키움 히어로즈', 'away', 4, 2, 4),
+       (5, 'KT 위즈', 'home', 5, 3, 5),
+       (6, 'LG 트윈스', 'away', 6, 3, 6),
+       (7, '롯데 자이언츠', 'home', 7, 4, 7),
+       (8, 'NC 다이노스', 'away', 8, 4, 8),
+       (9, '삼성 라이온즈', 'home', 9, 5, 9),
+       (10, 'SK 와이번스', 'away', 10, 5, 10);
 
 INSERT INTO logo
     (logo_id, url)
@@ -123,11 +123,11 @@ VALUES ('박건우', 1, 0.319, 1),
 
 INSERT INTO matches
     (home_team, away_team)
-VALUES ('두산', '한화'),
-       ('기아', '키움'),
-       ('KT', 'LG'),
-       ('롯데', 'NC'),
-       ('삼성', 'SK');
+VALUES ('두산 베어스', '한화 이글스'),
+       ('기아 타이거즈', '키움 히어로즈'),
+       ('KT 위즈', 'LG 트윈스'),
+       ('롯데 자이언츠', 'NC 다이노스'),
+       ('삼성 라이온즈', 'SK 와이번스');
 
 INSERT INTO pitcher
     (pitcher_id, pitcher_name)
