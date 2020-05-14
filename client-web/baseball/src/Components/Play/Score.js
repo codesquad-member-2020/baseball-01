@@ -45,8 +45,10 @@ const TeamDiv = styled.div`
   span {
     display: block;
     position: absolute;
+    top: 8px;
     left: 50%;
     transform: translateX(-50%);
+    font-size: 14px;
   }
   img {
     width: 80px;
