@@ -138,7 +138,10 @@ extension MatchListViewController {
     }
     
     @objc private func didSelectTeam(notification: Notification) {
-        guard let identifier = notification.userInfo?["identifier"] as? Int else { return }
+        guard
+            let matchIdentifier = notification.userInfo?["matchIdentifier"] as? Int,
+            let teamIdentifier = notification.userInfo?["teamIdentifier"] as? Int
+        else { return }
     }
 }
 
@@ -173,8 +176,9 @@ extension MatchListViewController {
         
         // Configure Pop-up View
         let cell = collectionView.cellForItem(at: indexPath) as! MatchCell
-        cell.pass { (away, awayLogo, home, homeLogo) in
-            popupView.update(away: away,
+        cell.pass { (identifier, away, awayLogo, home, homeLogo) in
+            popupView.update(matchIdentifier: identifier,
+                             away: away,
                              awayLogoImage: awayLogo,
                              home: home,
                              homeLogoImage: homeLogo)

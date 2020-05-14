@@ -34,6 +34,7 @@ class MatchListDataSource: NSObject, UICollectionViewDataSource {
         let awayTeam = match.awayTeam
         let homeTeam = match.homeTeam
         
+        cell.updateIdentifier(match.identifier)
         DispatchQueue.main.async {
             cell.updateTeam(away: awayTeam, home: homeTeam)
         }

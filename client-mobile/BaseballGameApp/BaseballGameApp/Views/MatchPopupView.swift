@@ -24,6 +24,7 @@ class MatchPopupView: UIView {
     
     private let awayTapView = UIView()
     private let homeTapView = UIView()
+    private var matchIdentifier: Int!
     
     private var away: Team! {
         didSet {
@@ -50,10 +51,12 @@ class MatchPopupView: UIView {
         configureUI()
     }
     
-    func update(away: Team,
+    func update(matchIdentifier: Int,
+                away: Team,
                 awayLogoImage: UIImage?,
                 home: Team,
                 homeLogoImage: UIImage?) {
+        self.matchIdentifier = matchIdentifier
         self.away = away
         self.awayLogoImageView.image = awayLogoImage
         self.home = home
@@ -68,16 +71,20 @@ class MatchPopupView: UIView {
     @objc private func didTapTeam(recognizer: UIGestureRecognizer) {
         switch recognizer.view {
         case awayTapView:
-            self.postNotification(identifier: away.identifier)
+            self.postNotification(teamIdentifier: away.identifier)
         case homeTapView:
-            self.postNotification(identifier: home.identifier)
+            self.postNotification(teamIdentifier: home.identifier)
         default:
             break
         }
     }
     
-    private func postNotification(identifier: Int) {
-        NotificationCenter.default.post(name: .didSelectTeam, object: nil, userInfo: ["identifier": identifier])
+    private func postNotification(teamIdentifier: Int) {
+        NotificationCenter.default.post(name: .didSelectTeam,
+                                        object: nil,
+                                        userInfo: [
+                                            "matchIdentifier": matchIdentifier,
+                                            "teamIdentifier": teamIdentifier])
     }
     
     private func configureUI() {

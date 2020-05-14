@@ -24,6 +24,7 @@ class MatchCell: UICollectionViewCell {
     private let containerView = UIView()
     private let containerEffectView = UIView()
     private let cornerRadius: CGFloat = 16
+    private(set) var identifier: Int!
     private(set) var isPlaying: Bool = false
     
     private var away: Team! {
@@ -50,6 +51,10 @@ class MatchCell: UICollectionViewCell {
     private func configure() {
         configureUI()
         configureLayout()
+    }
+    
+    func updateIdentifier(_ identifier: Int) {
+        self.identifier = identifier
     }
     
     func updateLogoImage(_ image: UIImage?, isAway: Bool) {
@@ -84,8 +89,8 @@ class MatchCell: UICollectionViewCell {
         blockView.fillSuperView()
     }
     
-    func pass(handler: (_ awayTeam: Team, _ awayTeamLogoImage: UIImage?, _ homeTeam: Team, _ homeTeamLogoImage: UIImage?) -> Void) {
-        handler(away, awayLogoImageView.image, home, homeLogoImageView.image)
+    func pass(handler: (_ identifier: Int, _ awayTeam: Team, _ awayTeamLogoImage: UIImage?, _ homeTeam: Team, _ homeTeamLogoImage: UIImage?) -> Void) {
+        handler(identifier, away, awayLogoImageView.image, home, homeLogoImageView.image)
     }
     
     private func configureUI() {
