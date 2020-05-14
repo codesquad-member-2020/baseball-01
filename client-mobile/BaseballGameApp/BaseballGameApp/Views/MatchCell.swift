@@ -10,7 +10,7 @@ import UIKit
 
 class MatchCell: UICollectionViewCell {
     
-    static let identifier = "MatchCell"
+    static let reuseIdentifier = "MatchCell"
     static let heightRatio: CGFloat = 0.38
     
     private let awayLogoImageView = LogoImageView()

@@ -241,7 +241,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo.default" width="500" height="466"/>
+        <image name="logo.default" width="250" height="233"/>
         <image name="play.backgroound" width="960" height="540"/>
         <image name="tabbar.icon.play" width="25" height="25"/>
         <namedColor name="board.view">

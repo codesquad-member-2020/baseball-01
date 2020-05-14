@@ -27,24 +27,11 @@ class MatchListCollectionView: UICollectionView {
     
     private func configureCollectionView() {
         delegate = self
-        dataSource = self
-        self.register(MatchCell.self, forCellWithReuseIdentifier: MatchCell.identifier)
+        self.register(MatchCell.self, forCellWithReuseIdentifier: MatchCell.reuseIdentifier)
     }
     
     private func configureUI() {
         self.showsVerticalScrollIndicator = false
-    }
-}
-
-extension MatchListCollectionView: UICollectionViewDataSource {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 8
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MatchCell.identifier, for: indexPath) as! MatchCell
-        return cell
     }
 }
 
