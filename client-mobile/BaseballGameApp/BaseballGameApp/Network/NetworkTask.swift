@@ -11,5 +11,5 @@ import Foundation
 protocol NetworkTask {
     associatedtype Output
     
-    func perform(_ request: Request, completion: @escaping (Output?) -> Void)
+    func perform(_ request: Request, completion: @escaping (Output) -> Void)
 }

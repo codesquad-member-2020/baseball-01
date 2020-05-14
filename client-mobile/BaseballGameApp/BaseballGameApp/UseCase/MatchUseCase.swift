@@ -14,7 +14,7 @@ struct MatchListUseCase {
     }
     
     struct MatchListTask: NetworkTask {
-        typealias Output = Result<[Match]?, NetworkErrorCase>
+        typealias Output = Result<MatchList, NetworkErrorCase>
         
         private let networkDispatcher: NetworkDispatcher
         
@@ -22,11 +22,11 @@ struct MatchListUseCase {
             self.networkDispatcher = networkDispatcher
         }
         
-        func perform(_ request: Request, completion: @escaping (Result<[Match]?, NetworkErrorCase>?) -> Void) {
+        func perform(_ request: Request, completion: @escaping (Result<MatchList, NetworkErrorCase>) -> Void) {
             networkDispatcher.execute(request: request) { (result) in
                 switch result {
                 case .success(let data):
-                    let matchList = try? JSONDecoder().decode([Match].self, from: data)
+                    guard let matchList = try? JSONDecoder().decode(MatchList.self, from: data) else { return }
                     completion(.success(matchList))
                 case .failure(let error):
                     completion(.failure(error))
@@ -37,7 +37,7 @@ struct MatchListUseCase {
     
     static func getMatchList(from matchListRequest: MatchListRequest,
                                 with matchListTask: MatchListTask,
-                                completion: @escaping (Result<[Match]?, NetworkErrorCase>?) -> Void) {
+                                completion: @escaping (Result<MatchList, NetworkErrorCase>) -> Void) {
         matchListTask.perform(matchListRequest) { (result) in
             completion(result)
         }
