@@ -142,6 +142,17 @@ extension MatchListViewController {
             let matchIdentifier = notification.userInfo?["matchIdentifier"] as? Int,
             let teamIdentifier = notification.userInfo?["teamIdentifier"] as? Int
         else { return }
+        SelectTeamUseCase.requestSelectTeam(matchIdentifier: matchIdentifier,
+                                            teamIdentifier: teamIdentifier,
+                                            with: SelectTeamUseCase.SelectTeamTask(networkDispatcher: NetworkManager())
+        ) { (result) in
+            switch result {
+            case .success(let selectingStatus):
+                break
+            case .failure(_):
+                break
+            }
+        }
     }
 }
 
