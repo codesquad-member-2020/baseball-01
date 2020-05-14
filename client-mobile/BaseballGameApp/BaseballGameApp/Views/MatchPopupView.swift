@@ -24,6 +24,17 @@ class MatchPopupView: UIView {
     
     private let awayTapView = UIView()
     private let homeTapView = UIView()
+    
+    private var away: Team! {
+        didSet {
+            awayNameLabel.text = away.name
+        }
+    }
+    private var home: Team! {
+        didSet {
+            homeNameLabel.text = home.name
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,13 +50,13 @@ class MatchPopupView: UIView {
         configureUI()
     }
     
-    func update(awayName: String,
+    func update(away: Team,
                 awayLogoImage: UIImage?,
-                homeName: String,
+                home: Team,
                 homeLogoImage: UIImage?) {
-        self.awayNameLabel.text = awayName
+        self.away = away
         self.awayLogoImageView.image = awayLogoImage
-        self.homeNameLabel.text = homeName
+        self.home = home
         self.homeLogoImageView.image = homeLogoImage
     }
     

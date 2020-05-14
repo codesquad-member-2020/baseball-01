@@ -64,8 +64,8 @@ class MatchCell: UICollectionViewCell {
         self.home = home
     }
     
-    func pass(handler: (_ awayTeamName: String, _ awayTeamLogoImage: UIImage?, _ homeTeamName: String, _ homeTeamLogoImage: UIImage?) -> Void) {
-        handler(awayNameLabel.text ?? "", awayLogoImageView.image, homeNameLabel.text ?? "", homeLogoImageView.image)
+    func pass(handler: (_ awayTeam: Team, _ awayTeamLogoImage: UIImage?, _ homeTeam: Team, _ homeTeamLogoImage: UIImage?) -> Void) {
+        handler(away, awayLogoImageView.image, home, homeLogoImageView.image)
     }
     
     private func configureUI() {
