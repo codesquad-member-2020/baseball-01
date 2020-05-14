@@ -1,0 +1,8 @@
+{
+  "statusCode": 200,
+  "data": {
+      "message": "매치 상대를 찾고 있습니다.",
+      "my_team": "롯데 자이언츠",
+      "type": "home"
+  }
+}

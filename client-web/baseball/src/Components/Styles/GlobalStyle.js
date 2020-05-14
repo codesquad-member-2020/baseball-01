@@ -3,6 +3,9 @@ import reset from 'styled-reset';
 
 const GlobalStyled = createGlobalStyle`
   ${reset}
+  * {
+    box-sizing: border-box;
+  }
   body {
     overflow:hidden;
     padding: 0;

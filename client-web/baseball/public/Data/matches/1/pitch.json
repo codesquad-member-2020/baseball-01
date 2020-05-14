@@ -1,0 +1,38 @@
+{
+	"status_code":200,
+	"message":null,
+	"data":{
+		"inning_id":8,
+		"round":"4회 말",
+		"hit_score":0,
+		"pitcher_name":"안영명",
+		"number_of_pitches":2,
+		"out_sum":2,
+		"logs":[
+			{
+				"log_id":22,
+				"hitter_name":"김태균",
+				"hitter_number":"1",
+				"plate_appearance":2,
+				"action_result":"아웃",
+				"strike_count":0,
+				"ball_count":0,
+				"out_count":2,
+				"hit_count":0,
+				"available":false
+			},
+			{
+				"log_id":23,
+				"hitter_name":"이동훈",
+				"hitter_number":"2",
+				"plate_appearance":2,
+				"action_result":"아웃",
+				"strike_count":0,
+				"ball_count":0,
+				"out_count":1,
+				"hit_count":0,
+				"available":false
+			}
+		]
+	}
+}
