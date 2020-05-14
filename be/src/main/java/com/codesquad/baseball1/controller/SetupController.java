@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-public class TestController {
+public class SetupController {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
@@ -34,7 +34,7 @@ public class TestController {
     @Autowired
     private MatchDao matchDao;
 
-    public TestController(DataSource dataSource) { jdbcTemplate = new JdbcTemplate(dataSource);}
+    public SetupController(DataSource dataSource) { jdbcTemplate = new JdbcTemplate(dataSource);}
 
 
     @GetMapping("/matches/{matchId}/teams/{teamId}")
