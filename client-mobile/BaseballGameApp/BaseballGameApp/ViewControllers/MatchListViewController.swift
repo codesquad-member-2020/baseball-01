@@ -84,6 +84,7 @@ class MatchListViewController: UIViewController {
         }
     }
 
+    // MARK:- UI
     private func configureUI() {
         let imageView = UIImageView(image: UIImage(named: "matchlist.bg"))
         imageView.contentMode = .scaleAspectFill
