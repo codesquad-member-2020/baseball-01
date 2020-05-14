@@ -2,7 +2,7 @@ INSERT INTO team
     (team_id, team_name, team_type, logo_id, match_id, pitcher_id)
 VALUES (1, '두산 베어스', 'home', 1, 1, 1),
        (2, '한화 이글스', 'away', 2, 1, 2),
-       (3, '기기아 타이거스', 'home', 3, 2, 3),
+       (3, '기아 타이거즈', 'home', 3, 2, 3),
        (4, '키움 히어로즈', 'away', 4, 2, 4),
        (5, 'KT 위즈', 'home', 5, 3, 5),
        (6, 'LG 트윈스', 'away', 6, 3, 6),
