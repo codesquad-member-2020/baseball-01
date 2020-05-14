@@ -35,7 +35,7 @@ class MatchListDataSource: NSObject, UICollectionViewDataSource {
         let homeTeam = match.homeTeam
         
         DispatchQueue.main.async {
-            cell.updateTeamNames(awayName: awayTeam.name, homeName: homeTeam.name)
+            cell.updateTeam(away: awayTeam, home: homeTeam)
         }
         
         fetchImageWithCaching(imageURL: awayTeam.logoImage) { (image) in

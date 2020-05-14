@@ -25,6 +25,17 @@ class MatchCell: UICollectionViewCell {
     private let containerEffectView = UIView()
     private let cornerRadius: CGFloat = 16
     
+    private var away: Team? {
+        didSet {
+            awayNameLabel.text = away?.name
+        }
+    }
+    private var home: Team? {
+        didSet {
+            homeNameLabel.text = home?.name
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
@@ -48,9 +59,9 @@ class MatchCell: UICollectionViewCell {
         }
     }
     
-    func updateTeamNames(awayName: String, homeName: String) {
-        self.awayNameLabel.text = awayName
-        self.homeNameLabel.text = homeName
+    func updateTeam(away: Team, home: Team) {
+        self.away = away
+        self.home = home
     }
     
     func pass(handler: (_ awayTeamName: String, _ awayTeamLogoImage: UIImage?, _ homeTeamName: String, _ homeTeamLogoImage: UIImage?) -> Void) {
