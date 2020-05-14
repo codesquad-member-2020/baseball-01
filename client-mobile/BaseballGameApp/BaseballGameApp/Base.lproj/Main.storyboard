@@ -52,13 +52,13 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.doosan" translatesAutoresizingMaskIntoConstraints="NO" id="JYs-oQ-00V">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.default" translatesAutoresizingMaskIntoConstraints="NO" id="JYs-oQ-00V">
                                         <rect key="frame" x="12" y="16.5" width="32.5" height="32.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="JYs-oQ-00V" secondAttribute="height" multiplier="1:1" id="Zee-dA-3Od"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.doosan" translatesAutoresizingMaskIntoConstraints="NO" id="WYe-T5-fGW">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.default" translatesAutoresizingMaskIntoConstraints="NO" id="WYe-T5-fGW">
                                         <rect key="frame" x="345.5" y="16.5" width="32.5" height="32.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="WYe-T5-fGW" secondAttribute="height" multiplier="1:1" id="r82-41-LAD"/>
@@ -217,7 +217,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo.doosan" width="125" height="105.5"/>
+        <image name="logo.default" width="500" height="466"/>
         <image name="play.backgroound" width="960" height="540"/>
         <image name="tabbar.icon.play" width="25" height="25"/>
         <namedColor name="board.view">

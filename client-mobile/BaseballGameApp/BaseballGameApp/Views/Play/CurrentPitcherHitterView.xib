@@ -53,7 +53,7 @@
                                         <constraint firstAttribute="width" constant="1" id="h4d-Sd-dOU"/>
                                     </constraints>
                                 </view>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.doosan" translatesAutoresizingMaskIntoConstraints="NO" id="c7x-ne-A8a">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.default" translatesAutoresizingMaskIntoConstraints="NO" id="c7x-ne-A8a">
                                     <rect key="frame" x="12" y="8" width="24.5" height="25"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="c7x-ne-A8a" secondAttribute="height" multiplier="1:1" id="QfF-hS-mon"/>
@@ -104,7 +104,7 @@
                                         <constraint firstAttribute="width" constant="1" id="BCj-Wt-8Fg"/>
                                     </constraints>
                                 </view>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.doosan" translatesAutoresizingMaskIntoConstraints="NO" id="QJX-Xa-DIk">
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.default" translatesAutoresizingMaskIntoConstraints="NO" id="QJX-Xa-DIk">
                                     <rect key="frame" x="12" y="8" width="24.5" height="25"/>
                                     <constraints>
                                         <constraint firstAttribute="width" secondItem="QJX-Xa-DIk" secondAttribute="height" multiplier="1:1" id="Lzc-b2-JHz"/>
@@ -156,7 +156,7 @@
         </view>
     </objects>
     <resources>
-        <image name="logo.doosan" width="125" height="105.5"/>
+        <image name="logo.default" width="500" height="466"/>
         <namedColor name="board.view">
             <color red="0.082352941176470587" green="0.11764705882352941" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
