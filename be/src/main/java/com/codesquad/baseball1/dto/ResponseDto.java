@@ -18,6 +18,14 @@ public class ResponseDto {
     @JsonInclude(JsonInclude.Include.NON_NULL)
     private Object data;
 
+    @JsonProperty("home_team")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Object homeTeam;
+
+    @JsonProperty("away_team")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    private Object awayTeam;
+
     public ResponseDto() {
     }
 
@@ -35,5 +43,11 @@ public class ResponseDto {
     public ResponseDto(int statusCode, Object data) {
         this.statusCode = statusCode;
         this.data = data;
+    }
+
+    public ResponseDto(int statusCode, Object homeTeam, Object awayTeam) {
+        this.statusCode = statusCode;
+        this.homeTeam = homeTeam;
+        this.awayTeam = awayTeam;
     }
 }
