@@ -34,7 +34,7 @@ struct MatchListUseCase {
             }
         }
         
-        static func requestGameRoom(from matchListRequest: MatchListRequest,
+        static func getMatchList(from matchListRequest: MatchListRequest,
                                     with matchListTask: MatchListTask,
                                     completion: @escaping (Result<[Match]?, NetworkErrorCase>?) -> Void) {
             matchListTask.perform(matchListRequest) { (result) in
