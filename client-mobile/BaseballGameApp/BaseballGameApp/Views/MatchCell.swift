@@ -25,14 +25,14 @@ class MatchCell: UICollectionViewCell {
     private let containerEffectView = UIView()
     private let cornerRadius: CGFloat = 16
     
-    private var away: Team? {
+    private var away: Team! {
         didSet {
-            awayNameLabel.text = away?.name
+            awayNameLabel.text = away.name
         }
     }
-    private var home: Team? {
+    private var home: Team! {
         didSet {
-            homeNameLabel.text = home?.name
+            homeNameLabel.text = home.name
         }
     }
     
