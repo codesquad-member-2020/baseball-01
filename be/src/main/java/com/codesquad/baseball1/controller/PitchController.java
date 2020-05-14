@@ -47,13 +47,14 @@ public class PitchController {
         int homeId = (int) matches.get("home");
         int awayId = (int) matches.get("away");
 
-        HalfInning homeInning = inningDao.findHalfInningToPlay(matchId);
+//        HalfInning homeInning = inningDao.findHalfInningToPlay(matchId);
+
+        HalfInning homeInning = inningDao.findInningById(18);
 
         if (homeInning.getHitScore() == 100) {
             resetService.resetInningsAndRecordsAndLogsWithMatchId(matchId);
             return new ResponseDto(200, "9회말까지 플레이하여 경기가 끝났습니다. 이제 게임이 초기화됩니다.");
         }
-
 
         int inningId = homeInning.getInningId();
         if (inningId%2 != 0 && !inningDao.isThreeOut(homeInning)) {

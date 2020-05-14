@@ -142,7 +142,7 @@ VALUES (1, '곽빈'),
        (9, '임현준'),
        (10, '서진용');
 INSERT INTO halfInning
-(inning_id, round, hit_score, pitcher_name, number_of_pitches, outSum, status, match_id, change_status, is_over)
+(inning_id, round, hit_score, pitcher_name, number_of_pitches, outSum, status, match_id, change_status, game_over)
 VALUES (1, '1회 초', 0, 'tbd', 0, 0, 'home', 1, 0, 0),
        (2, '1회 말', 0, 'tbd', 0, 0, 'away', 1, 0, 0),
        (3, '2회 초', 0, 'tbd', 0, 0, 'home', 1, 0, 0),

@@ -22,12 +22,9 @@ public class HalfInningService {
     }
 
     public void updateIfItsOverWhenGameIsOver(int inningId) {
-
         HalfInning thisInning = inningDao.findInningById(inningId);
-        System.out.println("--------------------------" + thisInning.getOutSum() + thisInning.getRound());
         if (thisInning.getOutSum() == 3 && thisInning.getRound().equals("9회 말")) {
-            System.out.println(" --------------------------!!!!!!!!!!!!!!!!!!!!!!!!!!!!it worked =-----------------------");
-            String sql = "UPDATE halfInning SET is_over = 1 WHERE inning_id =" + inningId;
+            String sql = "UPDATE halfInning SET game_over = 1 WHERE inning_id =" + inningId;
             jdbcTemplate.update(sql);
 
         }

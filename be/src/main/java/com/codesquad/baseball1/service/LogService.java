@@ -44,7 +44,8 @@ public class LogService {
             updateLogWhenOut(logId);
             updateRecordWhenOut(hitterId);
             updateHalfInningWhenOut(inningId);
-            updateIfItsOverWhenGameIsOver(inningId);
+            halfInningService.updateIfItsOverWhenGameIsOver(inningId);
+
 
         } else if (actionType.equals("안타")) {
             updateLogWhenHit(logId);
@@ -52,14 +53,6 @@ public class LogService {
             updateHalfInningWhenHit(hitterId);
         }
         updatePlateAppearance(hitterId, logId);
-    }
-
-    public void updateIfItsOverWhenGameIsOver(int inningId) {
-        HalfInning thisInning = inningDao.findInningById(inningId);
-        if (thisInning.getOutSum() == 3 && thisInning.getRound().equals("9회 말")) {
-            String sql = "UPDATE halfInning SET is_over = 1 WHERE inning_id =" + inningId;
-            jdbcTemplate.update(sql);
-        }
     }
 
     public void updateLogWhenStrike(int logId) {

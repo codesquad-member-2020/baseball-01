@@ -71,7 +71,7 @@ create table halfInning (
                         match_id int,
                         status varchar(255),
                         change_status bit(1),
-                        is_over bit(1)
+                        game_over bit(1)
 );
 create table log (
                      log_id int primary key auto_increment,
