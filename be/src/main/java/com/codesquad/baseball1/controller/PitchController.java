@@ -47,9 +47,7 @@ public class PitchController {
         int homeId = (int) matches.get("home");
         int awayId = (int) matches.get("away");
 
-//        HalfInning homeInning = inningDao.findHalfInningToPlay(matchId);
-
-        HalfInning homeInning = inningDao.findInningById(18);
+        HalfInning homeInning = inningDao.findHalfInningToPlay(matchId);
 
         if (homeInning.getHitScore() == 100) {
             resetService.resetInningsAndRecordsAndLogsWithMatchId(matchId);
