@@ -1,9 +1,12 @@
 package com.codesquad.baseball1.controller;
 
 import com.codesquad.baseball1.dao.LogDao;
+import com.codesquad.baseball1.dao.MatchDao;
 import com.codesquad.baseball1.dao.RecordDao;
+import com.codesquad.baseball1.dao.SetupDao;
 import com.codesquad.baseball1.domain.Hitter;
-import com.codesquad.baseball1.dto.InitDto;
+import com.codesquad.baseball1.dto.ResponseDto;
+import com.codesquad.baseball1.dto.SetupDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,28 +28,32 @@ public class TestController {
 
     @Autowired
     private RecordDao recordDao;
+    @Autowired
+    private SetupDao setupDao;
+
+    @Autowired
+    private MatchDao matchDao;
 
     public TestController(DataSource dataSource) { jdbcTemplate = new JdbcTemplate(dataSource);}
 
-    @GetMapping("/test")
-    public InitDto test() {
+
+    @GetMapping("/matches/{matchId}/teams/{teamId}")
+    public ResponseDto test(@PathVariable int matchId, @PathVariable int teamId) {
+
+        int homeId = matchDao.findTeamIdByMatchId(matchId, "'home'");
+        int awayId = matchDao.findTeamIdByMatchId(matchId, "'away'");
 
 
-        List<Object> homeInfo = new ArrayList<>();
-        List<Hitter> homeHitters = recordDao.findThreePlayersByTeamId(1);
+        SetupDto homeDto = setupDao.getSetupData(homeId);
+        SetupDto awayDto = setupDao.getSetupData(awayId);
 
-        String teamName = "기아";
-        int teamScore = 1;
-        String halfInning = "1회 초";
-        String pitcherName = "조현지";
-        int numberOfPitches = 0;
-        homeInfo.add(homeHitters);
+        if (teamId%2 != 0) {
+            homeDto.setTurnToPitch(true);
+        } else {
+            awayDto.setTurnToPitch(true);
+        }
 
-        Etc etc = new Etc(teamName, teamScore,  halfInning, pitcherName, numberOfPitches);
-
-        homeInfo.add(etc);
-        InitDto initDto = new InitDto(halfInning, homeInfo, homeInfo);
-        return initDto;
+        return new ResponseDto(200, "test", homeDto, awayDto);
     }
 
 }
