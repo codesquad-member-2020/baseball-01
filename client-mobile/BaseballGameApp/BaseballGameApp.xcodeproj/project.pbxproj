@@ -43,6 +43,9 @@
 		38BB53C5246BDECD00526167 /* PlayingTeamIndexBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BB53C4246BDECD00526167 /* PlayingTeamIndexBar.swift */; };
 		38BB53C7246BE55600526167 /* CountBoardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38BB53C6246BE55600526167 /* CountBoardView.xib */; };
 		38BB53C9246BECB300526167 /* CountBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BB53C8246BECB300526167 /* CountBoardView.swift */; };
+		38E3E8C3246DC01500FB2DF4 /* SelectTeamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E3E8C2246DC01500FB2DF4 /* SelectTeamUseCase.swift */; };
+		38E3E8C5246DC13500FB2DF4 /* SelectedTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E3E8C4246DC13500FB2DF4 /* SelectedTeam.swift */; };
+		38E3E8C7246DC23800FB2DF4 /* SelectingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E3E8C6246DC23800FB2DF4 /* SelectingStatus.swift */; };
 		38EA5AC42462E6BC00055D6B /* LogoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA5AC32462E6BC00055D6B /* LogoImageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -85,6 +88,9 @@
 		38BB53C4246BDECD00526167 /* PlayingTeamIndexBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingTeamIndexBar.swift; sourceTree = "<group>"; };
 		38BB53C6246BE55600526167 /* CountBoardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountBoardView.xib; sourceTree = "<group>"; };
 		38BB53C8246BECB300526167 /* CountBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountBoardView.swift; sourceTree = "<group>"; };
+		38E3E8C2246DC01500FB2DF4 /* SelectTeamUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTeamUseCase.swift; sourceTree = "<group>"; };
+		38E3E8C4246DC13500FB2DF4 /* SelectedTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTeam.swift; sourceTree = "<group>"; };
+		38E3E8C6246DC23800FB2DF4 /* SelectingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectingStatus.swift; sourceTree = "<group>"; };
 		38EA5AC32462E6BC00055D6B /* LogoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				385614F9246D75F500320CB9 /* MatchListUseCase.swift */,
+				38E3E8C2246DC01500FB2DF4 /* SelectTeamUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -124,6 +131,8 @@
 				385614FC246D797600320CB9 /* Match.swift */,
 				385614FE246D7AD600320CB9 /* Team.swift */,
 				38561500246D7FBD00320CB9 /* MatchList.swift */,
+				38E3E8C4246DC13500FB2DF4 /* SelectedTeam.swift */,
+				38E3E8C6246DC23800FB2DF4 /* SelectingStatus.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -323,6 +332,7 @@
 				38BB53C9246BECB300526167 /* CountBoardView.swift in Sources */,
 				3875C724246D241B00B579FE /* BaseBoardView.swift in Sources */,
 				3875C728246D371300B579FE /* BaseBoardBackgroundView.swift in Sources */,
+				38E3E8C3246DC01500FB2DF4 /* SelectTeamUseCase.swift in Sources */,
 				38561506246D8BB800320CB9 /* ImageNetworkManager.swift in Sources */,
 				38959B872460058100C7AD4D /* MatchListViewController.swift in Sources */,
 				38959B832460058100C7AD4D /* AppDelegate.swift in Sources */,
@@ -343,6 +353,8 @@
 				38743A3D24682733007B0E51 /* MatchBoardView.swift in Sources */,
 				385614FA246D75F500320CB9 /* MatchListUseCase.swift in Sources */,
 				38959BA12460580B00C7AD4D /* MatchPopupView.swift in Sources */,
+				38E3E8C7246DC23800FB2DF4 /* SelectingStatus.swift in Sources */,
+				38E3E8C5246DC13500FB2DF4 /* SelectedTeam.swift in Sources */,
 				38BB53C5246BDECD00526167 /* PlayingTeamIndexBar.swift in Sources */,
 				38561504246D81A000320CB9 /* MatchListDataSource.swift in Sources */,
 			);
