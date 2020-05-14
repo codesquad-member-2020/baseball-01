@@ -31,8 +31,8 @@ protocol Request {
 }
 
 enum NetworkErrorCase: Error {
-    case invalidURL
-    case notFound
+    case InvalidURL
+    case NotFound
 }
 
 extension Request {
