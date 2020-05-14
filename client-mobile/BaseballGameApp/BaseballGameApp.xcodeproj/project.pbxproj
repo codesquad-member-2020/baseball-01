@@ -10,6 +10,7 @@
 		385614F1246D44A000320CB9 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385614F0246D44A000320CB9 /* Request.swift */; };
 		385614F3246D473700320CB9 /* NetworkDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385614F2246D473700320CB9 /* NetworkDispatcher.swift */; };
 		385614F5246D4CA400320CB9 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385614F4246D4CA400320CB9 /* NetworkTask.swift */; };
+		385614FA246D75F500320CB9 /* MatchUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385614F9246D75F500320CB9 /* MatchUseCase.swift */; };
 		38743A282463F282007B0E51 /* BungeeOutline-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 38743A272463F282007B0E51 /* BungeeOutline-Regular.ttf */; };
 		38743A382467FCE3007B0E51 /* PlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38743A372467FCE3007B0E51 /* PlayViewController.swift */; };
 		38743A3A24681AC0007B0E51 /* MatchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38743A3924681AC0007B0E51 /* MatchViewController.swift */; };
@@ -44,6 +45,7 @@
 		385614F0246D44A000320CB9 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		385614F2246D473700320CB9 /* NetworkDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDispatcher.swift; sourceTree = "<group>"; };
 		385614F4246D4CA400320CB9 /* NetworkTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
+		385614F9246D75F500320CB9 /* MatchUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchUseCase.swift; sourceTree = "<group>"; };
 		38743A272463F282007B0E51 /* BungeeOutline-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BungeeOutline-Regular.ttf"; path = "../../../../../../../../../../Downloads/Fonts/Bungee_Outline/BungeeOutline-Regular.ttf"; sourceTree = "<group>"; };
 		38743A372467FCE3007B0E51 /* PlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayViewController.swift; sourceTree = "<group>"; };
 		38743A3924681AC0007B0E51 /* MatchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,14 @@
 				385614F4246D4CA400320CB9 /* NetworkTask.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		385614F8246D75E600320CB9 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				385614F9246D75F500320CB9 /* MatchUseCase.swift */,
+			);
+			path = UseCase;
 			sourceTree = "<group>";
 		};
 		38743A262463F251007B0E51 /* Fonts */ = {
@@ -154,6 +164,7 @@
 			children = (
 				38AB806B2463B65200A75572 /* ViewControllers */,
 				38959B992460306100C7AD4D /* Views */,
+				385614F8246D75E600320CB9 /* UseCase */,
 				385614EF246D448A00320CB9 /* Network */,
 				38959B962460136E00C7AD4D /* Extensions */,
 				38743A262463F251007B0E51 /* Fonts */,
@@ -295,6 +306,7 @@
 				38959B9F24603A9800C7AD4D /* MatchCell.swift in Sources */,
 				38AB806D2463B67800A75572 /* MainViewController.swift in Sources */,
 				38743A3D24682733007B0E51 /* MatchBoardView.swift in Sources */,
+				385614FA246D75F500320CB9 /* MatchUseCase.swift in Sources */,
 				38959BA12460580B00C7AD4D /* MatchPopupView.swift in Sources */,
 				38BB53C5246BDECD00526167 /* PlayingTeamIndexBar.swift in Sources */,
 			);
