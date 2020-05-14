@@ -74,37 +74,25 @@ public class InningDao {
                 return h;
             }
         }
-        HalfInning nullHalfInning = new HalfInning();
-        nullHalfInning.setHitScore(100);
-        System.out.println("----------------------------------------------------------" + nullHalfInning.getHitScore());
-        return nullHalfInning;
+        HalfInning extraHalfInning = new HalfInning();
+        extraHalfInning.setHitScore(100);
+        return extraHalfInning;
     }
 
-    public void resetInningsAndRecordsWithMatchId(int matchId) {
-        resetInningWithMatchID(matchId);
-        resetRecordsWithMatchId(matchId);
+    public HalfInning findHalfInningToPlayGet(int matchId) {
+        List<HalfInning> halfInnings = getHalfInnings(matchId);
+        for (HalfInning h : halfInnings) {
+            if (h.getOutSum() <= 2) {
+                return h;
+            }
+            if (h.isChangeStatus()) {
+              return h;
+            }
+        }
+        HalfInning extraHalfInning = new HalfInning();
+        extraHalfInning.setHitScore(100);
+        return extraHalfInning;
     }
-
-    public void resetInningWithMatchID(int matchId) {
-
-        String sql = "UPDATE record SET strike_count = 0, ball_count = 0, out_count = 0, hit_count = 0, average = 0, plate_appearance = 0, " +
-                "available = 1, total_out_count = 0, total_hit_count = 0 where match_id = :match_id";
-        SqlParameterSource namedParameter = new MapSqlParameterSource().addValue("match_id", matchId);
-        namedJdbcTemplate.update(sql, namedParameter);
-    }
-
-    public void resetRecordsWithMatchId(int matchId) {
-        int homeId = matchDao.findTeamIdByMatchId(matchId, "'home'");
-        int awayId = matchDao.findTeamIdByMatchId(matchId, "'away'");
-
-        String sql = "UPDATE record SET strike_count = 0, ball_count = 0, out_count = 0, hit_count = 0, average = 0, plate_appearance = 0, " +
-                "available = 1, total_out_count = 0, total_hit_count = 0 where team_id = :team_id";
-        SqlParameterSource namedParameters1 = new MapSqlParameterSource().addValue("team_id", homeId);
-        SqlParameterSource namedParameters2 = new MapSqlParameterSource().addValue("team_id", awayId);
-        namedJdbcTemplate.update(sql, namedParameters1);
-        namedJdbcTemplate.update(sql, namedParameters2);
-    }
-
 
 
 

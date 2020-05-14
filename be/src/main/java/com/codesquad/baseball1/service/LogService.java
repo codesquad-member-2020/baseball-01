@@ -3,6 +3,7 @@ package com.codesquad.baseball1.service;
 import com.codesquad.baseball1.dao.InningDao;
 import com.codesquad.baseball1.dao.LogDao;
 import com.codesquad.baseball1.dao.RecordDao;
+import com.codesquad.baseball1.domain.HalfInning;
 import com.codesquad.baseball1.domain.Record;
 import com.codesquad.baseball1.dto.ResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +23,13 @@ public class LogService {
     private RecordDao recordDao;
     @Autowired
     private InningDao inningDao;
+    @Autowired
+    private HalfInningService halfInningService;
 
 
     public void updateDbBasedOnActionType(String actionType, int logId, int hitterId, int inningId) {
+
+        resetChangeStatus(inningId-1);
 
         if (actionType.equals("스트라이크")) {
             updateLogWhenStrike(logId);
@@ -39,6 +44,7 @@ public class LogService {
             updateLogWhenOut(logId);
             updateRecordWhenOut(hitterId);
             updateHalfInningWhenOut(inningId);
+            updateIfItsOverWhenGameIsOver(inningId);
 
         } else if (actionType.equals("안타")) {
             updateLogWhenHit(logId);
@@ -46,6 +52,14 @@ public class LogService {
             updateHalfInningWhenHit(hitterId);
         }
         updatePlateAppearance(hitterId, logId);
+    }
+
+    public void updateIfItsOverWhenGameIsOver(int inningId) {
+        HalfInning thisInning = inningDao.findInningById(inningId);
+        if (thisInning.getOutSum() == 3 && thisInning.getRound().equals("9회 말")) {
+            String sql = "UPDATE halfInning SET is_over = 1 WHERE inning_id =" + inningId;
+            jdbcTemplate.update(sql);
+        }
     }
 
     public void updateLogWhenStrike(int logId) {
@@ -98,6 +112,12 @@ public class LogService {
             String sql2 = "UPDATE halfInning SET change_status = 1 where inning_id=" + inningId;
             jdbcTemplate.update(sql2);
         }
+    }
+
+
+    public void resetChangeStatus(int inningId) {
+        String sql2 = "UPDATE halfInning SET change_status = 0 where inning_id=" + inningId;
+        jdbcTemplate.update(sql2);
     }
 
     public void updateLogWhenHit(int logId) {
@@ -159,7 +179,7 @@ public class LogService {
     }
 
     public String getRandomAction() {
-        List<String> sboh = Arrays.asList("스트라이크", "아웃", "안타", "볼");
+        List<String> sboh = Arrays.asList("스트라이크", "아웃", "볼", "안타");
         Random random = new Random();
         String actionType = sboh.get(random.nextInt(sboh.size()));
         return actionType;
