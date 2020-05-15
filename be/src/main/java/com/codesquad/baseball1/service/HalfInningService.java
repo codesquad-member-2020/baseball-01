@@ -29,4 +29,11 @@ public class HalfInningService {
 
         }
     }
+
+    public Integer geAcuumulatedPlateAppearanceWithMatchId(int matchId, String status) {
+
+        String sql = "SELECT SUM(number_of_pitches) from halfInning where match_id = ? and status = ?";
+        int accumulatedPA = (Integer) jdbcTemplate.queryForObject(sql, new Object[]{matchId, status}, Integer.class);
+        return accumulatedPA;
+    }
 }

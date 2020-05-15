@@ -2,6 +2,7 @@ package com.codesquad.baseball1.service;
 
 import com.codesquad.baseball1.dao.InningDao;
 import com.codesquad.baseball1.dao.LogDao;
+import com.codesquad.baseball1.dao.MatchDao;
 import com.codesquad.baseball1.dao.RecordDao;
 import com.codesquad.baseball1.domain.HalfInning;
 import com.codesquad.baseball1.domain.Record;
@@ -25,6 +26,8 @@ public class LogService {
     private InningDao inningDao;
     @Autowired
     private HalfInningService halfInningService;
+    @Autowired
+    private MatchDao matchDao;
 
 
     public void updateDbBasedOnActionType(String actionType, int logId, int hitterId, int inningId) {
@@ -136,7 +139,10 @@ public class LogService {
         return plateAppearance;
     }
 
+
+
     public void updatePlateAppearance(int hitterId, int logId) {
+
         String sql = "UPDATE record SET plate_appearance = ? where record_id =" + hitterId;
         jdbcTemplate.update(sql, getPlateAppearance(hitterId));
 
@@ -184,13 +190,34 @@ public class LogService {
         return pitcherName;
     }
 
-    public void updatePitchCountToInning(int inningId) {
-        String inningSql = "UPDATE halfInning SET number_of_pitches = number_of_pitches + 1 where inning_id =" + inningId;
-        jdbcTemplate.update(inningSql);
+    public void updatePitchPlusOne(int matchId, int inningId) {
+        int homeId = matchDao.findTeamIdByMatchId(matchId, "'home'");
+        int awayId = matchDao.findTeamIdByMatchId(matchId, "'away'");
+        String sql = "UPDATE halfInning SET number_of_pitches = number_of_pitches + 1 where inning_id = ?";
+
+        jdbcTemplate.update(sql, inningId);
+
     }
 
-    public ResponseDto makePitch(int inningId, int homeOrAwayId) {
-        updatePitchCountToInning(inningId);
+    public void updateAccumulatedPitchToInning(int matchId, int inningId) {
+//        int homeId = matchDao.findTeamIdByMatchId(matchId, "'home'");
+//        int awayId = matchDao.findTeamIdByMatchId(matchId, "'away'");
+
+        int homeTeamTotalPA = halfInningService.geAcuumulatedPlateAppearanceWithMatchId(matchId, "home");
+        int awayTeamTotalPA = halfInningService.geAcuumulatedPlateAppearanceWithMatchId(matchId, "away");
+
+        if (inningId%2 != 0) {
+            String sql = "UPDATE halfInning SET number_of_pitches = ? where inning_id = ? and status = 'home'";
+            jdbcTemplate.update(sql, homeTeamTotalPA, inningId);
+        } else if (inningId%2 == 0) {
+            String sql = "UPDATE halfInning SET number_of_pitches = ? where inning_id = ? and status = 'away'";
+            jdbcTemplate.update(sql, awayTeamTotalPA, inningId);
+        }
+    }
+
+    public ResponseDto makePitch(int inningId, int homeOrAwayId, int matchId) {
+
+        updatePitchPlusOne(matchId, inningId);
         //find available player to throw pitch
         Record record = recordDao.findPlayerToPlay(homeOrAwayId);
         int hitterId = record.getHitterId();
@@ -206,6 +233,15 @@ public class LogService {
         int logId = logDao.findLatestLog().getLogId();
         //then update value for *_count columns
         updateDbBasedOnActionType(actionType, logId, hitterId, inningId);
-        return new ResponseDto(200, inningDao.findInningById(inningId));
+
+        HalfInning myInning = inningDao.findInningById(inningId);
+        if (myInning.getInningId()%2 == 0 ) {
+            myInning.setNumberOfPitches(halfInningService.geAcuumulatedPlateAppearanceWithMatchId(matchId, "away"));
+        } else if (myInning.getInningId()%2 != 0) {
+            myInning.setNumberOfPitches(halfInningService.geAcuumulatedPlateAppearanceWithMatchId(matchId, "home"));
+        }
+
+
+        return new ResponseDto(200, myInning);
     }
 }
