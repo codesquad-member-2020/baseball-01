@@ -44,8 +44,38 @@ class PlayViewController: UIViewController {
             case .success(let playConfiguration):
                 let away = playConfiguration.away
                 let home = playConfiguration.home
+                DispatchQueue.main.async {
+                    self.matchBoardView.updateTeamName(away: away.name, home: home.name)
+                }
+                self.fetchImageWithCaching(imageURL: away.logoURL) { (logoImage) in
+                    DispatchQueue.main.async {
+                        self.matchBoardView.updateLogoImage(logoImage, isAway: true)
+                    }
+                }
+                self.fetchImageWithCaching(imageURL: home.logoURL) { (logoImage) in
+                    DispatchQueue.main.async {
+                        self.matchBoardView.updateLogoImage(logoImage, isAway: false)
+                    }
+                }
             case .failure(_):
                 break
+            }
+        }
+    }
+    
+    private func fetchImageWithCaching(imageURL: String, completion: @escaping (UIImage?) -> Void) {
+        let url = URL(string: imageURL)!
+        let cachedImageFileURL = try! FileManager.default.url(for: .cachesDirectory,
+                                                              in: .userDomainMask,
+                                                              appropriateFor: nil,
+                                                              create: true)
+                                                 .appendingPathComponent(url.lastPathComponent)
+        if let cachedData = try? Data(contentsOf: cachedImageFileURL) {
+            let image = UIImage(data: cachedData)
+            completion(image)
+        } else {
+            ImageNetworkManager.fetchImage(from: imageURL, cachedImageFileURL: cachedImageFileURL) { (image) in
+                completion(image)
             }
         }
     }
