@@ -42,8 +42,8 @@ const PitchBtn = styled.button`
   }
 `;
 
-const Pitch = () => {
-  return <PitchBtn children='PITCH' />;
+const Pitch = ({onClick}) => {
+  return <PitchBtn children='PITCH' onClick={onClick}/>;
 };
 
 export default Pitch;

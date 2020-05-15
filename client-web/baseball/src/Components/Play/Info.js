@@ -31,19 +31,19 @@ const BallCountDiv = styled.div`
 const Info = () => {
   return (
     <InfoWrapDiv>
-      <Base hit='2'/>
+      <Base hit='0'/>
       <BallCountDiv>
         <div>
           <span>B</span>
-          <Circle number='3' show='2' type='ball' />
+          <Circle number='3' show='0' type='ball' />
         </div>
         <div>
           <span>S</span>
-          <Circle number='2' show='1' type='strike' />
+          <Circle number='2' show='0' type='strike' />
         </div>
         <div>
           <span>O</span>
-          <Circle number='2' show='1' type='out' />
+          <Circle number='2' show='0' type='out' />
         </div>
       </BallCountDiv>
     </InfoWrapDiv>

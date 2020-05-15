@@ -1,11 +1,9 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { URL } from '../../constant/url';
 import styled from 'styled-components';
 import { messageMove } from '../Styles/Keyframes';
 import { PlayBg } from '../Styles/Backgorund';
-import useAsync from '../Utils/useAsync';
-import { Loader } from '../Utils/Loader';
 import Score from './Score';
 import Player from './Player';
 import Pitch from './Pitch';
@@ -50,34 +48,58 @@ const Message = styled.p`
 `;
 
 const Play = ({ location }) => {
-  console.log(location);
+  // console.log(location);
   const { matchID, userTeam } = location.state.detail;
+  const [initData, setInitData] = useState({
+    away_team: '',
+    home_team: '',
+  });
+  const [pitchData, setPitchData] = useState({
+    top_status: false,
+    game_over: false,
+    hit_score: 0,
+    logs: [],
+    number_of_pitches: 0,
+    out_sum: 0,
+    pitcher_name: '',
+    round: '1회 초',
+    team_id: 0,
+  });
+
+  const playData = {...initData, ...pitchData}
 
   const setupData = async () => {
     const response = await axios(`${URL}/matches/${matchID}/teams/${userTeam}/setup`);
+    setInitData(response.data);
+    console.log(response.data);
+    return response;
+  };
+  useEffect(() => {
+    setupData();
+  }, []);
+
+  const onPitchHandler = async () => {
+    const response = await axios.post(`${URL}/matches/${matchID}/pitch`);
+    setPitchData(response.data.data);
+    aaa()
     return response;
   };
 
-  const state = useAsync(setupData);
-  const { loading, data, error } = state;
-  if (loading) return <Loader />;
-  if (error) return <div>에러</div>;
-  if (!data) return null;
-  
-  const setData = data.data
-  console.log(setData)
+  const aaa = () => {
+    console.log(playData)
+  }
 
   return (
     <PlayWrapDiv>
       <InnerDiv width='1000px'>
-        <Score data={setData}/>
-        <Player />
-        <Pitch />
+        <Score data={playData} />
+        <Player data={playData} />
+        <Pitch onClick={onPitchHandler} />
         <BottomDiv>
           <Info />
           <Log />
         </BottomDiv>
-        <Message children='STRIKE!!' />
+        <Message children={playData.logs.length > 0 ? playData.logs[playData.logs.length - 1].action_result : 'Play Ball!'} onClick={aaa} />
       </InnerDiv>
     </PlayWrapDiv>
   );
