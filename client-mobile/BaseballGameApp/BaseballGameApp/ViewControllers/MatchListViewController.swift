@@ -22,6 +22,8 @@ class MatchListViewController: UIViewController {
     private let collectionView = MatchListCollectionView()
     private let matchListDataSource = MatchListDataSource()
     
+    private var waitingView: UIView!
+    
     private let intervalTime: CGFloat = 5.0
     private var timer = Timer()
     
@@ -162,10 +164,23 @@ extension MatchListViewController {
         ) { (result) in
             switch result {
             case .success(let selectingStatus):
-                DispatchQueue.main.async {
-                    self.showAlertView(message: selectingStatus.message)
+                let message = selectingStatus.message
+                switch message {
+                case "매치 상대를 찾고 있습니다.":
+                    DispatchQueue.main.async {
+                        self.showWaitingView(message: message)
+                    }
+                case "다른 유저가 대기 중입니다. 다른 팀을 골라주세요.":
+                    DispatchQueue.main.async {
+                        self.showAlertView(message: message)
+                    }
+                case "매치가 완료되었습니다.":
+                    DispatchQueue.main.async {
+                        self.showAlertView(message: message)
+                    }
+                default:
+                    break
                 }
-                break
             case .failure(_):
                 break
             }
@@ -178,6 +193,22 @@ extension MatchListViewController {
     private func presentMatch() {
         let matchViewController = MatchViewController()
         self.present(matchViewController, animated: true, completion: nil)
+    }
+    
+    private func showWaitingView(message: String) {
+        waitingView = UIView()
+        waitingView.backgroundColor = .black
+        waitingView.alpha = 0.9
+        view.addSubview(waitingView)
+        waitingView.fillSuperView()
+        
+        let messageLabel = PlainLabel(text: message, color: .white, fontSize: 20, weight: .semibold, alignment: .center)
+        waitingView.addSubview(messageLabel)
+        messageLabel.centerInSuperView()
+        
+        UIView.animate(withDuration: 1.2, delay: 0, options: [.repeat, .autoreverse], animations: {
+            messageLabel.alpha = 0
+        }, completion: nil)
     }
     
     private func showAlertView(message: String) {
