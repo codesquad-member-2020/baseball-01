@@ -34,23 +34,23 @@ public class LogService {
 
         resetChangeStatus(inningId-1);
 
-        if (actionType.equals("스트라이크")) {
+        if (actionType.equals("Strike!!")) {
             updateLogWhenStrike(logId);
             updateRecordWhenStrike(hitterId);
 
-        } else if (actionType.equals("볼")) {
+        } else if (actionType.equals("Ball")) {
             updateLogWhenBall(logId);
             updateRecordWhenBall(hitterId);
             updateHitCountWhenFourBalls(logId, inningId);
 
-        } else if (actionType.equals("아웃")) {
+        } else if (actionType.equals("Out")) {
             updateLogWhenOut(logId);
             updateRecordWhenOut(hitterId);
             updateHalfInningWhenOut(inningId);
             halfInningService.updateIfItsOverWhenGameIsOver(inningId);
 
 
-        } else if (actionType.equals("안타")) {
+        } else if (actionType.equals("Hit!!")) {
             updateLogWhenHit(logId);
             updateRecordWhenHit(hitterId);
             updateHalfInningWhenHit(hitterId);
@@ -178,7 +178,7 @@ public class LogService {
     }
 
     public String getRandomAction() {
-        List<String> sboh = Arrays.asList("스트라이크", "아웃", "볼", "안타");
+        List<String> sboh = Arrays.asList("Strike!!", "Out", "Ball", "Hit!!");
         Random random = new Random();
         String actionType = sboh.get(random.nextInt(sboh.size()));
         return actionType;
