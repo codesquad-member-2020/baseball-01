@@ -35,6 +35,20 @@ class PlayViewController: UIViewController {
         super.viewDidAppear(animated)
         configureCountBoardView()
     }
+    
+    func requestInitialData(matchIdentifier: Int) {
+        PlayConfigurationUseCase.requestInitialData(matchIdentifier: matchIdentifier,
+                                                    with: PlayConfigurationUseCase.PlayConfigurationTask(networkDispatcher: NetworkManager())
+        ) { (result) in
+            switch result {
+            case .success(let playConfiguration):
+                let away = playConfiguration.away
+                let home = playConfiguration.home
+            case .failure(_):
+                break
+            }
+        }
+    }
 
     private func configure() {
         configureMatchBoardView()

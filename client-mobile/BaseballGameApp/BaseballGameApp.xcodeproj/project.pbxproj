@@ -28,6 +28,8 @@
 		3875C722246D1ACF00B579FE /* PlayerLogsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3875C721246D1ACF00B579FE /* PlayerLogsHeaderView.swift */; };
 		3875C724246D241B00B579FE /* BaseBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3875C723246D241B00B579FE /* BaseBoardView.swift */; };
 		3875C728246D371300B579FE /* BaseBoardBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3875C727246D371300B579FE /* BaseBoardBackgroundView.swift */; };
+		3877A9A4246E773B00ABFD0D /* PlayConfigurationUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3877A9A3246E773B00ABFD0D /* PlayConfigurationUseCase.swift */; };
+		3877A9A6246E775200ABFD0D /* PlayConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3877A9A5246E775200ABFD0D /* PlayConfiguration.swift */; };
 		38959B832460058100C7AD4D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B822460058100C7AD4D /* AppDelegate.swift */; };
 		38959B852460058100C7AD4D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B842460058100C7AD4D /* SceneDelegate.swift */; };
 		38959B872460058100C7AD4D /* MatchListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38959B862460058100C7AD4D /* MatchListViewController.swift */; };
@@ -73,6 +75,8 @@
 		3875C721246D1ACF00B579FE /* PlayerLogsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLogsHeaderView.swift; sourceTree = "<group>"; };
 		3875C723246D241B00B579FE /* BaseBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBoardView.swift; sourceTree = "<group>"; };
 		3875C727246D371300B579FE /* BaseBoardBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseBoardBackgroundView.swift; sourceTree = "<group>"; };
+		3877A9A3246E773B00ABFD0D /* PlayConfigurationUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayConfigurationUseCase.swift; sourceTree = "<group>"; };
+		3877A9A5246E775200ABFD0D /* PlayConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayConfiguration.swift; sourceTree = "<group>"; };
 		38959B7F2460058100C7AD4D /* BaseballGameApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseballGameApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38959B822460058100C7AD4D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		38959B842460058100C7AD4D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +130,7 @@
 				385614F9246D75F500320CB9 /* MatchListUseCase.swift */,
 				38E3E8C2246DC01500FB2DF4 /* SelectTeamUseCase.swift */,
 				38E3E8CA246E6E6900FB2DF4 /* MatchStatusUserCase.swift */,
+				3877A9A3246E773B00ABFD0D /* PlayConfigurationUseCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 				38E3E8C4246DC13500FB2DF4 /* SelectedTeam.swift */,
 				38E3E8C6246DC23800FB2DF4 /* SelectingStatus.swift */,
 				38E3E8C8246E6BEF00FB2DF4 /* MatchStatus.swift */,
+				3877A9A5246E775200ABFD0D /* PlayConfiguration.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -346,6 +352,7 @@
 				38959B9D246038C800C7AD4D /* MatchListCollectionView.swift in Sources */,
 				38743A382467FCE3007B0E51 /* PlayViewController.swift in Sources */,
 				3875C714246C28CB00B579FE /* CurrentPitcherHitterView.swift in Sources */,
+				3877A9A6246E775200ABFD0D /* PlayConfiguration.swift in Sources */,
 				38959B982460138000C7AD4D /* AutoLayout.swift in Sources */,
 				3875C722246D1ACF00B579FE /* PlayerLogsHeaderView.swift in Sources */,
 				38959B852460058100C7AD4D /* SceneDelegate.swift in Sources */,
@@ -362,6 +369,7 @@
 				38E3E8CB246E6E6900FB2DF4 /* MatchStatusUserCase.swift in Sources */,
 				38959BA12460580B00C7AD4D /* MatchPopupView.swift in Sources */,
 				38E3E8C7246DC23800FB2DF4 /* SelectingStatus.swift in Sources */,
+				3877A9A4246E773B00ABFD0D /* PlayConfigurationUseCase.swift in Sources */,
 				38E3E8C5246DC13500FB2DF4 /* SelectedTeam.swift in Sources */,
 				38BB53C5246BDECD00526167 /* PlayingTeamIndexBar.swift in Sources */,
 				38561504246D81A000320CB9 /* MatchListDataSource.swift in Sources */,

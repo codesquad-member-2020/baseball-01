@@ -226,9 +226,12 @@ extension MatchListViewController {
     
     private func presentMatch() {
         let mainStoryboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
-        let tabBarController = mainStoryboard.instantiateViewController(identifier: "TabBarController")
+        let tabBarController = mainStoryboard.instantiateViewController(identifier: "TabBarController") as! UITabBarController
         tabBarController.modalPresentationStyle = .fullScreen
-        self.present(tabBarController, animated: true, completion: nil)
+        self.present(tabBarController, animated: true, completion: {
+            let playViewController = tabBarController.viewControllers?.first as? PlayViewController
+            playViewController?.requestInitialData(matchIdentifier: self.matchIdentifier)
+        })
     }
     
     private func showWaitingView(message: String) {
