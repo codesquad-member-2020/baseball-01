@@ -22,6 +22,15 @@ class MatchListViewController: UIViewController {
     private let collectionView = MatchListCollectionView()
     private let matchListDataSource = MatchListDataSource()
     
+    private var waitingView: UIView!
+    
+    private let intervalTime: CGFloat = 5.0
+    private var timer = Timer()
+    
+    private let findingOppositeIntervalTime: CGFloat = 3.0
+    private var findingOppositeTimer = Timer()
+    private var matchIdentifier: Int!
+    
     // AutoLayout properties for animation
     private var popupViewCenterYAnchor: NSLayoutConstraint?
 
@@ -36,6 +45,7 @@ class MatchListViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        reloadMatchListPeriodically()
         
         guard !hasEnteredFromMain else { return }
         let mainViewController = MainViewController()
@@ -43,6 +53,14 @@ class MatchListViewController: UIViewController {
         self.present(mainViewController, animated: false, completion: {
             mainViewController.delegate = self
         })
+    }
+    
+    private func reloadMatchListPeriodically() {
+        timer = Timer.scheduledTimer(timeInterval: TimeInterval(intervalTime), target: self, selector: #selector(reloadMatchList), userInfo: nil, repeats: true)
+    }
+    
+    @objc private func reloadMatchList() {
+        requestMatchList()
     }
     
     deinit {
@@ -72,18 +90,29 @@ class MatchListViewController: UIViewController {
         }
     }
 
+    // MARK:- UI
     private func configureUI() {
-        view.backgroundColor = .black
+        let imageView = UIImageView(image: UIImage(named: "matchlist.bg"))
+        imageView.contentMode = .scaleAspectFill
+        let backgroundEffectView = UIView()
+        backgroundEffectView.backgroundColor = .black
+        backgroundEffectView.alpha = 0.6
         
+        view.addSubview(imageView)
+        view.addSubview(backgroundEffectView)
         view.addSubview(titleLabel)
         view.addSubview(descriptionLabel)
         view.addSubview(collectionView)
         view.addSubview(enterTransitionView)
+        
+        imageView.fillSuperView()
+        backgroundEffectView.fillSuperView()
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         NSLayoutConstraint(item: titleLabel, attribute: .top, relatedBy: .equal, toItem: self.view.safeAreaLayoutGuide, attribute: .top, multiplier: 2.8, constant: 0).isActive = true
         descriptionLabel.constraints(topAnchor: titleLabel.bottomAnchor, leadingAnchor: view.leadingAnchor, bottomAnchor: nil, trailingAnchor: view.trailingAnchor, padding: .init(top: 8, left: 0, bottom: 0, right: 0))
-        collectionView.constraints(topAnchor: descriptionLabel.bottomAnchor, leadingAnchor: view.leadingAnchor, bottomAnchor: view.safeAreaLayoutGuide.bottomAnchor, trailingAnchor: view.trailingAnchor, padding: .init(top: 28, left: 32, bottom: -16, right: -32))
+        collectionView.backgroundColor = .clear
+        collectionView.constraints(topAnchor: descriptionLabel.bottomAnchor, leadingAnchor: view.leadingAnchor, bottomAnchor: view.bottomAnchor, trailingAnchor: view.trailingAnchor, padding: .init(top: 28, left: 32, bottom: -16, right: -32))
         enterTransitionView.backgroundColor = .black
         enterTransitionView.fillSuperView()
     }
@@ -123,28 +152,113 @@ extension MatchListViewController {
     }
     
     @objc func didTapMatchCell(notification: Notification) {
-        guard let index = notification.userInfo?["index"] as? Int else { return }
-        showPopupView()
+        guard let indexPath = notification.userInfo?["indexPath"] as? IndexPath else { return }
+        showPopupView(at: indexPath)
     }
     
+    // MARK:- Select Team
     @objc private func didSelectTeam(notification: Notification) {
-        guard let isAway = notification.userInfo?["isAway"] as? Bool else { return }
-        presentMatch()
+        guard
+            let matchIdentifier = notification.userInfo?["matchIdentifier"] as? Int,
+            let teamIdentifier = notification.userInfo?["teamIdentifier"] as? Int
+        else { return }
+        self.matchIdentifier = matchIdentifier
+        SelectTeamUseCase.requestSelectTeam(matchIdentifier: matchIdentifier,
+                                            teamIdentifier: teamIdentifier,
+                                            with: SelectTeamUseCase.SelectTeamTask(networkDispatcher: NetworkManager())
+        ) { (result) in
+            switch result {
+            case .success(let selectingStatus):
+                let message = selectingStatus.message
+                switch message {
+                case "매치 상대를 찾고 있습니다.":
+                    DispatchQueue.main.async {
+                        self.showWaitingView(message: message)
+                        self.configureFindOppositePeriodically()
+                    }
+                case "다른 유저가 대기 중입니다. 다른 팀을 골라주세요.":
+                    DispatchQueue.main.async {
+                        self.showAlertView(message: message)
+                    }
+                case "매치가 완료 되었습니다.":
+                    DispatchQueue.main.async {
+                        self.presentMatch()
+                    }
+                default:
+                    break
+                }
+            case .failure(_):
+                break
+            }
+        }
+    }
+    
+    private func configureFindOppositePeriodically() {
+        findingOppositeTimer = Timer.scheduledTimer(timeInterval: TimeInterval(findingOppositeIntervalTime),
+                                                    target: self,
+                                                    selector: #selector(selectTeam),
+                                                    userInfo: nil,
+                                                    repeats: true)
+    }
+    
+    @objc private func selectTeam() {
+        MatchStatusUseCase.requestMatchStatus(matchIdentifier: matchIdentifier,
+                                              with: MatchStatusUseCase.MatchStatusTask(networkDispatcher: NetworkManager())
+        ) { (result) in
+            switch result {
+            case .success(let matchStatus):
+                let data = matchStatus.data
+                let away = data.away
+                let home = data.home
+                guard away.isReady && home.isReady else { return }
+                DispatchQueue.main.async {
+                    self.findingOppositeTimer.invalidate()
+                    self.presentMatch()
+                }
+            case .failure(_):
+                break
+            }
+        }
     }
 }
 
 extension MatchListViewController {
     
     private func presentMatch() {
-        let matchViewController = MatchViewController()
-        self.present(matchViewController, animated: true, completion: nil)
+        let mainStoryboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+        let tabBarController = mainStoryboard.instantiateViewController(identifier: "TabBarController")
+        tabBarController.modalPresentationStyle = .fullScreen
+        self.present(tabBarController, animated: true, completion: nil)
+    }
+    
+    private func showWaitingView(message: String) {
+        waitingView = UIView()
+        waitingView.backgroundColor = .black
+        waitingView.alpha = 0.9
+        view.addSubview(waitingView)
+        waitingView.fillSuperView()
+        
+        let messageLabel = PlainLabel(text: message, color: .white, fontSize: 20, weight: .semibold, alignment: .center)
+        waitingView.addSubview(messageLabel)
+        messageLabel.centerInSuperView()
+        
+        UIView.animate(withDuration: 1.2, delay: 0, options: [.repeat, .autoreverse], animations: {
+            messageLabel.alpha = 0
+        }, completion: nil)
+    }
+    
+    private func showAlertView(message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Done", style: .default, handler: nil)
+        alert.addAction(cancelAction)
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
 // MARK:- Pop up View
 extension MatchListViewController {
     
-    private func showPopupView() {
+    private func showPopupView(at indexPath: IndexPath) {
         self.popupView = MatchPopupView()
         self.popupBackgroundView = UIView()
         view.addSubview(popupBackgroundView)
@@ -157,13 +271,20 @@ extension MatchListViewController {
         NSLayoutConstraint(item: popupView, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1, constant: 0).isActive = true
         popupViewCenterYAnchor = popupView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 800)
         popupViewCenterYAnchor?.isActive = true
-        popupView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.7).isActive = true
-        popupView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.22).isActive = true
+        popupView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.75).isActive = true
+        popupView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.25).isActive = true
         popupView.alpha = 0
         view.layoutIfNeeded()
         
         // Configure Pop-up View
-        popupView.configureMatchPopupView(awayName: "두산 베어스", awayLogoImage: UIImage(named: "logo.doosan"), homeName: "두산 베어스", homeLogoImage: UIImage(named: "logo.doosan"))
+        let cell = collectionView.cellForItem(at: indexPath) as! MatchCell
+        cell.pass { (identifier, away, awayLogo, home, homeLogo) in
+            popupView.update(matchIdentifier: identifier,
+                             away: away,
+                             awayLogoImage: awayLogo,
+                             home: home,
+                             homeLogoImage: homeLogo)
+        }
         
         UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.popupViewCenterYAnchor?.constant = -20

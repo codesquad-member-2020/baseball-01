@@ -10,7 +10,7 @@ import UIKit
 
 class PlainLabel: UILabel {
     
-    init(text: String = "", color: UIColor = .black, fontSize: CGFloat = 14, weight: UIFont.Weight = .medium, alignment: NSTextAlignment = .left) {
+    init(text: String = "", color: UIColor? = .black, fontSize: CGFloat = 14, weight: UIFont.Weight = .medium, alignment: NSTextAlignment = .left) {
         super.init(frame: .zero)
         self.text = text
         self.textColor = color

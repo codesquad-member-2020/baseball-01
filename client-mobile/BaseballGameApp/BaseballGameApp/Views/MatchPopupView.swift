@@ -10,20 +10,32 @@ import UIKit
 
 class MatchPopupView: UIView {
     
-    private let cornerRadius: CGFloat = 24.0
+    private let cornerRadius: CGFloat = 16.0
     
-    private let titleLabel = PlainLabel(text: "플레이할 팀을 선택하세요.", color: .black, fontSize: 17, weight: .medium, alignment: .center)
+    private let titleLabel = PlainLabel(text: "플레이할 팀을 선택하세요.", color: .white, fontSize: 17, weight: .medium, alignment: .center)
     private let seperatorView = UIView()
     private let awayLogoImageView = LogoImageView()
     private let homeLogoImageView = LogoImageView()
-    private let awayLabel = PlainLabel(text: "AWAY", color: .red, fontSize: 11, weight: .light, alignment: .center)
-    private let homeLabel = PlainLabel(text: "HOME", color: .red, fontSize: 11, weight: .light, alignment: .center)
+    private let awayLabel = PlainLabel(text: "AWAY", color: UIColor(named: "away.home.label"), fontSize: 11, weight: .semibold, alignment: .center)
+    private let homeLabel = PlainLabel(text: "HOME", color: UIColor(named: "away.home.label"), fontSize: 11, weight: .semibold, alignment: .center)
     
-    private let awayNameLabel = PlainLabel(text: "AWAY", color: .black, fontSize: 13, weight: .bold, alignment: .center)
-    private let homeNameLabel = PlainLabel(text: "HOME", color: .black, fontSize: 13, weight: .bold, alignment: .center)
+    private let awayNameLabel = PlainLabel(text: "AWAY", color: .white, fontSize: 15, weight: .bold, alignment: .center)
+    private let homeNameLabel = PlainLabel(text: "HOME", color: .white, fontSize: 15, weight: .bold, alignment: .center)
     
     private let awayTapView = UIView()
     private let homeTapView = UIView()
+    private var matchIdentifier: Int!
+    
+    private var away: Team! {
+        didSet {
+            awayNameLabel.text = away.name
+        }
+    }
+    private var home: Team! {
+        didSet {
+            homeNameLabel.text = home.name
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -39,10 +51,15 @@ class MatchPopupView: UIView {
         configureUI()
     }
     
-    func configureMatchPopupView(awayName: String, awayLogoImage: UIImage?, homeName: String, homeLogoImage: UIImage?) {
-        self.awayNameLabel.text = awayName
+    func update(matchIdentifier: Int,
+                away: Team,
+                awayLogoImage: UIImage?,
+                home: Team,
+                homeLogoImage: UIImage?) {
+        self.matchIdentifier = matchIdentifier
+        self.away = away
         self.awayLogoImageView.image = awayLogoImage
-        self.homeNameLabel.text = homeName
+        self.home = home
         self.homeLogoImageView.image = homeLogoImage
     }
     
@@ -54,37 +71,44 @@ class MatchPopupView: UIView {
     @objc private func didTapTeam(recognizer: UIGestureRecognizer) {
         switch recognizer.view {
         case awayTapView:
-            self.postNotification(isAway: true)
+            self.postNotification(teamIdentifier: away.identifier)
         case homeTapView:
-            self.postNotification(isAway: false)
+            self.postNotification(teamIdentifier: home.identifier)
         default:
             break
         }
     }
     
-    private func postNotification(isAway: Bool) {
-        NotificationCenter.default.post(name: .didSelectTeam, object: nil, userInfo: ["isAway": isAway])
+    private func postNotification(teamIdentifier: Int) {
+        NotificationCenter.default.post(name: .didSelectTeam,
+                                        object: nil,
+                                        userInfo: [
+                                            "matchIdentifier": matchIdentifier,
+                                            "teamIdentifier": teamIdentifier])
     }
     
     private func configureUI() {
-        backgroundColor = .init(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
+        backgroundColor = UIColor(named: "board.view")
         layer.cornerRadius = cornerRadius
         layer.shadowColor = UIColor.darkGray.cgColor
         layer.shadowOffset = .init(width: 0, height: 1.4)
         layer.shadowRadius = 2.0
         layer.shadowOpacity = 0.6
+        layer.borderWidth = 2
+        layer.borderColor = UIColor.black.cgColor
+        clipsToBounds = true
         
         addSubview(titleLabel)
         titleLabel.constraints(topAnchor: self.topAnchor, leadingAnchor: self.leadingAnchor, bottomAnchor: nil, trailingAnchor: self.trailingAnchor, padding: .init(top: 20, left: 0, bottom: 0, right: 0))
         titleLabel.setContentCompressionResistancePriority(.required, for: .vertical)
         
         addSubview(seperatorView)
-        seperatorView.backgroundColor = .black
+        seperatorView.backgroundColor = .white
         seperatorView.constraints(topAnchor: titleLabel.bottomAnchor, leadingAnchor: nil, bottomAnchor: self.bottomAnchor, trailingAnchor: nil, padding: .init(top: 24, left: 0, bottom: -24, right: 0), size: .init(width: 0.5, height: 0))
         seperatorView.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         
         // Home-Away Labels
-        let verticalSpacingFromTeamLabelToContainer: CGFloat = -8.0
+        let verticalSpacingFromTeamLabelToContainer: CGFloat = -20.0
         
         addSubview(awayLabel)
         awayLabel.constraints(topAnchor: nil, leadingAnchor: self.leadingAnchor, bottomAnchor: self.bottomAnchor, trailingAnchor: self.centerXAnchor, padding: .init(top: 0, left: 0, bottom: verticalSpacingFromTeamLabelToContainer, right: 0))

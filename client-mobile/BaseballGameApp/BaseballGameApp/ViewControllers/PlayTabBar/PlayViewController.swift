@@ -10,6 +10,8 @@ import UIKit
 
 class PlayViewController: UIViewController {
     
+    static let identifier: String = "PlayViewController"
+    
     @IBOutlet weak var matchBoardView: MatchBoardView!
     @IBOutlet weak var awayLogoImageView: UIImageView!
     @IBOutlet weak var awayTeamLabel: UILabel!

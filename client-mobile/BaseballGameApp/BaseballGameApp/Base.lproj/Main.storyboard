@@ -27,7 +27,7 @@
         <!--Play-->
         <scene sceneID="UDq-l3-xYU">
             <objects>
-                <viewController id="Fvb-lU-rsR" customClass="PlayViewController" customModule="BaseballGameApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PlayViewController" id="Fvb-lU-rsR" customClass="PlayViewController" customModule="BaseballGameApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cxr-3Q-JGJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -221,7 +221,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="CZp-a7-LBg">
             <objects>
-                <tabBarController id="8Sd-2Z-KQN" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8Sd-2Z-KQN" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="b8J-df-xNg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
