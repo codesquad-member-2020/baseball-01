@@ -46,6 +46,8 @@
 		38E3E8C3246DC01500FB2DF4 /* SelectTeamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E3E8C2246DC01500FB2DF4 /* SelectTeamUseCase.swift */; };
 		38E3E8C5246DC13500FB2DF4 /* SelectedTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E3E8C4246DC13500FB2DF4 /* SelectedTeam.swift */; };
 		38E3E8C7246DC23800FB2DF4 /* SelectingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E3E8C6246DC23800FB2DF4 /* SelectingStatus.swift */; };
+		38E3E8C9246E6BEF00FB2DF4 /* MatchStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E3E8C8246E6BEF00FB2DF4 /* MatchStatus.swift */; };
+		38E3E8CB246E6E6900FB2DF4 /* MatchStatusUserCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E3E8CA246E6E6900FB2DF4 /* MatchStatusUserCase.swift */; };
 		38EA5AC42462E6BC00055D6B /* LogoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38EA5AC32462E6BC00055D6B /* LogoImageView.swift */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +93,8 @@
 		38E3E8C2246DC01500FB2DF4 /* SelectTeamUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTeamUseCase.swift; sourceTree = "<group>"; };
 		38E3E8C4246DC13500FB2DF4 /* SelectedTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTeam.swift; sourceTree = "<group>"; };
 		38E3E8C6246DC23800FB2DF4 /* SelectingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectingStatus.swift; sourceTree = "<group>"; };
+		38E3E8C8246E6BEF00FB2DF4 /* MatchStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchStatus.swift; sourceTree = "<group>"; };
+		38E3E8CA246E6E6900FB2DF4 /* MatchStatusUserCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchStatusUserCase.swift; sourceTree = "<group>"; };
 		38EA5AC32462E6BC00055D6B /* LogoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,6 +125,7 @@
 			children = (
 				385614F9246D75F500320CB9 /* MatchListUseCase.swift */,
 				38E3E8C2246DC01500FB2DF4 /* SelectTeamUseCase.swift */,
+				38E3E8CA246E6E6900FB2DF4 /* MatchStatusUserCase.swift */,
 			);
 			path = UseCase;
 			sourceTree = "<group>";
@@ -133,6 +138,7 @@
 				38561500246D7FBD00320CB9 /* MatchList.swift */,
 				38E3E8C4246DC13500FB2DF4 /* SelectedTeam.swift */,
 				38E3E8C6246DC23800FB2DF4 /* SelectingStatus.swift */,
+				38E3E8C8246E6BEF00FB2DF4 /* MatchStatus.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -343,6 +349,7 @@
 				38959B982460138000C7AD4D /* AutoLayout.swift in Sources */,
 				3875C722246D1ACF00B579FE /* PlayerLogsHeaderView.swift in Sources */,
 				38959B852460058100C7AD4D /* SceneDelegate.swift in Sources */,
+				38E3E8C9246E6BEF00FB2DF4 /* MatchStatus.swift in Sources */,
 				38959B9B246030CE00C7AD4D /* PlainLabel.swift in Sources */,
 				385614F5246D4CA400320CB9 /* NetworkTask.swift in Sources */,
 				385614FF246D7AD600320CB9 /* Team.swift in Sources */,
@@ -352,6 +359,7 @@
 				38AB806D2463B67800A75572 /* MainViewController.swift in Sources */,
 				38743A3D24682733007B0E51 /* MatchBoardView.swift in Sources */,
 				385614FA246D75F500320CB9 /* MatchListUseCase.swift in Sources */,
+				38E3E8CB246E6E6900FB2DF4 /* MatchStatusUserCase.swift in Sources */,
 				38959BA12460580B00C7AD4D /* MatchPopupView.swift in Sources */,
 				38E3E8C7246DC23800FB2DF4 /* SelectingStatus.swift in Sources */,
 				38E3E8C5246DC13500FB2DF4 /* SelectedTeam.swift in Sources */,

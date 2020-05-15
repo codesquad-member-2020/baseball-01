@@ -27,6 +27,10 @@ class MatchListViewController: UIViewController {
     private let intervalTime: CGFloat = 5.0
     private var timer = Timer()
     
+    private let findingOppositeIntervalTime: CGFloat = 3.0
+    private var findingOppositeTimer = Timer()
+    private var matchIdentifier: Int!
+    
     // AutoLayout properties for animation
     private var popupViewCenterYAnchor: NSLayoutConstraint?
 
@@ -158,6 +162,7 @@ extension MatchListViewController {
             let matchIdentifier = notification.userInfo?["matchIdentifier"] as? Int,
             let teamIdentifier = notification.userInfo?["teamIdentifier"] as? Int
         else { return }
+        self.matchIdentifier = matchIdentifier
         SelectTeamUseCase.requestSelectTeam(matchIdentifier: matchIdentifier,
                                             teamIdentifier: teamIdentifier,
                                             with: SelectTeamUseCase.SelectTeamTask(networkDispatcher: NetworkManager())
@@ -169,17 +174,46 @@ extension MatchListViewController {
                 case "매치 상대를 찾고 있습니다.":
                     DispatchQueue.main.async {
                         self.showWaitingView(message: message)
+                        self.configureFindOppositePeriodically()
                     }
                 case "다른 유저가 대기 중입니다. 다른 팀을 골라주세요.":
                     DispatchQueue.main.async {
                         self.showAlertView(message: message)
                     }
-                case "매치가 완료되었습니다.":
+                case "매치가 완료 되었습니다.":
                     DispatchQueue.main.async {
-                        self.showAlertView(message: message)
+                        self.presentMatch()
                     }
                 default:
                     break
+                }
+            case .failure(_):
+                break
+            }
+        }
+    }
+    
+    private func configureFindOppositePeriodically() {
+        findingOppositeTimer = Timer.scheduledTimer(timeInterval: TimeInterval(findingOppositeIntervalTime),
+                                                    target: self,
+                                                    selector: #selector(selectTeam),
+                                                    userInfo: nil,
+                                                    repeats: true)
+    }
+    
+    @objc private func selectTeam() {
+        MatchStatusUseCase.requestMatchStatus(matchIdentifier: matchIdentifier,
+                                              with: MatchStatusUseCase.MatchStatusTask(networkDispatcher: NetworkManager())
+        ) { (result) in
+            switch result {
+            case .success(let matchStatus):
+                let data = matchStatus.data
+                let away = data.away
+                let home = data.home
+                guard away.isReady && home.isReady else { return }
+                DispatchQueue.main.async {
+                    self.findingOppositeTimer.invalidate()
+                    self.presentMatch()
                 }
             case .failure(_):
                 break
@@ -191,8 +225,10 @@ extension MatchListViewController {
 extension MatchListViewController {
     
     private func presentMatch() {
-        let matchViewController = MatchViewController()
-        self.present(matchViewController, animated: true, completion: nil)
+        let mainStoryboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
+        let tabBarController = mainStoryboard.instantiateViewController(identifier: "TabBarController")
+        tabBarController.modalPresentationStyle = .fullScreen
+        self.present(tabBarController, animated: true, completion: nil)
     }
     
     private func showWaitingView(message: String) {
