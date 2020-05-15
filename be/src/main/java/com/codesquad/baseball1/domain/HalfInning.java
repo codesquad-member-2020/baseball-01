@@ -37,6 +37,9 @@ public class HalfInning {
     @JsonProperty("change_status")
     private boolean changeStatus;
 
+    @JsonProperty("change_player")
+    private boolean changePlayer;
+
     @JsonProperty("game_over")
     private boolean gameOver;
 

@@ -105,8 +105,10 @@ public class LogService {
         String sql = "UPDATE halfInning SET outsum = outsum + 1 where inning_id=" + inningId;
         jdbcTemplate.update(sql);
         if (inningDao.findInningById(inningId).getOutSum() == 3) {
-            String sql2 = "UPDATE halfInning SET change_status = 1 where inning_id=" + inningId;
+            String sql2 = "UPDATE halfInning SET change_status = 1 where inning_id= " + inningId;
+            String sql3 = "UPDATE halfInning SET change_player = 1 where inning_id= " + inningId;
             jdbcTemplate.update(sql2);
+            jdbcTemplate.update(sql3);
         }
     }
 
