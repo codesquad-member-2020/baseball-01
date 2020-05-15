@@ -52,19 +52,26 @@ const TodayDiv = styled.div`
   }
 `;
 
-const Player = () => {
+const Player = ({ data }) => {
+  const { top_status, home_team, away_team, number_of_pitches } = data;
   return (
     <PlayerWrapDiv>
       <PlayerDiv>
-        <PlayerNameP><img src='https://sports-phinf.pstatic.net/team/kbo/default/HH.png' alt='한화 이글스 로고' />선발 투수 <strong>박찬호</strong></PlayerNameP>
+        <PlayerNameP>
+          <img src={top_status ? home_team.logo_url : away_team.logo_url} alt={top_status ? home_team.team_name : away_team.team_name} />
+          선발 투수 <strong>{top_status ? home_team.pitcher_name : away_team.pitcher_name}</strong>
+        </PlayerNameP>
         <TodayDiv>
-          <span>오늘 경기</span> 투구 수 40개
+          <span>오늘 경기</span> 투구 수 {number_of_pitches}개
         </TodayDiv>
       </PlayerDiv>
       <PlayerDiv>
-        <PlayerNameP><img src='https://sports-phinf.pstatic.net/team/kbo/default/LT.png' alt='롯데 자이언츠 로고' />1번 타자 <strong>민병헌</strong></PlayerNameP>
+        <PlayerNameP>
+          <img src={top_status ? away_team.logo_url : home_team.logo_url} alt={top_status ? away_team.team_name : home_team.team_name} />
+          1번 타자 <strong>{top_status ? away_team.hitter_name : home_team.hitter_name}</strong>
+        </PlayerNameP>
         <TodayDiv>
-          <span>오늘 경기</span> 2타석 2안타
+          <span>오늘 경기</span> {away_team.plate_appearance}타석 {away_team.total_hit_count}안타
         </TodayDiv>
       </PlayerDiv>
     </PlayerWrapDiv>

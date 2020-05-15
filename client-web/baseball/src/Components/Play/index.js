@@ -1,5 +1,6 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { URL } from '../../constant/url';
 import styled from 'styled-components';
 import { messageMove } from '../Styles/Keyframes';
 import { PlayBg } from '../Styles/Backgorund';
@@ -47,31 +48,59 @@ const Message = styled.p`
 `;
 
 const Play = ({ location }) => {
-  console.log(location);
+  // console.log(location);
   const { matchID, userTeam } = location.state.detail;
+  const [initData, setInitData] = useState({
+    away_team: '',
+    home_team: '',
+  });
+  const [pitchData, setPitchData] = useState({
+    top_status: false,
+    game_over: false,
+    hit_score: 0,
+    logs: [],
+    number_of_pitches: 0,
+    out_sum: 0,
+    pitcher_name: '',
+    round: '1회 초',
+    team_id: 0,
+  });
 
-  fetch(`http://13.124.60.97:8080/matches/${matchID}/teams/${userTeam}/setup`)
-    .then(res => res.json())
-    .then(res => res);
+  const playData = {...initData, ...pitchData}
+
+  const setupData = async () => {
+    const response = await axios(`${URL}/matches/${matchID}/teams/${userTeam}/setup`);
+    setInitData(response.data);
+    console.log(response.data);
+    return response;
+  };
+  useEffect(() => {
+    setupData();
+  }, []);
+
+  const onPitchHandler = async () => {
+    const response = await axios.post(`${URL}/matches/${matchID}/pitch`);
+    setPitchData(response.data.data);
+    aaa()
+    return response;
+  };
+
+  const aaa = () => {
+    console.log(playData)
+  }
+
   return (
     <PlayWrapDiv>
       <InnerDiv width='1000px'>
-        <Score />
-        <Player />
-        <Pitch />
+        <Score data={playData} />
+        <Player data={playData} />
+        <Pitch onClick={onPitchHandler} />
         <BottomDiv>
           <Info />
           <Log />
         </BottomDiv>
-        <Message children='STRIKE!!' />
+        <Message children={playData.logs.length > 0 ? playData.logs[playData.logs.length - 1].action_result : 'Play Ball!'} onClick={aaa} />
       </InnerDiv>
-      {/* <div>스코어</div>
-      <div>베이스</div>
-      <div>아웃카운트</div>
-      <div>던지기버튼</div>
-      <div>로그</div>
-      <div>투수정보</div>
-      <div>타자정보</div> */}
     </PlayWrapDiv>
   );
 };
