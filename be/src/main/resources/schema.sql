@@ -72,7 +72,7 @@ create table halfInning (
                         status varchar(255),
                         change_status bit(1),
                         game_over bit(1),
-                        change_player bit(1) default 0
+                        top_status bit(1)
 );
 create table log (
                      log_id int primary key auto_increment,
