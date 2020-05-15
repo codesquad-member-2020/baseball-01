@@ -23,11 +23,18 @@ public class RecordDao {
     }
 
     public List<Record> findRecordByTeamId(int teamId) {
-        String sql = "SELECT * FROM record WHERE team_id =" + teamId;
+        int againstTeamId;
+        if (teamId % 2 == 0) {
+            againstTeamId = teamId - 1;
+        } else {
+            againstTeamId = teamId + 1;
+        }
+        String sql = "SELECT * FROM record WHERE team_id = " + againstTeamId;
         return jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Record.class));
     }
 
     public Record findPlayerToPlay(int teamId) {
+
         List<Record> records = findRecordByTeamId(teamId);
         for (int i = 0; i < records.size(); i++) {
             Record r = records.get(i);

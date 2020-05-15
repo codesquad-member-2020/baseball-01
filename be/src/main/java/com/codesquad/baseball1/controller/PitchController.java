@@ -58,9 +58,9 @@ public class PitchController {
 
 
         if (inningId%2 != 0 && !inningDao.isThreeOut(homeInning)) {
-            return logService.makePitch(inningId, homeId);
+            return logService.makePitch(inningId, homeId, matchId);
         } else if (inningId%2 == 0 && !inningDao.isThreeOut(homeInning)) {
-            return logService.makePitch(inningId, awayId);
+            return logService.makePitch(inningId, awayId, matchId);
         }
 
         return new ResponseDto(200, "error");
