@@ -205,6 +205,7 @@
                         <outlet property="awayPlayingBar" destination="Py0-Vo-i52" id="Hzp-bE-O5C"/>
                         <outlet property="awayTeamLabel" destination="mtf-LZ-rY7" id="ZA2-Rn-sHY"/>
                         <outlet property="countBoardView" destination="wfh-AA-MsB" id="Ha4-uU-d9c"/>
+                        <outlet property="currentPlayersBoardView" destination="Yp4-0d-ka6" id="08g-Ek-J5Q"/>
                         <outlet property="homeLogoImageView" destination="WYe-T5-fGW" id="USd-ow-6RK"/>
                         <outlet property="homePlayingBar" destination="fFr-sf-LxO" id="Uwn-a7-SLq"/>
                         <outlet property="homeTeamLabel" destination="j3J-SH-tsK" id="7vO-4x-jHj"/>

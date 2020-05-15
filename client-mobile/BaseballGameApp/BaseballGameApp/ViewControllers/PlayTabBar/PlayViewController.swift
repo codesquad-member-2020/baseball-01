@@ -13,6 +13,7 @@ class PlayViewController: UIViewController {
     static let identifier: String = "PlayViewController"
     
     @IBOutlet weak var matchBoardView: MatchBoardView!
+    @IBOutlet weak var currentPlayersBoardView: CurrentPitcherHitterView!
     @IBOutlet weak var awayLogoImageView: UIImageView!
     @IBOutlet weak var awayTeamLabel: UILabel!
     @IBOutlet weak var awayPlayingBar: UIView!
@@ -44,24 +45,39 @@ class PlayViewController: UIViewController {
             case .success(let playConfiguration):
                 let away = playConfiguration.away
                 let home = playConfiguration.home
-                DispatchQueue.main.async {
-                    self.matchBoardView.updateTeamName(away: away.name, home: home.name)
-                }
-                self.fetchImageWithCaching(imageURL: away.logoURL) { (logoImage) in
-                    DispatchQueue.main.async {
-                        self.matchBoardView.updateLogoImage(logoImage, isAway: true)
-                    }
-                }
-                self.fetchImageWithCaching(imageURL: home.logoURL) { (logoImage) in
-                    DispatchQueue.main.async {
-                        self.matchBoardView.updateLogoImage(logoImage, isAway: false)
-                    }
-                }
+                self.updateMatchBoardView(away, home)
+                self.updateCurrentPlayers(away, home)
             case .failure(_):
                 break
             }
         }
     }
+    
+    private func updateCurrentPlayers(_ away: PlayTeamInfo, _ home: PlayTeamInfo) {
+        DispatchQueue.main.async {
+            self.currentPlayersBoardView.updatePitcherName(home.pitcherName)
+            self.currentPlayersBoardView.updatePitcherInfo(pitchCount: 0)
+            self.currentPlayersBoardView.updateHitterName(away.hitterName)
+            self.currentPlayersBoardView.updateHitterInfo(plateCount: away.plateAppearance, hitCount: away.totalHitCount)
+        }
+    }
+    
+    private func updateMatchBoardView(_ away: PlayTeamInfo, _ home: PlayTeamInfo) {
+        DispatchQueue.main.async {
+            self.matchBoardView.updateTeamName(away: away.name, home: home.name)
+        }
+        self.fetchImageWithCaching(imageURL: away.logoURL) { (logoImage) in
+            DispatchQueue.main.async {
+                self.matchBoardView.updateLogoImage(logoImage, isAway: true)
+            }
+        }
+        self.fetchImageWithCaching(imageURL: home.logoURL) { (logoImage) in
+            DispatchQueue.main.async {
+                self.matchBoardView.updateLogoImage(logoImage, isAway: false)
+            }
+        }
+    }
+    
     
     private func fetchImageWithCaching(imageURL: String, completion: @escaping (UIImage?) -> Void) {
         let url = URL(string: imageURL)!
