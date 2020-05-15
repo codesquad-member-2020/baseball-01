@@ -37,9 +37,13 @@ public class HalfInning {
     @JsonProperty("change_status")
     private boolean changeStatus;
 
+    @JsonProperty("game_over")
+    private boolean gameOver;
+
     @JsonProperty("logs")
     private List<Log> logs;
 
     public HalfInning() {
     }
+
 }

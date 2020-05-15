@@ -6,6 +6,9 @@ import com.codesquad.baseball1.domain.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.core.namedparam.SqlParameterSource;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -18,9 +21,17 @@ public class InningDao {
     private JdbcTemplate jdbcTemplate;
     @Autowired
     private LogDao logDao;
+    @Autowired
+    private MatchDao matchDao;
+
+    private NamedParameterJdbcTemplate namedJdbcTemplate;
 
     public InningDao(DataSource dataSource) {
         jdbcTemplate = new JdbcTemplate(dataSource);
+    }
+
+    public NamedParameterJdbcTemplate getNamedJdbcTemplate() {
+        return namedJdbcTemplate;
     }
 
     public void updateHalfInning(int inningId, String pitcherName) {
@@ -63,8 +74,27 @@ public class InningDao {
                 return h;
             }
         }
-        return null;
+        HalfInning extraHalfInning = new HalfInning();
+        extraHalfInning.setHitScore(100);
+        return extraHalfInning;
     }
+
+    public HalfInning findHalfInningToPlayGet(int matchId) {
+        List<HalfInning> halfInnings = getHalfInnings(matchId);
+        for (HalfInning h : halfInnings) {
+            if (h.getOutSum() <= 2) {
+                return h;
+            }
+            if (h.isChangeStatus()) {
+              return h;
+            }
+        }
+        HalfInning extraHalfInning = new HalfInning();
+        extraHalfInning.setHitScore(100);
+        return extraHalfInning;
+    }
+
+
 
     public boolean isThreeOut(HalfInning halfInning) {
         if (halfInning.getOutSum() == 3) {

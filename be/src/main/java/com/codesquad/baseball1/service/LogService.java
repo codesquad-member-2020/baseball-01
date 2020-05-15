@@ -3,6 +3,7 @@ package com.codesquad.baseball1.service;
 import com.codesquad.baseball1.dao.InningDao;
 import com.codesquad.baseball1.dao.LogDao;
 import com.codesquad.baseball1.dao.RecordDao;
+import com.codesquad.baseball1.domain.HalfInning;
 import com.codesquad.baseball1.domain.Record;
 import com.codesquad.baseball1.dto.ResponseDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +23,13 @@ public class LogService {
     private RecordDao recordDao;
     @Autowired
     private InningDao inningDao;
+    @Autowired
+    private HalfInningService halfInningService;
 
 
     public void updateDbBasedOnActionType(String actionType, int logId, int hitterId, int inningId) {
+
+        resetChangeStatus(inningId-1);
 
         if (actionType.equals("스트라이크")) {
             updateLogWhenStrike(logId);
@@ -39,6 +44,8 @@ public class LogService {
             updateLogWhenOut(logId);
             updateRecordWhenOut(hitterId);
             updateHalfInningWhenOut(inningId);
+            halfInningService.updateIfItsOverWhenGameIsOver(inningId);
+
 
         } else if (actionType.equals("안타")) {
             updateLogWhenHit(logId);
@@ -98,6 +105,12 @@ public class LogService {
             String sql2 = "UPDATE halfInning SET change_status = 1 where inning_id=" + inningId;
             jdbcTemplate.update(sql2);
         }
+    }
+
+
+    public void resetChangeStatus(int inningId) {
+        String sql2 = "UPDATE halfInning SET change_status = 0 where inning_id=" + inningId;
+        jdbcTemplate.update(sql2);
     }
 
     public void updateLogWhenHit(int logId) {
