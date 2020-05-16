@@ -36,9 +36,10 @@ struct PlayConfigurationUseCase {
     }
     
     static func requestInitialData(matchIdentifier: Int,
+                                   teamIdentifier: Int,
                                    with playConfigurationTask: PlayConfigurationTask,
                                    completion: @escaping (Result<PlayConfiguration, NetworkErrorCase>) -> Void) {
-        let playConfigurationRequest = PlayConfigurationRequest(path: "http://52.6.242.151:8080/matches/\(matchIdentifier)")
+        let playConfigurationRequest = PlayConfigurationRequest(path: "http://52.6.242.151:8080/matches/\(matchIdentifier)/teams/\(teamIdentifier)/setup")
         playConfigurationTask.perform(playConfigurationRequest) { (result) in
             completion(result)
         }
