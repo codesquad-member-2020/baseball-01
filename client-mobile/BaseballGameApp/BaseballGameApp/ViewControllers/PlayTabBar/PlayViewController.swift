@@ -38,8 +38,9 @@ class PlayViewController: UIViewController {
         configureCountBoardView()
     }
     
-    func requestInitialData(matchIdentifier: Int) {
+    func requestInitialData(matchIdentifier: Int, teamIdentifier: Int) {
         PlayConfigurationUseCase.requestInitialData(matchIdentifier: matchIdentifier,
+                                                    teamIdentifier: teamIdentifier,
                                                     with: PlayConfigurationUseCase.PlayConfigurationTask(networkDispatcher: NetworkManager())
         ) { (result) in
             switch result {
