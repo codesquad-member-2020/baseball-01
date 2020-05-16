@@ -10,21 +10,10 @@ import UIKit
 
 class MatchViewController: UITabBarController {
 
-    let playViewController = PlayViewController()
-    let scoreViewController = UIViewController()
+    static let identifier: String = "MatchViewController"
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configureViewControllers()
-        configureModalPresentingStyle()
-    }
-    
-    private func configureViewControllers() {
-        viewControllers = [playViewController, scoreViewController]
-    }
-    
-    private func configureModalPresentingStyle() {
-        self.modalPresentationStyle = .fullScreen
     }
 }

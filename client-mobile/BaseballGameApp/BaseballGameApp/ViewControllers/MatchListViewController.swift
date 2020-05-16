@@ -226,11 +226,11 @@ extension MatchListViewController {
     
     private func presentMatch() {
         let mainStoryboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
-        let tabBarController = mainStoryboard.instantiateViewController(identifier: "TabBarController") as! UITabBarController
-        tabBarController.modalPresentationStyle = .fullScreen
-        self.present(tabBarController, animated: true, completion: {
-            let playViewController = tabBarController.viewControllers?.first as? PlayViewController
-            playViewController?.requestInitialData(matchIdentifier: self.matchIdentifier)
+        let matchViewController = mainStoryboard.instantiateViewController(identifier: MatchViewController.identifier) as! MatchViewController
+        matchViewController.modalPresentationStyle = .fullScreen
+        self.present(matchViewController, animated: true, completion: {
+            guard let playViewController = matchViewController.viewControllers?.first as? PlayViewController else { return }
+            playViewController.requestInitialData(matchIdentifier: self.matchIdentifier)
         })
     }
     
