@@ -42,14 +42,17 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="박찬호" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xN-59-TiC">
-                                    <rect key="frame" x="101.5" y="11.5" width="39" height="18"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="박혁거세" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1xN-59-TiC">
+                                    <rect key="frame" x="101.5" y="11.5" width="52" height="18"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="52" id="iKn-9R-CYy"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j6U-Ry-vWg">
-                                    <rect key="frame" x="148.5" y="10.5" width="1" height="20"/>
+                                    <rect key="frame" x="161.5" y="10.5" width="1" height="20"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="1" id="h4d-Sd-dOU"/>
@@ -62,13 +65,13 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="투구 수 40개" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="XVR-Qi-R0g">
-                                    <rect key="frame" x="161.5" y="12.5" width="69" height="16"/>
+                                    <rect key="frame" x="174.5" y="12.5" width="69" height="16"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.left.fill" translatesAutoresizingMaskIntoConstraints="NO" id="nDX-ed-fp2">
-                                    <rect key="frame" x="236.5" y="12.5" width="20" height="16"/>
+                                    <rect key="frame" x="249.5" y="12.5" width="20" height="16"/>
                                     <color key="tintColor" red="1" green="0.89911322696568086" blue="0.47463266219700229" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="16" id="7fg-rf-NFK"/>
@@ -104,13 +107,13 @@
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="류현진" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PaT-sH-Zv3">
-                                    <rect key="frame" x="101.5" y="11.5" width="39" height="18"/>
+                                    <rect key="frame" x="101.5" y="11.5" width="52" height="18"/>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CPh-1K-8Vc">
-                                    <rect key="frame" x="148.5" y="10.5" width="1" height="20"/>
+                                    <rect key="frame" x="161.5" y="10.5" width="1" height="20"/>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="1" id="BCj-Wt-8Fg"/>
@@ -123,13 +126,13 @@
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 타석 0 안타" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.69999999999999996" translatesAutoresizingMaskIntoConstraints="NO" id="2wr-v5-kup">
-                                    <rect key="frame" x="161.5" y="12.5" width="70" height="16"/>
+                                    <rect key="frame" x="174.5" y="12.5" width="70" height="16"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.left.fill" translatesAutoresizingMaskIntoConstraints="NO" id="2tG-U9-eG7">
-                                    <rect key="frame" x="237.5" y="12.5" width="20" height="16"/>
+                                    <rect key="frame" x="250.5" y="12.5" width="20" height="16"/>
                                     <color key="tintColor" red="1" green="0.89911322699999996" blue="0.4746326622" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="16" id="XqO-3P-Df3"/>
@@ -158,6 +161,7 @@
                     </subviews>
                     <constraints>
                         <constraint firstItem="hU9-tU-qIx" firstAttribute="trailing" secondItem="aeq-sa-y2U" secondAttribute="trailing" id="U9w-GU-2xU"/>
+                        <constraint firstItem="PaT-sH-Zv3" firstAttribute="trailing" secondItem="1xN-59-TiC" secondAttribute="trailing" id="cHs-5K-Ne5"/>
                     </constraints>
                 </stackView>
             </subviews>
@@ -179,7 +183,7 @@
     </objects>
     <resources>
         <image name="arrowtriangle.left.fill" width="14" height="14"/>
-        <image name="logo.default" width="500" height="466"/>
+        <image name="logo.default" width="250" height="233"/>
         <namedColor name="board.view">
             <color red="0.082352941176470587" green="0.11764705882352941" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
