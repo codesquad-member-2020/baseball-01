@@ -13,8 +13,8 @@ struct PlayConfiguration: Decodable {
     let away: PlayTeamInfo
     
     enum CodingKeys: String, CodingKey {
-        case home = "homeTeam"
-        case away = "awayTeam"
+        case home = "home_team"
+        case away = "away_team"
     }
 }
 
