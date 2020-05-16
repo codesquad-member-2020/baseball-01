@@ -77,6 +77,7 @@ class PlayViewController: UIViewController {
     private func updateMatchBoardView(_ away: PlayTeamInfo, _ home: PlayTeamInfo) {
         DispatchQueue.main.async {
             self.matchBoardView.updateTeamName(away: away.name, home: home.name)
+            self.matchBoardView.updatePlayingIndexBar(isAway: true)
         }
         self.fetchImageWithCaching(imageURL: away.logoURL) { (logoImage) in
             DispatchQueue.main.async {
@@ -89,7 +90,6 @@ class PlayViewController: UIViewController {
             }
         }
     }
-    
     
     private func fetchImageWithCaching(imageURL: String, completion: @escaping (UIImage?) -> Void) {
         let url = URL(string: imageURL)!
