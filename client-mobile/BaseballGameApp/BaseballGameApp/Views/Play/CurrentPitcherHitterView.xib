@@ -70,7 +70,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.left.fill" translatesAutoresizingMaskIntoConstraints="NO" id="nDX-ed-fp2">
+                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.left.fill" translatesAutoresizingMaskIntoConstraints="NO" id="nDX-ed-fp2">
                                     <rect key="frame" x="249.5" y="12.5" width="20" height="16"/>
                                     <color key="tintColor" red="1" green="0.89911322696568086" blue="0.47463266219700229" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
@@ -131,7 +131,7 @@
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.left.fill" translatesAutoresizingMaskIntoConstraints="NO" id="2tG-U9-eG7">
+                                <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowtriangle.left.fill" translatesAutoresizingMaskIntoConstraints="NO" id="2tG-U9-eG7">
                                     <rect key="frame" x="250.5" y="12.5" width="20" height="16"/>
                                     <color key="tintColor" red="1" green="0.89911322699999996" blue="0.4746326622" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <constraints>
