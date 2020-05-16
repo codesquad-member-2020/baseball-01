@@ -38,7 +38,7 @@ struct MatchStatusUseCase {
     static func requestMatchStatus(matchIdentifier: Int,
                                    with matchStatusTask: MatchStatusTask,
                                    completion: @escaping (Result<MatchStatus, NetworkErrorCase>) -> Void) {
-        let matchStatusRequest = MatchStatusRequest(path: "http://52.79.100.252:8080/matches/\(matchIdentifier)")
+        let matchStatusRequest = MatchStatusRequest(path: "http://52.6.242.151:8080/matches/\(matchIdentifier)")
         matchStatusTask.perform(matchStatusRequest) { (result) in
             completion(result)
         }

@@ -10,7 +10,7 @@ import Foundation
 
 struct MatchListUseCase {
     struct MatchListRequest: Request {
-        var path: String = "http://52.79.100.252:8080/matches"
+        var path: String = "http://52.6.242.151:8080/matches"
     }
     
     struct MatchListTask: NetworkTask {

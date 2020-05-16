@@ -31,6 +31,14 @@ class MatchBoardView: UIView {
         configure()
     }
     
+    func updateLogoImage(_ image: UIImage?, isAway: Bool) {
+        if isAway {
+            awayLogoImageView.image = image
+        } else {
+            homeLogoImageView.image = image
+        }
+    }
+    
     private func configure() {
         configureMatchBoardView()
     }
@@ -38,11 +46,6 @@ class MatchBoardView: UIView {
     func updateTeamName(away: String, home: String) {
         awayTeamLabel.text = away
         homeTeamLabel.text = home
-    }
-    
-    func updateTeamLogo(away: UIImage?, home: UIImage?) {
-        awayLogoImageView.image = away
-        homeLogoImageView.image = home
     }
     
     func updateScore(away: Int, home: Int) {

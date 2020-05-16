@@ -47,12 +47,12 @@ class CurrentPitcherHitterView: UIView {
         hitterTeamLogoImageView.image = logoImage
     }
     
-    func updatePitcherInfo(_ pitcherInfo: String) {
-        pitcherInfoLabel.text = pitcherInfo
+    func updatePitcherInfo(pitchCount: Int) {
+        pitcherInfoLabel.text = "투구 수 \(pitchCount)개"
     }
     
-    func updateHitterInfo(_ hitterInfo: String) {
-        hitterInfoLabel.text = hitterInfo
+    func updateHitterInfo(plateCount: Int, hitCount: Int) {
+        hitterInfoLabel.text = "\(plateCount) 타석 \(hitCount) 안타"
     }
     
     private func configure() {
