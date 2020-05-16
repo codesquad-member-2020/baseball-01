@@ -22,9 +22,10 @@ class PlayViewController: UIViewController {
     @IBOutlet weak var homePlayingBar: UIView!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var inningLabel: UILabel!
-    
     @IBOutlet weak var countBoardView: CountBoardView!
     @IBOutlet weak var playerLogsTableView: PlayerLogsTableView!
+    
+    private let playerLogsTableDataSource = PlayerLogsTableDataSource()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,7 +105,7 @@ class PlayViewController: UIViewController {
     }
     
     private func configureTableView() {
-        playerLogsTableView.dataSource = self
+        playerLogsTableView.dataSource = playerLogsTableDataSource
         playerLogsTableView.delegate = self
         let nib = UINib(nibName: PlayerLogCell.nibName, bundle: nil)
         playerLogsTableView.register(nib, forCellReuseIdentifier: PlayerLogCell.identifier)
@@ -126,22 +127,6 @@ class PlayViewController: UIViewController {
                                              homePlayingBar: homePlayingBar,
                                              scoreLabel: scoreLabel,
                                              inningLabel: inningLabel)
-    }
-}
-
-extension PlayViewController: UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        2
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: PlayerLogCell.identifier, for: indexPath) as! PlayerLogCell
-        return cell
     }
 }
 

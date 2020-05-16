@@ -45,6 +45,8 @@
 		38BB53C5246BDECD00526167 /* PlayingTeamIndexBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BB53C4246BDECD00526167 /* PlayingTeamIndexBar.swift */; };
 		38BB53C7246BE55600526167 /* CountBoardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 38BB53C6246BE55600526167 /* CountBoardView.xib */; };
 		38BB53C9246BECB300526167 /* CountBoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BB53C8246BECB300526167 /* CountBoardView.swift */; };
+		38C1F2BB24701137003C32C1 /* PlayerLogsTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1F2BA24701137003C32C1 /* PlayerLogsTableDataSource.swift */; };
+		38C1F2BD24701308003C32C1 /* PlayerLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C1F2BC24701308003C32C1 /* PlayerLog.swift */; };
 		38E3E8C3246DC01500FB2DF4 /* SelectTeamUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E3E8C2246DC01500FB2DF4 /* SelectTeamUseCase.swift */; };
 		38E3E8C5246DC13500FB2DF4 /* SelectedTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E3E8C4246DC13500FB2DF4 /* SelectedTeam.swift */; };
 		38E3E8C7246DC23800FB2DF4 /* SelectingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38E3E8C6246DC23800FB2DF4 /* SelectingStatus.swift */; };
@@ -94,6 +96,8 @@
 		38BB53C4246BDECD00526167 /* PlayingTeamIndexBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayingTeamIndexBar.swift; sourceTree = "<group>"; };
 		38BB53C6246BE55600526167 /* CountBoardView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountBoardView.xib; sourceTree = "<group>"; };
 		38BB53C8246BECB300526167 /* CountBoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountBoardView.swift; sourceTree = "<group>"; };
+		38C1F2BA24701137003C32C1 /* PlayerLogsTableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLogsTableDataSource.swift; sourceTree = "<group>"; };
+		38C1F2BC24701308003C32C1 /* PlayerLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerLog.swift; sourceTree = "<group>"; };
 		38E3E8C2246DC01500FB2DF4 /* SelectTeamUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectTeamUseCase.swift; sourceTree = "<group>"; };
 		38E3E8C4246DC13500FB2DF4 /* SelectedTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTeam.swift; sourceTree = "<group>"; };
 		38E3E8C6246DC23800FB2DF4 /* SelectingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectingStatus.swift; sourceTree = "<group>"; };
@@ -145,6 +149,7 @@
 				38E3E8C6246DC23800FB2DF4 /* SelectingStatus.swift */,
 				38E3E8C8246E6BEF00FB2DF4 /* MatchStatus.swift */,
 				3877A9A5246E775200ABFD0D /* PlayConfiguration.swift */,
+				38C1F2BC24701308003C32C1 /* PlayerLog.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -153,6 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				38561503246D81A000320CB9 /* MatchListDataSource.swift */,
+				38C1F2BA24701137003C32C1 /* PlayerLogsTableDataSource.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -367,12 +373,14 @@
 				38743A3D24682733007B0E51 /* MatchBoardView.swift in Sources */,
 				385614FA246D75F500320CB9 /* MatchListUseCase.swift in Sources */,
 				38E3E8CB246E6E6900FB2DF4 /* MatchStatusUserCase.swift in Sources */,
+				38C1F2BB24701137003C32C1 /* PlayerLogsTableDataSource.swift in Sources */,
 				38959BA12460580B00C7AD4D /* MatchPopupView.swift in Sources */,
 				38E3E8C7246DC23800FB2DF4 /* SelectingStatus.swift in Sources */,
 				3877A9A4246E773B00ABFD0D /* PlayConfigurationUseCase.swift in Sources */,
 				38E3E8C5246DC13500FB2DF4 /* SelectedTeam.swift in Sources */,
 				38BB53C5246BDECD00526167 /* PlayingTeamIndexBar.swift in Sources */,
 				38561504246D81A000320CB9 /* MatchListDataSource.swift in Sources */,
+				38C1F2BD24701308003C32C1 /* PlayerLog.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
