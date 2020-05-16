@@ -24,8 +24,8 @@ class MatchListViewController: UIViewController {
     
     private var waitingView: UIView!
     
-    private let intervalTime: CGFloat = 5.0
-    private var timer = Timer()
+    private let reloadMatchListIntervalTime: CGFloat = 5.0
+    private var reloadMatchListTimer = Timer()
     
     private let findingOppositeIntervalTime: CGFloat = 3.0
     private var findingOppositeTimer = Timer()
@@ -55,7 +55,7 @@ class MatchListViewController: UIViewController {
     }
     
     private func reloadMatchListPeriodically() {
-        timer = Timer.scheduledTimer(timeInterval: TimeInterval(intervalTime), target: self, selector: #selector(reloadMatchList), userInfo: nil, repeats: true)
+        reloadMatchListTimer = Timer.scheduledTimer(timeInterval: TimeInterval(reloadMatchListIntervalTime), target: self, selector: #selector(reloadMatchList), userInfo: nil, repeats: true)
     }
     
     @objc private func reloadMatchList() {
@@ -180,6 +180,7 @@ extension MatchListViewController {
                     }
                 case "매치가 완료 되었습니다.":
                     DispatchQueue.main.async {
+                        self.invalidateTimers()
                         self.presentMatch(matchIdentifier: matchIdentifier, teamIdentifier: teamIdentifier)
                     }
                 default:
@@ -216,7 +217,7 @@ extension MatchListViewController {
                 let home = data.home
                 guard away.isReady && home.isReady else { return }
                 DispatchQueue.main.async {
-                    self.findingOppositeTimer.invalidate()
+                    self.invalidateTimers()
                     self.presentMatch(matchIdentifier: matchIdentifier, teamIdentifier: teamIdentifier)
                 }
             case .failure(_):
@@ -227,6 +228,11 @@ extension MatchListViewController {
 }
 
 extension MatchListViewController {
+    
+    private func invalidateTimers() {
+        reloadMatchListTimer.invalidate()
+        findingOppositeTimer.invalidate()
+    }
     
     private func presentMatch(matchIdentifier: Int, teamIdentifier: Int) {
         let mainStoryboard = UIStoryboard.init(name: "Main", bundle: Bundle.main)
