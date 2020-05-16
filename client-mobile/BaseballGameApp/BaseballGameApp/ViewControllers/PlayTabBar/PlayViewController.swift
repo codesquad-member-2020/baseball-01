@@ -62,6 +62,16 @@ class PlayViewController: UIViewController {
             self.currentPlayersBoardView.updateHitterName(away.hitterName)
             self.currentPlayersBoardView.updateHitterInfo(plateCount: away.plateAppearance, hitCount: away.totalHitCount)
         }
+        self.fetchImageWithCaching(imageURL: away.logoURL) { (logoImage) in
+            DispatchQueue.main.async {
+                self.currentPlayersBoardView.updateHitterTeamLogo(logoImage)
+            }
+        }
+        self.fetchImageWithCaching(imageURL: home.logoURL) { (logoImage) in
+            DispatchQueue.main.async {
+                self.currentPlayersBoardView.updatePitcherTeamLogo(logoImage)
+            }
+        }
     }
     
     private func updateMatchBoardView(_ away: PlayTeamInfo, _ home: PlayTeamInfo) {
