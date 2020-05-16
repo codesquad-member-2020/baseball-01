@@ -24,8 +24,8 @@ class MatchListViewController: UIViewController {
     
     private var waitingView: UIView!
     
-    private let intervalTime: CGFloat = 5.0
-    private var timer = Timer()
+    private let reloadMatchListIntervalTime: CGFloat = 5.0
+    private var reloadMatchListTimer = Timer()
     
     private let findingOppositeIntervalTime: CGFloat = 3.0
     private var findingOppositeTimer = Timer()
@@ -55,7 +55,7 @@ class MatchListViewController: UIViewController {
     }
     
     private func reloadMatchListPeriodically() {
-        timer = Timer.scheduledTimer(timeInterval: TimeInterval(intervalTime), target: self, selector: #selector(reloadMatchList), userInfo: nil, repeats: true)
+        reloadMatchListTimer = Timer.scheduledTimer(timeInterval: TimeInterval(reloadMatchListIntervalTime), target: self, selector: #selector(reloadMatchList), userInfo: nil, repeats: true)
     }
     
     @objc private func reloadMatchList() {
