@@ -40,7 +40,7 @@ struct SelectTeamUseCase {
                                   teamIdentifier: Int,
                                   with selectTeamTask: SelectTeamTask,
                                   completion: @escaping (Result<SelectingStatus, NetworkErrorCase>) -> Void) {
-        let selectTeamRequest = SelectTeamRequest(path: "http://52.6.242.151:8080/\(matchIdentifier)/teams/\(teamIdentifier)")
+        let selectTeamRequest = SelectTeamRequest(path: "http://52.6.242.151:8080/matches/\(matchIdentifier)/teams/\(teamIdentifier)")
         selectTeamTask.perform(selectTeamRequest) { (result) in
             completion(result)
         }
